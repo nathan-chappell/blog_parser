@@ -9,12 +9,17 @@ from typing_extensions import Literal
 from datetime import datetime
 from pprint import pprint, pformat
 import json
+import re
+import logging
 
-log = get_log(__file__)
+log = get_log(__file__,stderr=True)
+#log.setLevel(logging.DEBUG)
 
 def parse_date(time: str) -> str:
-    fmt = '%a, %b %d, %Y' # example: Mon, Jan 1, 2015
-    return datetime.strptime(time.strip(), fmt).isoformat()
+    time_ = time.strip()
+    log.debug(f'input: {time_}')
+    fmt = '%A, %b %d, %Y' # example: Monday, Jan 1, 2015
+    return datetime.strptime(time_, fmt).isoformat()
 
 #
 # states for the html parser
@@ -22,8 +27,11 @@ def parse_date(time: str) -> str:
 State = Literal[
     'start',
 	'metadata',
-	'author',
-	'date',
+    'title',
+	'author_1',
+	'author_2',
+	'date_1',
+	'date_2',
 	'article',
     'subtitle',
     'done',
@@ -41,10 +49,14 @@ State = Literal[
 
 valid_transitions: Iterable[Tuple[State,State]] = set([
     ('start','metadata'),
-    ('metadata','author'),
-    ('author','metadata'),
-    ('metadata','date'),
-    ('date','metadata'),
+    ('metadata','title'),
+    ('title','metadata'),
+    ('metadata','author_1'),
+    ('author_1','author_2'),
+    ('author_2','metadata'),
+    ('metadata','date_1'),
+    ('date_1','date_2'),
+    ('date_2','metadata'),
     ('metadata','article'),
     ('article','subtitle'),
     ('subtitle','article'),
@@ -101,53 +113,67 @@ class Paragraph:
         "filename",
     ])
 
-    def __init__(self):
-        self._set_metadata({k:"" for k in Paragraph.attrs})
-
-    def __setattr__(self,k,v):
-        metadata_access_err_msg = bannerfy("""
+    metadata_access_err_msg = bannerfy("""
 Please access Paragraph.metadata by assigning metadata directly, e.g:
 >>> p = Paragraph()
 >>> p.author = Kurt Vonnegut
 """)
-        if k in attrs: self.metadata[k]= v
-        elif k == 'text': object.__setattr__(self,k,v)
-        elif k == 'metadata': raise KeyError(metadata_access_err_msg)
-        else: raise KeyError(f"{k} not a recognized attribute")
+
+    def __init__(self):
+        metadata = {k:"" for k in Paragraph.attrs}
+        object.__setattr__(self,'metadata',metadata)
+        object.__setattr__(self,'text',"")
+
+    def __setattr__(self,k,v):
+        if k in Paragraph.attrs: 
+            object.__getattribute__(self,'metadata')[k]= v
+        elif k == 'text': 
+            object.__setattr__(self,k,v)
+        elif k == 'metadata': 
+            raise AttributeError(Paragraph.metadata_access_err_msg)
+        else: 
+            raise AttributeError(f"{k} not a recognized Paragraph attribute")
 
     def __getattr__(self,k):
-        if k == 'text':
-            return object.__getattr__(self,k)
-        if k in Paragraph.attrs:
-            return object.__getattr__(self,'metadata')[k]
+        raise AttributeError(f"{k} not a recognized attribute")
+
+    def __getattribute__(self,k):
+        if k == 'text' or k in Paragraph.__dict__:
+            return object.__getattribute__(self,k)
+        elif k in Paragraph.attrs:
+            return object.__getattribute__(self,'metadata')[k]
         else:
-            raise KeyError(f"{k} not a recognized attribute")
+            raise AttributeError
 
     def __repr__(self) -> str:
-        return json.dumps({"metadata":self.metadata.copy(),"text":self.text})
+        metadata = object.__getattribute__(self,'metadata')
+        return json.dumps({"metadata":metadata.copy(),"text":self.text})
 
     def __str__(self) -> str:
-        text = f'{self.text[0:20]}... length: {len(self.text)}'
-        return json.dumps({"metadata":self.metadata.copy(),"text":text})
+        metadata = object.__getattribute__(self,'metadata')
+        word_count = len(self.text.split())
+        text = f'{self.text[0:20]}...{self.text[-20:]}'
+        text += f' [length: {word_count} words]'
+        return json.dumps({"metadata":metadata.copy(),"text":text},indent=2)
 
     #
     # returns a new paragraph with copied metadata except paragraph_title
     # and blank text field
     #
-    def new_paragraph(self) -> Paragraph:
+    def new_paragraph(self) -> 'Paragraph':
+        metadata = object.__getattribute__(self,'metadata')
         p = Paragraph()
-        p._set_metadata(self.metadata.copy())
+        object.__setattr__(p,'metadata',metadata)
         p.paragraph_title = ""
         return p
-
-    def _set_metadata(self, metadata: Dict[str,str]):
-        object.__setattr__(self,'metadata',metadata)
 
 ParagraphAction = Callable[[Paragraph],None]
 
 def default_paragraph_action(paragraph: Paragraph):
-    pprint(paragraph,indent=2)
-    log.info(str(paragraph),indent=2)
+    #print(bannerfy("Paragraph:"))
+    print(paragraph)
+    #log.info(str(paragraph),indent=2)
+    #print(bannerfy(""))
 
 class BlogParser(HTMLParser):
     state: State
@@ -167,10 +193,10 @@ class BlogParser(HTMLParser):
 
     def parse_file(self, filename: str):
         self.paragraph.filename = filename
-        log.info(bannerfy(f'begin parsing file: {filename}'))
+        log.info(bannerfy(f"begin parsing file:\n{filename}"))
         with open(filename) as file:
             self.feed(file.read())
-        log.info(bannerfy(f'done parsing file: {filename}'))
+        log.info(bannerfy(f"done parsing file:\n{filename}"))
 
     def location(self) -> str:
         line, offset = self.getpos()
@@ -186,9 +212,13 @@ class BlogParser(HTMLParser):
             self.state = 'error'
             raise ParserError('invalid transition')
 
+    @staticmethod
+    def sanitize_text(text):
+        return re.sub("\s+",' ',text).strip()
     # state-machine output
 
     def push_paragraph(self):
+        self.paragraph.text = self.sanitize_text(self.paragraph.text)
         self.paragraph_action(self.paragraph)
         self.paragraph = self.paragraph.new_paragraph()
 
@@ -198,21 +228,40 @@ class BlogParser(HTMLParser):
         if   ms == ('start','header','starttag'): 
             self.transition('metadata')
 
+        elif ms == ('metadata','h1','starttag'):
+            self.transition('title')
+
         elif ms == ('metadata','Author','DATA'):
-            self.transition('author')
+            self.transition('author_1')
 
         elif ms == ('metadata','Date','DATA'):
-            self.transition('date')
+            self.transition('date_1')
 
         elif ms == ('metadata','header','endtag'):
             self.transition('article')
 
-        elif ms == ('author','*','DATA'):
+        elif ms == ('title','*','DATA'):
+            self.paragraph.article_title = ms.tagOrData
+
+        elif ms == ('title','h1','endtag'):
+            self.transition('metadata')
+
+        elif ms == ('author_1','p','starttag'): 
+            self.transition('author_2')
+
+        elif ms == ('author_2','*','DATA'):
             self.paragraph.author = ms.tagOrData
             self.transition('metadata')
 
-        elif ms == ('date','*','DATA'):
-            self.paragraph.date = parse_date(ms.tagOrData)
+        elif ms == ('date_1','p','starttag'): 
+            self.transition('date_2')
+
+        elif ms == ('date_2','*','DATA'):
+            try:
+                self.paragraph.date = parse_date(ms.tagOrData)
+            except ValueError:
+                log.error(f'Invalid date format:"{ms.tagOrData}"') 
+                log.error(f'Invalid date format @ {self.location()}')
             self.transition('metadata')
 
         elif ms == ('article','h2','starttag'):
@@ -221,6 +270,10 @@ class BlogParser(HTMLParser):
 
         elif ms == ('article','*','DATA'):
             self.paragraph.text += ms.tagOrData
+
+        elif ms == ('article','article','endtag'):
+            self.push_paragraph()
+            self.transition('done')
 
         elif ms == ('subtitle','*','DATA'):
             self.paragraph.paragraph_title += ms.tagOrData

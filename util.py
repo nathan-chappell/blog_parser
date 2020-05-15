@@ -1,18 +1,21 @@
 # util.py
 
 import logging
+import sys
 
 log_dir = 'logs'
 
-def get_log(source_filename: str):
+def get_log(source_filename: str, stderr=False):
     log_file = log_dir + '/' + source_filename.replace('.py','.log')
     fmt = '%(name)s:%(levelname)s:%(funcName)s: %(message)s'
     log = logging.getLogger(source_filename)
     log.setLevel(logging.INFO)
     formatter = logging.Formatter(fmt)
-    handler = logging.FileHandler(log_file)
-    handler.setFormatter(formatter)
-    log.addHandler(handler)
+    handlers = [logging.FileHandler(log_file)]
+    if stderr: handlers.append(logging.StreamHandler(sys.stderr))
+    for handler in handlers:
+        handler.setFormatter(formatter)
+        log.addHandler(handler)
     return log
 
 def bannerfy(s: str) -> str:
@@ -22,13 +25,18 @@ def bannerfy(s: str) -> str:
     header = footer = '*'*w
     l = '*' + ' '*lpad
     r = ' '*rpad + '*'
+    row_fmt = l + "{s:" + str(w-lpad-rpad-2) + "}" + r
+    onerow_fmt = l + "{s:^" + str(w-lpad-rpad-2) + "}" + r
 
-    if len(s) < w-4:
-        return f"{header}\n{l}{s:^80}{r}\n{footer}" 
+    if len(s) == 0: 
+        return "\n" + header
+    if len(s) < w-4 and "\n" not in s:
+        return f"\n{header}\n" + onerow_fmt.format(s=s) + f"\n{footer}" 
     else:
-        i = 0
-        s = header + "\n"
-        while i < len(s):
-            s += l + s[i:i+w-4] + r + "\n"
-            i += w-4
-        return s + footer
+        res = "\n" + header + "\n"
+        for p in s.split("\n"):
+            i = 0
+            while i < len(p):
+                res += row_fmt.format(s=p[i:i+w-4]) + "\n"
+                i += w-4
+        return res + footer

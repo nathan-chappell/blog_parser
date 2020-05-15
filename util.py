@@ -2,6 +2,7 @@
 
 import logging
 import sys
+from typing import List
 
 log_dir = 'logs'
 
@@ -11,13 +12,16 @@ def get_log(source_filename: str, stderr=False):
     log = logging.getLogger(source_filename)
     log.setLevel(logging.INFO)
     formatter = logging.Formatter(fmt)
-    handlers = [logging.FileHandler(log_file)]
+    handlers: List[logging.Handler] = [logging.FileHandler(log_file)]
     if stderr: handlers.append(logging.StreamHandler(sys.stderr))
     for handler in handlers:
         handler.setFormatter(formatter)
         log.addHandler(handler)
     return log
 
+#
+# print text with a * border
+#
 def bannerfy(s: str) -> str:
     w = 80
     lpad = 1

@@ -1,6 +1,7 @@
 # blog_parser.py
 
 from util import get_log, bannerfy
+from paragraph import Paragraph, ParagraphAction
 
 from html.parser import HTMLParser
 from typing import List, Iterable, Tuple, Optional, Union, FrozenSet, Dict
@@ -15,14 +16,8 @@ import logging
 log = get_log(__file__,stderr=True)
 #log.setLevel(logging.DEBUG)
 
-def parse_date(time: str) -> str:
-    time_ = time.strip()
-    log.debug(f'input: {time_}')
-    fmt = '%A, %b %d, %Y' # example: Monday, Jan 1, 2015
-    return datetime.strptime(time_, fmt).isoformat()
-
 #
-# states for the html parser
+# states for the BlogParser
 #
 State = Literal[
     'start',
@@ -69,8 +64,9 @@ Attrs = Iterable[Tuple[str,Optional[str]]]
 TagOrData = str
 Event = Literal['starttag','endtag','DATA']
 
+#
 # convenience class for comparing machine states
-
+#
 class MachineState:
     state: State
     tagOrData: TagOrData
@@ -98,89 +94,21 @@ class MachineState:
         except TypeError:
             return False
 
-#
-# unit of information eaten by BlogParser
-#
-class Paragraph:
-    metadata: Dict[str,str]
-    text: str
-
-    attrs: FrozenSet[str] = frozenset([
-        "author",
-        "date",
-        "article_title",
-        "paragraph_title",
-        "filename",
-    ])
-
-    metadata_access_err_msg = bannerfy("""
-Please access Paragraph.metadata by assigning metadata directly, e.g:
->>> p = Paragraph()
->>> p.author = Kurt Vonnegut
-""")
-
-    def __init__(self):
-        metadata = {k:"" for k in Paragraph.attrs}
-        object.__setattr__(self,'metadata',metadata)
-        object.__setattr__(self,'text',"")
-
-    def __setattr__(self,k,v):
-        if k in Paragraph.attrs: 
-            object.__getattribute__(self,'metadata')[k]= v
-        elif k == 'text': 
-            object.__setattr__(self,k,v)
-        elif k == 'metadata': 
-            raise AttributeError(Paragraph.metadata_access_err_msg)
-        else: 
-            raise AttributeError(f"{k} not a recognized Paragraph attribute")
-
-    def __getattr__(self,k):
-        raise AttributeError(f"{k} not a recognized attribute")
-
-    def __getattribute__(self,k):
-        if k == 'text' or k in Paragraph.__dict__:
-            return object.__getattribute__(self,k)
-        elif k in Paragraph.attrs:
-            return object.__getattribute__(self,'metadata')[k]
-        else:
-            raise AttributeError
-
-    def __repr__(self) -> str:
-        metadata = object.__getattribute__(self,'metadata')
-        return json.dumps({"metadata":metadata.copy(),"text":self.text})
-
-    def __str__(self) -> str:
-        metadata = object.__getattribute__(self,'metadata')
-        word_count = len(self.text.split())
-        text = f'{self.text[0:20]}...{self.text[-20:]}'
-        text += f' [length: {word_count} words]'
-        return json.dumps({"metadata":metadata.copy(),"text":text},indent=2)
-
-    #
-    # returns a new paragraph with copied metadata except paragraph_title
-    # and blank text field
-    #
-    def new_paragraph(self) -> 'Paragraph':
-        metadata = object.__getattribute__(self,'metadata')
-        p = Paragraph()
-        object.__setattr__(p,'metadata',metadata)
-        p.paragraph_title = ""
-        return p
-
-ParagraphAction = Callable[[Paragraph],None]
-
-def default_paragraph_action(paragraph: Paragraph):
-    #print(bannerfy("Paragraph:"))
+def print_paragraph(paragraph: Paragraph):
     print(paragraph)
-    #log.info(str(paragraph),indent=2)
-    #print(bannerfy(""))
 
 class BlogParser(HTMLParser):
     state: State
-    paragraph_action: Callable[[Paragraph],None]
+    #
+    # if we declare this here with types then mypy gets mad.  See:
+    # [https://github.com/python/mypy/issues/708]
+    # if you want to kill yourself
+    #
+    # paragraph_action: ParagraphAction
+    #
     paragraph: Paragraph
 
-    def __init__(self,paragraph_action = default_paragraph_action):
+    def __init__(self, paragraph_action: ParagraphAction = print_paragraph):
         super().__init__()
         self.paragraph_action = paragraph_action
         self.paragraph = Paragraph()
@@ -188,22 +116,34 @@ class BlogParser(HTMLParser):
     def reset(self):
         super().reset()
         self.state = 'start'
+        self.paragraph = Paragraph()
 
     # basic utilities
 
     def parse_file(self, filename: str):
+        self.reset()
         self.paragraph.filename = filename
         log.info(bannerfy(f"begin parsing file:\n{filename}"))
         with open(filename) as file:
             self.feed(file.read())
         log.info(bannerfy(f"done parsing file:\n{filename}"))
 
+    def parse_date(self, time: str) -> str:
+        time_ = time.strip()
+        fmt = '%A, %b %d, %Y' # example: Monday, Jan 1, 2015
+        try:
+            return datetime.strptime(time_, fmt).isoformat()
+        except ValueError:
+            log.error(f'Invalid date format:"{time_}"') 
+            log.error(f'Invalid date format @ {self.location()}')
+            return ""
+
     def location(self) -> str:
         line, offset = self.getpos()
         return f'{self.paragraph.filename}:{line}:{offset}'
         
     def transition(self, to_state: State):
-        log.info(f"{self.state} -> {to_state} @ {self.location()}")
+        log.info(f"{self.state:<10} -> {to_state:<10} @ {self.location()}")
         if (self.state,to_state) in valid_transitions:
             self.state = to_state
         else:
@@ -215,6 +155,7 @@ class BlogParser(HTMLParser):
     @staticmethod
     def sanitize_text(text):
         return re.sub("\s+",' ',text).strip()
+
     # state-machine output
 
     def push_paragraph(self):
@@ -257,11 +198,7 @@ class BlogParser(HTMLParser):
             self.transition('date_2')
 
         elif ms == ('date_2','*','DATA'):
-            try:
-                self.paragraph.date = parse_date(ms.tagOrData)
-            except ValueError:
-                log.error(f'Invalid date format:"{ms.tagOrData}"') 
-                log.error(f'Invalid date format @ {self.location()}')
+            self.paragraph.date = self.parse_date(ms.tagOrData)
             self.transition('metadata')
 
         elif ms == ('article','h2','starttag'):
@@ -293,6 +230,10 @@ class BlogParser(HTMLParser):
         self.dispatch(MachineState(self.state,data,'DATA'))
 
 if __name__ == '__main__':
-    filename = "./site/2020/04/18/deep-learning-for-medical-imaging-2/index.html"
+    #filename = "./site/2020/04/18/deep-learning-for-medical-imaging-2/index.html"
+    from glob import glob
+    filenames = glob('./site/20*/**/*index.html',recursive=True)
+    pprint(filenames,indent=2)
     b = BlogParser()
-    b.parse_file(filename)
+    for filename in filenames:
+        b.parse_file(filename)

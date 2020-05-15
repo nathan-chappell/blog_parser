@@ -7,7 +7,7 @@ from html.parser import HTMLParser
 from typing import List, Iterable, Tuple, Optional, Union, FrozenSet, Dict
 from typing import Callable
 from typing_extensions import Literal
-from datetime import datetime
+from datetime import datetime, timedelta
 from pprint import pprint, pformat
 import json
 import re
@@ -230,10 +230,19 @@ class BlogParser(HTMLParser):
         self.dispatch(MachineState(self.state,data,'DATA'))
 
 if __name__ == '__main__':
-    #filename = "./site/2020/04/18/deep-learning-for-medical-imaging-2/index.html"
     from glob import glob
+    from functools import partial
     filenames = glob('./site/20*/**/*index.html',recursive=True)
     pprint(filenames,indent=2)
-    b = BlogParser()
-    for filename in filenames:
+    stats: Dict[str,List[float]] = {
+        'paragraph_lengths': [],
+        'parse_times_ms': [],
+    }
+    _handle_paragraph: ParagraphAction = partial(handle_paragraph,stats)
+    b = BlogParser(_handle_paragraph)
+    for filename in filenames[:10]:
+        split: datetime = datetime.now()
         b.parse_file(filename)
+        stats['parse_times_ms'].append(td2ms(datetime.now() - split))
+    log.info(bannerfy(f"Gathered Statistics:\n{format_stats(stats)}"))
+

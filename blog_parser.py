@@ -3,11 +3,11 @@
 from util import get_log, bannerfy
 from paragraph import Paragraph
 from paragraph_stats import ParagraphStatsCollector
+from machine_html_parser import State, Attrs 
+from machine_html_parser import TransitionData, MachineHTMLParser
 
-from html.parser import HTMLParser
-from typing import List, Iterable, Tuple, Optional, Union, FrozenSet, Dict
+from typing import List, Iterable, Tuple, Optional, FrozenSet
 from typing import Callable
-from typing_extensions import Literal
 from datetime import datetime, timedelta
 from pprint import pprint, pformat
 from functools import reduce
@@ -19,21 +19,27 @@ log = get_log(__file__,stderr=True)
 #log.setLevel(logging.DEBUG)
 
 #
-# states for the BlogParser
+# a ParagraphAction takes a paragraph, performs some action, then returns
+# the (potentially modified) paragraph for further processing.  The
+# functions are called with reduce (similar to redux)
 #
-State = Literal[
-    'start',
-	'metadata',
-    'title',
-	'author_1',
-	'author_2',
-	'date_1',
-	'date_2',
-	'article',
-    'subtitle',
-    'done',
-    'error'
-    ]
+ParagraphAction = Callable[[Paragraph],Paragraph]
+
+#
+# basic paragraph actions
+#
+
+def pa_log(paragraph: Paragraph) -> Paragraph:
+    log.info(str(paragraph))
+    return paragraph
+
+def pa_sanitize_ws(paragraph: Paragraph) -> Paragraph:
+    paragraph.text = re.sub("\s+",' ',paragraph.text).strip()
+    return paragraph
+    # state-machine logic
+    # TODO make this class a base class, move logic to subclass
+    # (or dependency)
+
 
 # State Transition Diagram
 #
@@ -60,87 +66,14 @@ valid_transitions: Iterable[Tuple[State,State]] = set([
     ('article','done'),
 ])
 
-class ParserError(Exception): pass
-
-Attrs = Iterable[Tuple[str,Optional[str]]]
-TagOrData = str
-Event = Literal['starttag','endtag','DATA']
-
-#
-# convenience class for comparing machine states
-#
-class MachineState:
-    state: State
-    tagOrData: TagOrData
-    event: Event
-
-    def __init__(self, state: State, tagOrData: TagOrData, event: Event):
-        self.state = state
-        self.tagOrData = tagOrData
-        self.event = event
-
-    #
-    # this just makes comparison with tuples easier...
-    #
-    def __iter__(self):
-        return iter((self.state,self.tagOrData,self.event))
-
-    @staticmethod
-    def str_comp_wildcard(l,r):
-        return l == r or l == '*' or r == '*'
-
-    def __eq__(self, other: object):
-        try:
-            comp = MachineState.str_comp_wildcard
-            return all([comp(l,r) for l,r in zip(self, other)]) # type: ignore
-        except TypeError:
-            return False
-
-#class MachineHTMLParser(HTMLParser):
-
-#
-# a ParagraphAction takes a paragraph, performs some action, then returns
-# the (potentially modified) paragraph for further processing.  The
-# functions are called with reduce (similar to redux)
-#
-ParagraphAction = Callable[[Paragraph],Paragraph]
-
-#
-# basic paragraph actions
-#
-
-def pa_log(paragraph: Paragraph) -> Paragraph:
-    log.info(str(paragraph))
-    return paragraph
-
-def pa_sanitize_ws(paragraph: Paragraph) -> Paragraph:
-    paragraph.text = re.sub("\s+",' ',paragraph.text).strip()
-    return paragraph
-
-class BlogParser(HTMLParser):
-    state: State
+class BlogParser(MachineHTMLParser):
     paragraph_actions: List[ParagraphAction]
     paragraph: Paragraph
-
-    def __init__(self, paragraph_actions: List[ParagraphAction] = []):
-        super().__init__()
-        self.paragraph_actions = paragraph_actions
-        self.paragraph = Paragraph()
-
-    def reset(self):
-        super().reset()
-        self.state = 'start'
-        self.paragraph = Paragraph()
-
-    # basic utilities
 
     def parse_file(self, filename: str):
         self.reset()
         self.paragraph.filename = filename
-        log.info(bannerfy(f"begin parsing file:\n{filename}"))
-        with open(filename) as file:
-            self.feed(file.read())
-        log.info(bannerfy(f"done parsing file:\n{filename}"))
+        super().parse_file(filename)
 
     def parse_date(self, time: str) -> str:
         time_ = time.strip()
@@ -152,19 +85,10 @@ class BlogParser(HTMLParser):
             log.error(f'Invalid date format @ {self.location()}')
             return ""
 
-    def location(self) -> str:
-        line, offset = self.getpos()
-        return f'{self.paragraph.filename}:{line}:{offset}'
-        
-    def transition(self, to_state: State):
-        log.info(f"{self.state:<10} -> {to_state:<10} @ {self.location()}")
-        if (self.state,to_state) in valid_transitions:
-            self.state = to_state
-        else:
-            log.error('invalid transition')
-            log.info(f"{self.state} -> error")
-            self.state = 'error'
-            raise ParserError('invalid transition')
+    def __init__(self, paragraph_actions: List[ParagraphAction] = []):
+        super().__init__()
+        self.paragraph_actions = paragraph_actions
+        self.paragraph = Paragraph()
 
     # state-machine output
 
@@ -172,22 +96,15 @@ class BlogParser(HTMLParser):
         reduce(lambda x,f: f(x), self.paragraph_actions, self.paragraph)
         self.paragraph = self.paragraph.new_paragraph()
 
-    # Events from base class.  These are all routed through dispatch()
-    
-    def handle_starttag(self, tag: str, attrs: Attrs):
-        self.dispatch(MachineState(self.state,tag,'starttag'), attrs=attrs)
+    def reset(self):
+        super().reset()
+        self.state = 'start'
+        self.paragraph = Paragraph()
 
-    def handle_endtag(self, tag: str):
-        self.dispatch(MachineState(self.state,tag,'endtag'))
+    def validate_transition(self, to_state: State):
+        return (self.state, to_state) in valid_transitions
 
-    def handle_data(self, data: str):
-        self.dispatch(MachineState(self.state,data,'DATA'))
-
-    # state-machine logic
-    # TODO make this class a base class, move logic to subclass
-    # (or dependency)
-
-    def dispatch(self, ms: MachineState, attrs: Attrs={}):
+    def dispatch(self, ms: TransitionData, attrs: Attrs={}):
         if   ms == ('start','header','starttag'): 
             self.transition('metadata')
 

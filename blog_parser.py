@@ -1,7 +1,8 @@
 # blog_parser.py
 
 from util import get_log, bannerfy
-from paragraph import Paragraph, ParagraphAction
+from paragraph import Paragraph
+from paragraph_stats import ParagraphStatsCollector
 
 from html.parser import HTMLParser
 from typing import List, Iterable, Tuple, Optional, Union, FrozenSet, Dict
@@ -9,6 +10,7 @@ from typing import Callable
 from typing_extensions import Literal
 from datetime import datetime, timedelta
 from pprint import pprint, pformat
+from functools import reduce
 import json
 import re
 import logging
@@ -94,23 +96,35 @@ class MachineState:
         except TypeError:
             return False
 
-def print_paragraph(paragraph: Paragraph):
-    print(paragraph)
+#class MachineHTMLParser(HTMLParser):
+
+#
+# a ParagraphAction takes a paragraph, performs some action, then returns
+# the (potentially modified) paragraph for further processing.  The
+# functions are called with reduce (similar to redux)
+#
+ParagraphAction = Callable[[Paragraph],Paragraph]
+
+#
+# basic paragraph actions
+#
+
+def pa_log(paragraph: Paragraph) -> Paragraph:
+    log.info(str(paragraph))
+    return paragraph
+
+def pa_sanitize_ws(paragraph: Paragraph) -> Paragraph:
+    paragraph.text = re.sub("\s+",' ',paragraph.text).strip()
+    return paragraph
 
 class BlogParser(HTMLParser):
     state: State
-    #
-    # if we declare this here with types then mypy gets mad.  See:
-    # [https://github.com/python/mypy/issues/708]
-    # if you want to kill yourself
-    #
-    # paragraph_action: ParagraphAction
-    #
+    paragraph_actions: List[ParagraphAction]
     paragraph: Paragraph
 
-    def __init__(self, paragraph_action: ParagraphAction = print_paragraph):
+    def __init__(self, paragraph_actions: List[ParagraphAction] = []):
         super().__init__()
-        self.paragraph_action = paragraph_action
+        self.paragraph_actions = paragraph_actions
         self.paragraph = Paragraph()
 
     def reset(self):
@@ -152,18 +166,26 @@ class BlogParser(HTMLParser):
             self.state = 'error'
             raise ParserError('invalid transition')
 
-    @staticmethod
-    def sanitize_text(text):
-        return re.sub("\s+",' ',text).strip()
-
     # state-machine output
 
     def push_paragraph(self):
-        self.paragraph.text = self.sanitize_text(self.paragraph.text)
-        self.paragraph_action(self.paragraph)
+        reduce(lambda x,f: f(x), self.paragraph_actions, self.paragraph)
         self.paragraph = self.paragraph.new_paragraph()
 
+    # Events from base class.  These are all routed through dispatch()
+    
+    def handle_starttag(self, tag: str, attrs: Attrs):
+        self.dispatch(MachineState(self.state,tag,'starttag'), attrs=attrs)
+
+    def handle_endtag(self, tag: str):
+        self.dispatch(MachineState(self.state,tag,'endtag'))
+
+    def handle_data(self, data: str):
+        self.dispatch(MachineState(self.state,data,'DATA'))
+
     # state-machine logic
+    # TODO make this class a base class, move logic to subclass
+    # (or dependency)
 
     def dispatch(self, ms: MachineState, attrs: Attrs={}):
         if   ms == ('start','header','starttag'): 
@@ -218,31 +240,21 @@ class BlogParser(HTMLParser):
         elif ms == ('subtitle','h2','endtag'):
             self.transition('article')
 
-    # Events from base class.  These are all routed through dispatch()
-    
-    def handle_starttag(self, tag: str, attrs: Attrs):
-        self.dispatch(MachineState(self.state,tag,'starttag'), attrs=attrs)
-
-    def handle_endtag(self, tag: str):
-        self.dispatch(MachineState(self.state,tag,'endtag'))
-
-    def handle_data(self, data: str):
-        self.dispatch(MachineState(self.state,data,'DATA'))
-
 if __name__ == '__main__':
     from glob import glob
     from functools import partial
     filenames = glob('./site/20*/**/*index.html',recursive=True)
     pprint(filenames,indent=2)
-    stats: Dict[str,List[float]] = {
-        'paragraph_lengths': [],
-        'parse_times_ms': [],
-    }
-    _handle_paragraph: ParagraphAction = partial(handle_paragraph,stats)
-    b = BlogParser(_handle_paragraph)
-    for filename in filenames[:10]:
-        split: datetime = datetime.now()
-        b.parse_file(filename)
-        stats['parse_times_ms'].append(td2ms(datetime.now() - split))
-    log.info(bannerfy(f"Gathered Statistics:\n{format_stats(stats)}"))
+    paragraphStatsCollector = ParagraphStatsCollector()
+    middlewares: List[ParagraphAction] = [
+        pa_sanitize_ws,
+        pa_log,
+        paragraphStatsCollector,
+    ]
+    blogParser = BlogParser(middlewares)
+    filenames = ['./site/2017/04/11/custom-intellisense-with-monaco-editor/index.html']
+    for filename in filenames:
+        blogParser.parse_file(filename)
+    formattedStats = paragraphStatsCollector.formatted()
+    log.info(bannerfy(f"Gathered Statistics:\n{formattedStats}"))
 

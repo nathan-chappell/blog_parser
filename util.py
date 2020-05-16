@@ -3,16 +3,20 @@
 import logging
 import sys
 from typing import List
+from pathlib import Path
 
-log_dir = 'logs'
+log_dir = Path('./logs')
 
-def get_log(source_filename: str, stderr=False):
-    log_file = log_dir + '/' + source_filename.replace('.py','.log')
+def get_log(source_filename: str, stderr=False, mode='a'):
+    name = Path(source_filename).name
+    log_file = (log_dir / name).with_suffix('.log')
+    if not log_file.exists(): log_file.touch()
     fmt = '%(name)s:%(levelname)s:%(funcName)s: %(message)s'
-    log = logging.getLogger(source_filename)
+    log = logging.getLogger(name)
     log.setLevel(logging.INFO)
     formatter = logging.Formatter(fmt)
-    handlers: List[logging.Handler] = [logging.FileHandler(log_file)]
+    handlers: List[logging.Handler] = []
+    handlers.append(logging.FileHandler(log_file,mode=mode))
     if stderr: handlers.append(logging.StreamHandler(sys.stderr))
     for handler in handlers:
         handler.setFormatter(formatter)

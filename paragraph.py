@@ -74,5 +74,3 @@ Please access Paragraph.metadata by assigning metadata directly, e.g:
         p.paragraph_title = ""
         return p
 
-ParagraphAction = Callable[[Paragraph],None]
-

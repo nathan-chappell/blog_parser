@@ -39,7 +39,8 @@ class TransitionData:
     @staticmethod
     def str_comp(l,r):
         res = l == r or l == '*' or r == '*'
-        res = res or re.match(l,r) or re.match(r,l)
+        # res = res or re.match(l,r) or re.match(r,l)
+        res = res or re.match(r,l)
         return res
 
     def __eq__(self, other: object):
@@ -68,6 +69,8 @@ class MachineHTMLParser(HTMLParser):
 
     # basic utilities
 
+    #
+    # path - path to file to parse
     def parse_file(self, filename: str):
         self.filename = filename
         log.info(bannerfy(f"begin parsing file:\n{filename}"))

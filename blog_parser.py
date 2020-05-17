@@ -2,21 +2,15 @@
 
 from util import get_log, bannerfy
 from paragraph import Paragraph
-from paragraph_stats import ParagraphStatsCollector
 from machine_html_parser import State, Attrs 
 from machine_html_parser import TransitionData, MachineHTMLParser
 
-from typing import List, Iterable, Tuple, Optional, FrozenSet
-from typing import Callable
-from datetime import datetime, timedelta
-from pprint import pprint, pformat
+from typing import List, Iterable, Tuple, Callable, Optional
+from datetime import datetime
 from functools import reduce
-import json
-import re
-import logging
+from pathlib import Path
 
 log = get_log(__file__,stderr=True)
-#log.setLevel(logging.DEBUG)
 
 #
 # a ParagraphAction takes a paragraph, performs some action, then returns
@@ -24,22 +18,6 @@ log = get_log(__file__,stderr=True)
 # functions are called with reduce (similar to redux)
 #
 ParagraphAction = Callable[[Paragraph],Paragraph]
-
-#
-# basic paragraph actions
-#
-
-def pa_log(paragraph: Paragraph) -> Paragraph:
-    log.info(str(paragraph))
-    return paragraph
-
-def pa_sanitize_ws(paragraph: Paragraph) -> Paragraph:
-    paragraph.text = re.sub("\s+",' ',paragraph.text).strip()
-    return paragraph
-    # state-machine logic
-    # TODO make this class a base class, move logic to subclass
-    # (or dependency)
-
 
 # State Transition Diagram
 #
@@ -70,9 +48,19 @@ class BlogParser(MachineHTMLParser):
     paragraph_actions: List[ParagraphAction]
     paragraph: Paragraph
 
-    def parse_file(self, filename: str):
+    def __init__(self, paragraph_actions: List[ParagraphAction] = []):
+        super().__init__()
+        self.paragraph_actions = paragraph_actions
+        self.paragraph = Paragraph()
+
+    # utilities
+
+    def parse_file(self, filename: str, rel: Optional[str] = None):
         self.reset()
-        self.paragraph.filename = filename
+        if isinstance(rel, str):
+            self.paragraph.filename = Path(rel).relative_to(rel)
+        else:
+            self.paragraph.filename = filename
         super().parse_file(filename)
 
     def parse_date(self, time: str) -> str:
@@ -85,16 +73,13 @@ class BlogParser(MachineHTMLParser):
             log.error(f'Invalid date format @ {self.location()}')
             return ""
 
-    def __init__(self, paragraph_actions: List[ParagraphAction] = []):
-        super().__init__()
-        self.paragraph_actions = paragraph_actions
-        self.paragraph = Paragraph()
-
-    # state-machine output
+    # reduce middleware once paragraph is read
 
     def push_paragraph(self):
         reduce(lambda x,f: f(x), self.paragraph_actions, self.paragraph)
         self.paragraph = self.paragraph.new_paragraph()
+
+    # state-machine logic
 
     def reset(self):
         super().reset()
@@ -140,38 +125,25 @@ class BlogParser(MachineHTMLParser):
             self.paragraph.date = self.parse_date(ms.tagOrData)
             self.transition('metadata')
 
-        elif ms == ('article','h2','starttag'):
+        elif ms == ('article','h[23]','starttag'):
             self.push_paragraph()
             self.transition('subtitle')
-
-        elif ms == ('article','*','DATA'):
-            self.paragraph.text += ms.tagOrData
 
         elif ms == ('article','article','endtag'):
             self.push_paragraph()
             self.transition('done')
 
+        elif ms == ('article','*','DATA'):
+            self.paragraph.text += ms.tagOrData
+
+        elif ms == ('article','code','starttag'):
+            self.paragraph.text += '<code>'
+
+        elif ms == ('article','code','endtag'):
+            self.paragraph.text += '</code>'
+
         elif ms == ('subtitle','*','DATA'):
             self.paragraph.paragraph_title += ms.tagOrData
 
-        elif ms == ('subtitle','h2','endtag'):
+        elif ms == ('subtitle','h[23]','endtag'):
             self.transition('article')
-
-if __name__ == '__main__':
-    from glob import glob
-    from functools import partial
-    filenames = glob('./site/20*/**/*index.html',recursive=True)
-    pprint(filenames,indent=2)
-    paragraphStatsCollector = ParagraphStatsCollector()
-    middlewares: List[ParagraphAction] = [
-        pa_sanitize_ws,
-        pa_log,
-        paragraphStatsCollector,
-    ]
-    blogParser = BlogParser(middlewares)
-    filenames = ['./site/2017/04/11/custom-intellisense-with-monaco-editor/index.html']
-    for filename in filenames:
-        blogParser.parse_file(filename)
-    formattedStats = paragraphStatsCollector.formatted()
-    log.info(bannerfy(f"Gathered Statistics:\n{formattedStats}"))
-

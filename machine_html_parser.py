@@ -79,7 +79,7 @@ class MachineHTMLParser(HTMLParser):
     def parse_file(self, filename: str):
         self.filename = filename
         log.info(bannerfy(f"begin parsing file:\n{filename}"))
-        with open(filename) as file:
+        with open(filename, encoding="utf-8") as file:
             self.feed(file.read())
         log.info(bannerfy(f"done parsing file:\n{filename}"))
 

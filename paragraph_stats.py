@@ -1,11 +1,12 @@
 # paragraph_stats.py
 
 from paragraph import Paragraph, Paragraphs, ParagraphsAction
-from util import get_log
+from util import get_log, word_count
 
 import numpy as np # type: ignore
 from typing import Iterable, List, Dict
 from datetime import datetime, timedelta
+from logging import DEBUG
 
 Samples = List[float]
 Label = str
@@ -13,7 +14,8 @@ Stats = Dict[Label,Samples]
 
 # logging
 
-log = get_log(__file__,mode='w') # mode 'w' to overwrite
+log = get_log(__file__,stderr=True,mode='w') # mode 'w' to overwrite
+log.setLevel(DEBUG)
 
 def log_info(paragraph: Paragraph, length: float, time: float):
     id_ = f'{paragraph.filename}|{paragraph.paragraph_title}'
@@ -73,7 +75,8 @@ class ParagraphStatsCollector:
         return paragraphs
     
     def handle_paragraph(self, paragraph: Paragraph):
-        l = len(paragraph.text.split())
+        l = word_count(paragraph.text)
+        if l == 0: log.debug("empty paragraph")
         t = td2ms(datetime.now() - self.split)
         self.stats['paragraph_lengths'].append(l)
         self.stats['parse_times_ms'].append(t)

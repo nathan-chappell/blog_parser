@@ -5,6 +5,9 @@ import sys
 from typing import List
 from pathlib import Path
 
+def word_count(s: str) -> int:
+    return len(s.split())
+
 log_dir = Path('./logs')
 if not log_dir.exists():
     log_dir.mkdir()

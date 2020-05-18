@@ -1,6 +1,6 @@
 # paragraph.py
 
-from util import bannerfy
+from util import bannerfy, word_count
 
 from typing import Dict, Callable, FrozenSet, List
 import json
@@ -58,9 +58,9 @@ Please access Paragraph.metadata by assigning metadata directly, e.g:
 
     def __str__(self) -> str:
         metadata = object.__getattribute__(self,'metadata')
-        word_count = len(self.text.split())
+        wc = word_count(self.text)
         text = f'{self.text[0:20]}...{self.text[-20:]}'
-        text += f' [length: {word_count} words]'
+        text += f' [length: {wc} words]'
         return json.dumps({"metadata":metadata.copy(),"text":text},indent=2)
 
     #
@@ -68,7 +68,7 @@ Please access Paragraph.metadata by assigning metadata directly, e.g:
     # and blank text field
     #
     def new_paragraph(self) -> 'Paragraph':
-        metadata = object.__getattribute__(self,'metadata')
+        metadata = object.__getattribute__(self,'metadata').copy()
         p = Paragraph()
         object.__setattr__(p,'metadata',metadata)
         p.paragraph_title = ""

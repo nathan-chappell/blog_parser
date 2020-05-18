@@ -1,6 +1,6 @@
 # paragraph_stats.py
 
-from paragraph import Paragraph
+from paragraph import Paragraph, Paragraphs, ParagraphsAction
 from util import get_log
 
 import numpy as np # type: ignore
@@ -68,20 +68,17 @@ class ParagraphStatsCollector:
         self.statsFmt = statsFmt
         self.split = datetime.now()
 
-    def __call__(self, paragraph: Paragraph) -> Paragraph:
+    def __call__(self, paragraphs: Paragraphs) -> Paragraphs:
+        for paragraph in paragraphs: self.handle_paragraph(paragraph)
+        return paragraphs
+    
+    def handle_paragraph(self, paragraph: Paragraph):
         l = len(paragraph.text.split())
         t = td2ms(datetime.now() - self.split)
         self.stats['paragraph_lengths'].append(l)
         self.stats['parse_times_ms'].append(t)
         self.split = datetime.now()
         log_info(paragraph, l, t)
-        return paragraph
 
     def formatted(self) -> str:
         return self.statsFmt.format_stats(self.stats)
-
-
-def handle_paragraph_stats(stats: Stats, paragraph: Paragraph):
-    stats['paragraph_lengths'].append(float(len(paragraph.text.split())))
-    print(paragraph)
-

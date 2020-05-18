@@ -6,6 +6,8 @@ from typing import List
 from pathlib import Path
 
 log_dir = Path('./logs')
+if not log_dir.exists():
+    log_dir.mkdir()
 
 def get_log(source_filename: str, stderr=False, mode='a'):
     name = Path(source_filename).name

@@ -2,7 +2,7 @@
 
 from util import bannerfy
 
-from typing import Dict, Callable, FrozenSet
+from typing import Dict, Callable, FrozenSet, List
 import json
 
 #
@@ -73,4 +73,17 @@ Please access Paragraph.metadata by assigning metadata directly, e.g:
         object.__setattr__(p,'metadata',metadata)
         p.paragraph_title = ""
         return p
+
+#
+# a ParagraphsAction takes a list of paragraphs, performs some action,
+# then returns the (potentially modified) paragraph for further
+# processing.  The functions are called with reduce (similar to redux)
+#
+# The parameter is a list of paragraphs in case the action splits up
+# the paragraph into multiple chunks, or perhaps removes empty
+# paragraphs
+#
+
+Paragraphs = List[Paragraph]
+ParagraphsAction = Callable[[Paragraphs],Paragraphs]
 

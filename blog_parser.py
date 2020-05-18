@@ -1,7 +1,7 @@
 # blog_parser.py
 
 from util import get_log, bannerfy
-from paragraph import Paragraph
+from paragraph import Paragraph, Paragraphs, ParagraphsAction
 from machine_html_parser import State, Attrs 
 from machine_html_parser import TransitionData, MachineHTMLParser
 
@@ -11,13 +11,6 @@ from functools import reduce
 from pathlib import Path
 
 log = get_log(__file__,stderr=True)
-
-#
-# a ParagraphAction takes a paragraph, performs some action, then returns
-# the (potentially modified) paragraph for further processing.  The
-# functions are called with reduce (similar to redux)
-#
-ParagraphAction = Callable[[Paragraph],Paragraph]
 
 # State Transition Diagram
 #
@@ -45,12 +38,12 @@ valid_transitions: Iterable[Tuple[State,State]] = set([
 ])
 
 class BlogParser(MachineHTMLParser):
-    paragraph_actions: List[ParagraphAction]
+    paragraphs_actions: List[ParagraphsAction]
     paragraph: Paragraph
 
-    def __init__(self, paragraph_actions: List[ParagraphAction] = []):
+    def __init__(self, paragraphs_actions: List[ParagraphsAction] = []):
         super().__init__()
-        self.paragraph_actions = paragraph_actions
+        self.paragraphs_actions = paragraphs_actions
         self.paragraph = Paragraph()
 
     # utilities
@@ -76,7 +69,7 @@ class BlogParser(MachineHTMLParser):
     # reduce middleware once paragraph is read
 
     def push_paragraph(self):
-        reduce(lambda x,f: f(x), self.paragraph_actions, self.paragraph)
+        reduce(lambda x,f: f(x), self.paragraphs_actions, [self.paragraph])
         self.paragraph = self.paragraph.new_paragraph()
 
     # state-machine logic
@@ -129,12 +122,23 @@ class BlogParser(MachineHTMLParser):
             self.push_paragraph()
             self.transition('subtitle')
 
+        elif ms == ('subtitle','h[23]','endtag'):
+            self.transition('article')
+
         elif ms == ('article','article','endtag'):
             self.push_paragraph()
             self.transition('done')
 
         elif ms == ('article','*','DATA'):
             self.paragraph.text += ms.tagOrData
+
+        # we keep <code> and <p> tags for use in chunking text later
+
+        elif ms == ('article','p','starttag'):
+            self.paragraph.text += "<p>"
+
+        elif ms == ('article','p','endtag'):
+            self.paragraph.text += "</p>"
 
         elif ms == ('article','code','starttag'):
             self.paragraph.text += '<code>'
@@ -144,6 +148,3 @@ class BlogParser(MachineHTMLParser):
 
         elif ms == ('subtitle','*','DATA'):
             self.paragraph.paragraph_title += ms.tagOrData
-
-        elif ms == ('subtitle','h[23]','endtag'):
-            self.transition('article')

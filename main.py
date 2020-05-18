@@ -1,7 +1,7 @@
 # main.py
 
-from blog_parser import BlogParser, ParagraphAction, log
-from paragraph import Paragraph
+from blog_parser import BlogParser, log
+from paragraph import Paragraph, Paragraphs, ParagraphsAction
 from paragraph_stats import ParagraphStatsCollector
 from util import bannerfy, get_log
 
@@ -16,18 +16,20 @@ log = get_log(__file__, stderr=True, mode='w')
 # basic paragraph actions
 #
 
-def pa_log(paragraph: Paragraph) -> Paragraph:
-    log.info(str(paragraph))
-    return paragraph
+def pa_log(paragraphs: Paragraphs) -> Paragraphs:
+    log.info("\n".join(map(str,paragraphs)))
+    return paragraphs
 
-def pa_sanitize_ws(paragraph: Paragraph) -> Paragraph:
-    paragraph.text = re.sub("\s+",' ',paragraph.text).strip()
-    return paragraph
+def pa_sanitize_ws(paragraphs: Paragraphs) -> Paragraphs:
+    def sanitize_ws(paragraph: Paragraph):
+        paragraph.text = re.sub("\s+",' ',paragraph.text).strip()
+    for paragraph in paragraphs: sanitize_ws(paragraph)
+    return paragraphs
 
 if __name__ == '__main__':
     filenames = glob('./site/20*/**/*index.html',recursive=True)
     paragraphStatsCollector = ParagraphStatsCollector()
-    middlewares: List[ParagraphAction] = [
+    middlewares: List[ParagraphsAction] = [
         pa_sanitize_ws,
         pa_log,
         paragraphStatsCollector,

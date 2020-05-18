@@ -1,7 +1,7 @@
 # Makefile
 
 test:
-	mypy *.py
+	mypy .
 
 run:
 	python3 main.py

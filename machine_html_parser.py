@@ -3,9 +3,14 @@
 from util import get_log, bannerfy
 
 from html.parser import HTMLParser
-from typing import Iterable, List, Tuple, Optional
-from typing_extensions import Literal
 import re
+import sys
+from typing import Iterable, List, Tuple, Optional
+
+if sys.version_info >= (3,8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
 
 Attrs = Iterable[Tuple[str,Optional[str]]]
 Event = Literal['starttag','endtag','DATA']

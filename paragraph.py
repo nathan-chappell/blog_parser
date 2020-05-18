@@ -52,6 +52,9 @@ Please access Paragraph.metadata by assigning metadata directly, e.g:
         else:
             raise AttributeError
 
+    #
+    # should be usable with REST apis (may need to remove newlines...)
+    #
     def __repr__(self) -> str:
         metadata = object.__getattribute__(self,'metadata')
         return json.dumps({"metadata":metadata.copy(),"text":self.text})

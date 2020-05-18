@@ -89,12 +89,17 @@ def pa_cat_short(paragraphs: Paragraphs) -> Paragraphs:
 
     return paragraphs
 
-
 def pa_remove_empty(paragraphs: Paragraphs) -> Paragraphs:
     _paragraphs: Paragraphs = []
     for paragraph in paragraphs:
         if not word_count(paragraph.text) == 0:
             _paragraphs.append(paragraph)
     return _paragraphs
+
+r_ptag = re.compile('</?p>')
+def pa_remove_ptag(paragraphs: Paragraphs) -> Paragraphs:
+    for paragraph in paragraphs:
+        paragraph.text = r_ptag.sub(' ', paragraph.text)
+    return paragraphs
 
 

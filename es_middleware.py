@@ -15,22 +15,15 @@ def get_id(paragraph: Paragraph) -> str:
     return md5(bytes(id_str,'utf-8')).hexdigest()
 
 class ES_CONFIG:
-    hostname: str
-    port: int
-    index: str
-
-    def __init__(self):
-        self.hostname = 'localhost'
-        self.port = 9200
-        self.index = 'site'
-
-esConfig = ES_CONFIG()
+    hostname: str = 'localhost'
+    port: int = 9200
+    index: str = 'site'
 
 class ESMiddleware:
     es: Elasticsearch
 
     def __init__(self):
-        self.es = Elasticsearch([{'hostname':esConfig.hostname,'port':esConfig.port}])
+        self.es = Elasticsearch([{'hostname':ES_CONFIG.hostname,'port':ES_CONFIG.port}])
 
     def __call__(self, paragraphs: Paragraphs) -> Paragraphs:
         for paragraph in paragraphs:
@@ -42,7 +35,7 @@ class ESMiddleware:
         id_ = get_id(paragraph)
         log.info(f'indexing {id_}: {msg}')
         result = self.es.index(
-                index=esConfig.index,
+                index=ES_CONFIG.index,
                 id=id_,
                 body=repr(paragraph),
                 )

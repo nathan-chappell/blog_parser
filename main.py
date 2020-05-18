@@ -4,7 +4,7 @@ from blog_parser import BlogParser
 from paragraph_stats import ParagraphStatsCollector
 from util import bannerfy, get_log
 from middlewares import Middlewares, pa_log, pa_sanitize_ws, pa_chunk_long
-from middlewares import pa_remove_empty, pa_cat_short
+from middlewares import pa_remove_empty, pa_cat_short, pa_remove_ptag
 from es_middleware import ESMiddleware
 
 from pprint import pformat
@@ -26,10 +26,12 @@ if __name__ == '__main__':
         pa_chunk_long,
         pa_remove_empty,
         pa_cat_short,
+        pa_remove_ptag,
         paragraphStatsCollector,
+        ESMiddleware(),
     ]
     blogParser = BlogParser(middlewares)
-    filenames = ['./site/2017/04/11/custom-intellisense-with-monaco-editor/index.html']
+    #filenames = ['./site/2017/04/11/custom-intellisense-with-monaco-editor/index.html']
     log.info(pformat(filenames,indent=2))
     for filename in filenames:
         blogParser.parse_file(filename)

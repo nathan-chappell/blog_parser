@@ -3,5 +3,8 @@
 test:
 	mypy .
 
-run:
-	python3 main.py
+index:
+	python3 make_index.py
+
+haystack:
+	python3 haystack_client.py

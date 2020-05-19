@@ -1,4 +1,4 @@
-# main.py
+# make_index.py
 
 from blog_parser import BlogParser
 from paragraph_stats import ParagraphStatsCollector
@@ -22,12 +22,12 @@ if __name__ == '__main__':
     paragraphStatsCollector = ParagraphStatsCollector()
     middlewares: Middlewares = [
         pa_sanitize_ws,
-        pa_log,
         pa_chunk_long,
         pa_remove_empty,
         pa_cat_short,
         pa_remove_ptag,
         paragraphStatsCollector,
+        pa_log,
         ESMiddleware(),
     ]
     blogParser = BlogParser(middlewares)

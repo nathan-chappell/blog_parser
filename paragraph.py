@@ -53,8 +53,6 @@ Please access Paragraph.metadata by assigning metadata directly, e.g:
             raise AttributeError
 
     #
-    # should be usable with REST apis (may need to remove newlines...)
-    #
     def __repr__(self) -> str:
         metadata = object.__getattribute__(self,'metadata')
         return json.dumps({"metadata":metadata.copy(),"text":self.text})
@@ -65,6 +63,15 @@ Please access Paragraph.metadata by assigning metadata directly, e.g:
         text = f'{self.text[0:20]}...{self.text[-20:]}'
         text += f' [length: {wc} words]'
         return json.dumps({"metadata":metadata.copy(),"text":text},indent=2)
+
+    def flatten(self) -> Dict[str,str]:
+        flat = object.__getattribute__(self,'metadata').copy()
+        assert 'text' not in flat.keys(), 'text should not be a metadata key!'
+        flat['text'] = self.text
+        name = f'{self.article_title}, {self.paragraph_title}, by {self.author}'
+        flat['name'] = name
+        return flat
+
 
     #
     # returns a new paragraph with copied metadata except paragraph_title

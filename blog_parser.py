@@ -9,8 +9,10 @@ from typing import List, Iterable, Tuple, Callable, Optional
 from datetime import datetime
 from functools import reduce
 from pathlib import Path
+from logging import DEBUG
 
 log = get_log(__file__,stderr=True)
+log.setLevel(DEBUG)
 
 # State Transition Diagram
 #

@@ -20,6 +20,10 @@ class Paragraph:
         "filename",
     ])
 
+    #@staticmethod
+    #def get_mapping():
+
+
     metadata_access_err_msg = bannerfy("""
 Please access Paragraph.metadata by assigning metadata directly, e.g:
 >>> p = Paragraph()
@@ -64,6 +68,10 @@ Please access Paragraph.metadata by assigning metadata directly, e.g:
         text += f' [length: {wc} words]'
         return json.dumps({"metadata":metadata.copy(),"text":text},indent=2)
 
+    #
+    # this should return what will be used as the source for ElasticSearch
+    # indexing
+    #
     def flatten(self) -> Dict[str,str]:
         flat = object.__getattribute__(self,'metadata').copy()
         assert 'text' not in flat.keys(), 'text should not be a metadata key!'

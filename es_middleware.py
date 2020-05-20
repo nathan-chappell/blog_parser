@@ -34,7 +34,7 @@ class ESMiddleware:
         id_ = get_id(paragraph)
         log.info(f'indexing {id_}: {msg}')
         result = self.es.index(
-                index=ES_CONFIG.index,
+                index=self.config.index,
                 id=id_,
                 body=json.dumps(flat),
                 )

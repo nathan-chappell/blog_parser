@@ -15,13 +15,13 @@ from haystack import Finder # type: ignore
 import multiprocessing
 import pdb
 
-def get_finder():
+def get_finder(config: ES_CONFIG):
 
     documentStore = ElasticsearchDocumentStore(
-            host = ES_CONFIG.hostname,
-            index = ES_CONFIG.index,
+            host = config.hostname,
+            index = config.index,
             create_index = False,
-            external_source_id_field = ES_CONFIG.external_source_id_field,
+            external_source_id_field = config.external_source_id_field,
     )
 
     retriever = ElasticsearchRetriever(documentStore)

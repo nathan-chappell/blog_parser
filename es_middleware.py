@@ -19,8 +19,9 @@ def get_id(paragraph: Paragraph) -> str:
 class ESMiddleware:
     es: Elasticsearch
 
-    def __init__(self):
-        self.es = Elasticsearch([{'hostname':ES_CONFIG.hostname,'port':ES_CONFIG.port}])
+    def __init__(self, config: ES_CONFIG = ES_CONFIG()):
+        self.es = Elasticsearch(config.hosts)
+        self.config = config
 
     def __call__(self, paragraphs: Paragraphs) -> Paragraphs:
         for paragraph in paragraphs:

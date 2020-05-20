@@ -1,4 +1,4 @@
-# haystack_client.py
+# haystack_finder.py
 
 #import sys
 #sys.path = ['C:\\Users\\nchappell\\programming\\transformers\\src'] + sys.path

@@ -159,7 +159,7 @@ def add_docs_to_test() -> None:
     from elasticsearch.helpers import bulk # type: ignore
     config = TestIndex()
     es = Elasticsearch(hosts=config.hosts)
-    docs = [
+    docs: List[JsonObject] = [
         {'text': "this is the first test doc", 'key': "key1" },
         {'text': "this is the second test doc", 'key': "key2" },
         {'text': "my dog likes to eat docs", 'key': "key" },

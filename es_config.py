@@ -3,10 +3,13 @@
 from util import get_log, bannerfy, input_command, input_prompt
 
 from elasticsearch import Elasticsearch  # type: ignore
+
 from typing import Dict, Any, Union, List
 import re
 from pprint import pprint, pformat
 from logging import DEBUG
+from hashlib import md5
+from json import dumps
 
 log = get_log(__file__,stderr=True)
 log.setLevel(DEBUG)
@@ -60,3 +63,13 @@ class ES_CONFIG:
             if hasattr(self,k): config[k] = getattr(self,k)
         return config
 
+    @property
+    def hexdigest(self) -> str:
+        # sort_keys=True is crucial here:
+        return md5(bytes(dumps(self.index_config, sort_keys=True),'utf-8')).hexdigest()
+    
+    @property
+    def description(self) -> List[str]:
+        cls_name = self.__class__.__name__
+        loc = f"{self.hostname}:{self.port}/{self.index}"
+        return [cls_name, loc, self.hexdigest]

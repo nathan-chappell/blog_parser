@@ -1,10 +1,13 @@
 # test_index.py
 
-from es_config import ES_CONFIG, JsonObject
+from es_config import ES_CONFIG, JsonObject, my_analysis
 from make_index import make_index
 
 from elasticsearch import Elasticsearch # type: ignore
 from elasticsearch.helpers import bulk  # type: ignore
+
+from typing import List
+from pprint import pprint
 
 class TestIndex(ES_CONFIG):
     index: str = 'test'

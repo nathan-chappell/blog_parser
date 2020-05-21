@@ -5,11 +5,13 @@ import sys
 from typing import List
 from pathlib import Path
 import re
+from datetime import datetime, timedelta
 
+def td2sec(td: timedelta) -> float:
+    return td.seconds + td.microseconds/10**6
 
 def word_count(s: str) -> int:
     return len(s.split())
-
 
 log_dir = Path('./logs')
 if not log_dir.exists():

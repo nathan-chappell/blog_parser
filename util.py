@@ -34,6 +34,13 @@ def get_log(source_filename: str, stderr=False, mode='a'):
         log.addHandler(handler)
     return log
 
+def smooth_split_i(s: str, max_w: int) -> int:
+    if len(s) < max_w: return max_w
+    i = max_w
+    for i in range(max_w-1,max_w//2,-1):
+        if s[i].isspace() or s[i] == '-': return i
+    return max_w
+
 #
 # print text with a * border
 #
@@ -56,8 +63,11 @@ def bannerfy(s: str) -> str:
         for p in s.split("\n"):
             i = 0
             while i < len(p):
-                res += row_fmt.format(s=p[i:i+w-4]) + "\n"
-                i += w-4
+                j = smooth_split_i(p[i:i+w-4],w-4)
+                res += row_fmt.format(s=p[i:i+j]) + "\n"
+                i += j
+                #res += row_fmt.format(s=p[i:i+w-4]) + "\n"
+                #i += w-4
         return res + footer
 
 #
@@ -81,9 +91,25 @@ def confirm_command(msg: str = "") -> bool:
         else:
             print('please enter y/ye/yes, or n/no')
 
+def get_new_name(old_name: str) -> str:
+    name = ""
+    while name in ["",old_name] or not name.isalnum():
+        print('please enter a new alpha-numeric index name:')
+        print(f'old name: {old_name}')
+        name = input(input_prompt)
+    return name
+
+def assert_unique_first_letter(strs: List[str]):
+    first_letters = set(map(lambda s: s[0],strs))
+    assert len(first_letters) == len(strs), bannerfy(f"""
+first letter of each string is not unique.  Probably an error in
+input_command() (Change the list of input commands to ensure each has a unique
+first letter).
+""".replace("\n",' '))
 
 def input_command(safe: List[str], dangerous: List[str] = []) -> str:
     commands = safe + dangerous
+    assert_unique_first_letter(commands), 
     prompt: List[str] = list(map(lambda s: f'[{s[0]}]{s[1:]}', commands))
     while True:
         print(f"enter command: {prompt}")

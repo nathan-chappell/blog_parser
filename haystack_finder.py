@@ -15,7 +15,7 @@ from haystack import Finder # type: ignore
 import multiprocessing
 import pdb
 
-def get_finder(config: ES_CONFIG):
+def get_finder(config: ES_CONFIG) -> Finder:
 
     documentStore = ElasticsearchDocumentStore(
             host = config.hostname,
@@ -42,7 +42,7 @@ def get_finder(config: ES_CONFIG):
 
 if __name__ == '__main__':
     #multiprocessing.freeze_support()
-    finder = get_finder()
+    finder = get_finder(ES_CONFIG())
     from pprint import pprint
     from util import bannerfy
     query = ''

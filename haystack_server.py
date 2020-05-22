@@ -111,7 +111,7 @@ async def get_answers(request: Request) -> Response:
 def run_server() -> None:
     app = web.Application(logger=server_log)
     app.add_routes(routes)
-    web.run_app(app, host='localhost', port=8000)
+    web.run_app(app, host='0.0.0.0', port=8000)
 
 if __name__ == '__main__':
     run_server()

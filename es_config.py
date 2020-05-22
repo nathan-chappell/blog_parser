@@ -28,8 +28,8 @@ my_analyzer: JsonObject = {
     'filter': [
             'asciifolding',
             'lowercase',
-            'my_stopword_filter',
-            'stemmer',
+            #'my_stopword_filter',
+            #'stemmer',
     ]
 }
 

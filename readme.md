@@ -17,4 +17,12 @@ Windows:
 
 > powershell install.ps1
 
+## Usage
 
+To use the program, an instance of ElasticSearch (a node) must be running.
+To run one as a daemon (background service), try:
+
+> elasticsearch/bin/elasticsearch -d
+
+Everything set up for ES to run on __localhost:9200__, so if you want
+something different you'll have to set it up yourself.

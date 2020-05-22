@@ -30,7 +30,8 @@ def get_finder(config: ES_CONFIG) -> Finder:
     #)
     #pdb.set_trace()
     reader = TransformersReader(
-            use_gpu = -1, # don't have nvida graphics card...
+            #use_gpu = -1, # don't have nvida graphics card...
+            use_gpu = 0, # ai-machine-2
     )
 
     finder = Finder(

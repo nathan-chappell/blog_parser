@@ -36,7 +36,7 @@ my_analyzer: JsonObject = {
 my_stopword_filter: JsonObject = {
     'type': 'stop',
     'ignore_case': True,
-    'stopwords_path': './stopwords/english_removed_question_words',
+    'stopwords_path': './stopwords',
 }
 
 my_analysis: JsonObject = {

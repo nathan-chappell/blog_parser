@@ -6,7 +6,11 @@ SITE_PATH=/files/
 SITE_ZIP=site.zip
 ZIP_URL=${MONO_SITE}${SITE_PATH}${SITE_ZIP}
 ES_PATH=https://artifacts.elastic.co/downloads/elasticsearch/
-ES_TARGET=elasticsearch-7.7.0-linux-x86_64.tar.gz
+ES_BASE=elasticsearch
+ES_VERSION=7.7.0
+ES_PATH="${ES_BASE}-${ES_VERSION}"
+ES_ARCH=linux-x86_64
+ES_TARGET="${ES_PATH}-${ES_ARCH}.tar.gz"
 
 completion_message="Installation complete. Be sure to check out the readme. To use the application, it is necssary to start an elasticsearch instance (node) before running main.py."
 
@@ -81,6 +85,9 @@ dl_if_not_exists "${ES_PATH}${ES_TARGET}"
 
 message "extracting ElasticSearch"
 tar -xf $ES_TARGET
+
+message "copying stopwords file"
+cp stopwords ${ES_PATH}/config/stopwords
 
 message "$completion_message"
 

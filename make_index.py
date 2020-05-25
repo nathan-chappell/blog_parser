@@ -73,15 +73,15 @@ class MakeIndexCancelled(Exception): pass
 
 def make_index(config: ES_CONFIG):
     es = Elasticsearch(config.hosts)
+    c_replace = 'delete existing'
+    c_continue = 'cancel'
+    c_new_name = 'enter new name'
+    c_new = 'make new'
+    safe_commands = [c_continue, c_new_name]
+    dangerous_commands = [c_replace]
 
     if es.indices.exists(config.index):
         print(bannerfy(f'index: {config.index} already exists'))
-        c_replace = 'delete existing'
-        c_continue = 'cancel'
-        c_new_name = 'enter new name'
-        c_new = 'make new'
-        safe_commands = [c_continue, c_new_name]
-        dangerous_commands = [c_replace]
         command = input_command(safe_commands, dangerous_commands)
     else:
         command = c_new

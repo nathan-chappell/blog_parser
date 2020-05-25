@@ -1,0 +1,6 @@
+wheel
+mypy
+typing_extensions
+aiohttp
+elasticsearch
+farm-haystack

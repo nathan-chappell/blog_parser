@@ -25,7 +25,7 @@
   article_title: Installing Redmine and Ubuntu on VirtualBox
   question: After installing virtualbox, what's the first thing you need to do?
   answer: install the VirtualBox guest additions
-  context: After restarting the machine for the first time and logging in we need to install the VirtualBox guest additions to get access to all available features of the guest machine (mouse integration, full resolution, etc.). Just press Host+D or choose Install Guest AdditionsÖ action from Devices menu.
+  context: After restarting the machine for the first time and logging in we need to install the VirtualBox guest additions to get access to all available features of the guest machine (mouse integration, full resolution, etc.). Just press Host+D or choose Install Guest Additions... action from Devices menu.
 
 - filename: 2013/01/07/Installing-Redmine-and-Ubuntu-on-VirtualBox/index.html
   article_title: Installing Redmine and Ubuntu on VirtualBox
@@ -231,7 +231,7 @@
   article_title: Redesigning the Mono experience
   question: Why did mono change their visual identify from a pixel and blue color scheme?
   answer: too cold and generic
-  context: We have done a lot of desk research and discussions on the logical evolutionary steps for our visual identity. The result was clear ó we wanted to keep the core idea of a 'pixel' that was a cornerstone of our old visual identity. It is a good representation of the digital world, but we felt it did not represent our brand good enough on its own - however, we've decided to use it as a core element of the new design. The pixel, along with the blue color scheme was way too cold and generic, so that had to go away. To achieve a warmer, more human approach we changed our brand colors to vibrant red and elegant black.
+  context: We have done a lot of desk research and discussions on the logical evolutionary steps for our visual identity. The result was clear -- we wanted to keep the core idea of a 'pixel' that was a cornerstone of our old visual identity. It is a good representation of the digital world, but we felt it did not represent our brand good enough on its own - however, we've decided to use it as a core element of the new design. The pixel, along with the blue color scheme was way too cold and generic, so that had to go away. To achieve a warmer, more human approach we changed our brand colors to vibrant red and elegant black.
 
 # 2015/01/09/A-new-place-called-home/index.html
 
@@ -421,7 +421,7 @@
   article_title: Installing Prerender.io
   question: What does prerender.io do?
   answer: optimize your JavaScript applications for search engines
-  context: Prerender.io is a great service that allow you to optimize your JavaScript applications for search engines without an effort - you just purchase an account with them and install the middleware on your server. The source code for their service is available on GitHub and you can alternatively run it from your servers which is handy in high-volume scenarios. This is what we are using for our applications, and since the installation instructions are a bit terse, weíve decided to document the whole process. We will be using a fresh and dedicated installation of Ubuntu 14.04 to run our local instance of Prerender.io.
+  context: Prerender.io is a great service that allow you to optimize your JavaScript applications for search engines without an effort - you just purchase an account with them and install the middleware on your server. The source code for their service is available on GitHub and you can alternatively run it from your servers which is handy in high-volume scenarios. This is what we are using for our applications, and since the installation instructions are a bit terse, we've decided to document the whole process. We will be using a fresh and dedicated installation of Ubuntu 14.04 to run our local instance of Prerender.io.
 
 - filename: 2016/02/22/Installing-Prerender-io/index.html
   article_title: Installing Prerender.io
@@ -441,13 +441,13 @@
   article_title: Ninject ambient scope and deterministic dispose
   question: What's the biggest challenge in making ninject aware of a custom scope?
   answer: propagating its context
-  context: In order for the whole thing to work in the InNamedScope example above, BarFactory (or in a real life situation, a really complex chain of objects) needs to be injected by the parent scoping type (Foo or Goo or Moo) because thatís under Ninjectís control and thatís the only way it can pass the contextual parent scope information down to the injection chain. As soon as one moves away from the NamedScope extension way of doing things, the biggest challenge in accomplishing Ninject to be aware of a custom scope is not wiring it in the bindings, but actually propagating its context in an async/await environment.
+  context: In order for the whole thing to work in the InNamedScope example above, BarFactory (or in a real life situation, a really complex chain of objects) needs to be injected by the parent scoping type (Foo or Goo or Moo) because that's under Ninject's control and that's the only way it can pass the contextual parent scope information down to the injection chain. As soon as one moves away from the NamedScope extension way of doing things, the biggest challenge in accomplishing Ninject to be aware of a custom scope is not wiring it in the bindings, but actually propagating its context in an async/await environment.
 
 - filename: 2016/04/21/Ninject-ambient-scope-and-deterministic-dispose/index.html
   article_title: Ninject ambient scope and deterministic dispose
   question: How can you deterministically dispose of an instance bound to a custom scope?
-  answer: have that scope implement the Ninjectís INotifyWhenDisposed interface
-  context: "Amazingly, googling Ninject deterministic dispose gives various confusing posts, so one may need to dig further to find a coherent answer. I found it nicely explained in this old article - Cache-and-Collect Lifecycle Management in Ninject 2.0. It seems that the only way to have a deterministic dispose of an instance bound to a custom scope is to have that scope implement the Ninjectís INotifyWhenDisposed interface. It will immediately cause the disposal of any IDisposable instance associated with the scope object when scopeís Dispose method is invoked. The key thing is to raise the INotifyWhenDisposed.Disposed event within the Dispose method. Hereís the code for the universal disposable scope:"
+  answer: have that scope implement the Ninject's INotifyWhenDisposed interface
+  context: "Amazingly, googling Ninject deterministic dispose gives various confusing posts, so one may need to dig further to find a coherent answer. I found it nicely explained in this old article - Cache-and-Collect Lifecycle Management in Ninject 2.0. It seems that the only way to have a deterministic dispose of an instance bound to a custom scope is to have that scope implement the Ninject's INotifyWhenDisposed interface. It will immediately cause the disposal of any IDisposable instance associated with the scope object when scope's Dispose method is invoked. The key thing is to raise the INotifyWhenDisposed.Disposed event within the Dispose method. Here's the code for the universal disposable scope:"
 
 # 2016/07/13/Building-highly-available-applications-with-Amazon-RDS/index.html
 
@@ -461,7 +461,7 @@
   article_title: Building highly available applications with Amazon RDS
   question: What let's you use AWS resources in a virtual network?
   answer: Amazon Virtual Private Cloud
-  context: Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the ìbig' Amazon cloud where you can launch AWS resources in a virtual network that you define. Since our database instance only needs to be available to the web server - and not to the public Internet - we create a VPC with both public and private subnets. The web server will be hosted in the public subnet. The database instance will be hosted in a private subnet. The web server will be able to connect to the database instance because it is hosted within the same VPC, but the database instance will not be available to the public Internet, providing greater security.
+  context: Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the 'big' Amazon cloud where you can launch AWS resources in a virtual network that you define. Since our database instance only needs to be available to the web server - and not to the public Internet - we create a VPC with both public and private subnets. The web server will be hosted in the public subnet. The database instance will be hosted in a private subnet. The web server will be able to connect to the database instance because it is hosted within the same VPC, but the database instance will not be available to the public Internet, providing greater security.
 
 - filename: 2016/07/13/Building-highly-available-applications-with-Amazon-RDS/index.html
   article_title: Building highly available applications with Amazon RDS
@@ -493,29 +493,152 @@
   article_title: Please move, here comes Angular 2
   question: What do all Angular component names end with?
   answer: Component
-  context: As for the naming convention, each component name ends with Component, and the name of the file that holds it with .component. All the files are in kebab-case, so no worries about case sensitivity. Applied to the example component above, the file name would look like this: my-custom.component.ts.
+  context: "As for the naming convention, each component name ends with Component, and the name of the file that holds it with .component. All the files are in kebab-case, so no worries about case sensitivity. Applied to the example component above, the file name would look like this: my-custom.component.ts."
 
 - filename: 2016/08/03/Please-Move-Here-Comes-Angular2/index.html
   article_title: Please move, here comes Angular 2
   question: What are attribute directives?
   answer: the ones that change the appearance or behavior of an element they are applied to
-  context: Attribute directives are the ones that change the appearance or behavior of an element they are applied to. These directives are specified by their selector using square brackets (read more about attribute directives here).  Structural directives are here to add, remove, and replace elements in DOM. If you used AngularJS, you have seen them or used them plenty of times. Like in AngularJS, ng-if and ng-repeat exist in Angular 2 too, but are slightly changed. Structural directives now start with a ì*î(*ngFor, *ngIf). If you see that in an HTML code, that is a structural directive (read more about structural directives here).
+  context: Attribute directives are the ones that change the appearance or behavior of an element they are applied to. These directives are specified by their selector using square brackets (read more about attribute directives here).  Structural directives are here to add, remove, and replace elements in DOM. If you used AngularJS, you have seen them or used them plenty of times. Like in AngularJS, ng-if and ng-repeat exist in Angular 2 too, but are slightly changed. Structural directives now start with a '*'(*ngFor, *ngIf). If you see that in an HTML code, that is a structural directive (read more about structural directives here).
 
 - filename: 2016/08/03/Please-Move-Here-Comes-Angular2/index.html
   article_title: Please move, here comes Angular 2
   question: In Angular 2, what is the name of the root component?
   answer: AppComponent
-  context: What is also new is that there is no bootstrap directive. What we are doing instead is calling the bootstrap function and passing in the root application component. By convention, root component is called ìAppComponentî.
+  context: What is also new is that there is no bootstrap directive. What we are doing instead is calling the bootstrap function and passing in the root application component. By convention, root component is called 'AppComponent'.
 
 - filename: 2016/08/03/Please-Move-Here-Comes-Angular2/index.html
   article_title: Please move, here comes Angular 2
   question: What's the difference between promises and observables?
   answer: Observables are lazy
-  context: In Angular 2, services are often used to fetch the data from the server. While doing so they use HTTP client that is built in Angular 2. There was a slight twist in how the data can be fetched. Just as AngularJS use promises, Angular 2 uses promises, but waitÖ Angular 2 new favorite way of getting data is via Observables! Now, observables are great. They are a part of Reactive Extensions. If you havenít seen them yet, itís time to learn more. But whatís the difference between promises and observables? Observables are lazy - meaning you have to subscribe to them in order to trigger their behavior and you can also cancel your request thanks to disposability. Ben Lesh compared them in this great video which is worth watching.
+  context: In Angular 2, services are often used to fetch the data from the server. While doing so they use HTTP client that is built in Angular 2. There was a slight twist in how the data can be fetched. Just as AngularJS use promises, Angular 2 uses promises, but wait... Angular 2 new favorite way of getting data is via Observables! Now, observables are great. They are a part of Reactive Extensions. If you haven't seen them yet, it's time to learn more. But what's the difference between promises and observables? Observables are lazy - meaning you have to subscribe to them in order to trigger their behavior and you can also cancel your request thanks to disposability. Ben Lesh compared them in this great video which is worth watching.
 
 # 2016/11/28/WebCamp-2016/index.html
+
 - filename: 2016/11/28/WebCamp-2016/index.html
-  article_title: 
-  question: What is Baasic?
-  answer: Baasic provides a standard set of backend features
-  context: Here is a short introduction to this new product/service: Baasic provides a standard set of backend features - after all, BaaS in its name does not stand for nothing. For those of you not familiar with this term, please refer to our introductory article. However, this is only a beginning: Baasic hits a sweet spot on the intersection of todayís BaaS solutions, content management systems and modern application frameworks. It offers end-to-end functionality for web and mobile application development that is not tied to a particular programming language and development framework. 
+  article_title: AI - our best friend, or is it?
+  question: How can brands make their interactions with users more personal?
+  answer: chat bots
+  context: But the part of using AI Ashley talked about the most were chat bots. Making those, brands can make their interactions with users more direct and personal. If we just look at the numbers - there are over 900 million Facebook users and around 11 000 bots already created. Why? Well, computers are good at remembering stuff, automating mundane tasks, and making accurate calculations very fast. And when users prompt your bot for information, the response is imminent; they don't have to wait for someone to read the message first and then look for the information. Of course, there are still skeptics who'd prefer talking to a human as well as there are brands unsure of payoff. But if we follow the best practices Ashley gave in her talk, we might step in the right direction and make a bot everyone would want to use.
+
+- filename: 2016/11/28/WebCamp-2016/index.html
+  article_title: AI - our best friend, or is it?
+  question: Other than written content, what else should you think about to make your bot more appealing to users?
+  answer: visual design
+  context: What we also need to know is how much information is needed - we don't want to provide too much nor too little of it. Besides just written content, we should think about the visual design of our bot making it more appealing to users. And, the one we find really important, always close the loop. The user gives you feedback ‚Äì thank them, display a message, the user tells you what to do, again ‚Äì display a message.
+
+# 2016/12/01/hacking-bmw-i-bus-with-raspberry-pi/index.html
+
+- filename: 2016/12/01/hacking-bmw-i-bus-with-raspberry-pi/index.html
+  article_title: Hacking BMW I-BUS With Raspberry PI
+  question: What is a bus line?
+  answer: two-way serial communication line
+  context: The core of car communication is a bus line - two-way serial communication line, with one or two wires for the signal. All cars have multiple bus systems that group electronics depending on their use in the car, like CAN-bus, I-bus, K-bus, D-bus, etc. We will focus on I-bus (Information Bus) which is used to control radio, CD, navigation, interior lights, parking sensors, steering wheel buttons, etc. I-Bus can be found on all BMW E39 (5-series 1995-2003), E38 (7-series 1994-2001), E46 (3-series 1998-2005), E53 (X5 1999-2006), some Minies under BMW and some Rovers.
+
+- filename: 2016/12/01/hacking-bmw-i-bus-with-raspberry-pi/index.html
+  article_title: Hacking BMW I-BUS With Raspberry PI
+  question: What controls navigation on a BMW?
+  answer: I-bus (Information Bus)
+
+# 2016/12/02/building-a-simple-css-grid-with-flexbox/index.html
+
+- filename: 2016/12/02/building-a-simple-css-grid-with-flexbox/index.html
+  article_title: Building a simple CSS grid with flexbox
+  question: How can you build a simple css grid?
+  answer: with flexbox
+  context: Rather then using ‚Äúwe cover all possible scenarios‚Äù solutions that bring a whole new set of rules and specifics to your workflow, you can easily build your own grid, especially if you don't have a need for high complexity. In that case, you can create simple CSS grid with flexbox in just a few easy steps.  The major advantage of using flexbox over classic floated grid is that you have more options for display, but the best feature, in my opinion, is that the equal column height problem is solved by default. Since browser support is fair (there are a few issues with older versions of IE), we're good to go.
+
+- filename: 2016/12/02/building-a-simple-css-grid-with-flexbox/index.html
+  article_title: Building a simple CSS grid with flexbox
+  question: What is an advantage to using flexbox over a floated grid?
+  answer: you have more options for display
+  context: Rather then using ‚Äúwe cover all possible scenarios‚Äù solutions that bring a whole new set of rules and specifics to your workflow, you can easily build your own grid, especially if you don't have a need for high complexity. In that case, you can create simple CSS grid with flexbox in just a few easy steps.  The major advantage of using flexbox over classic floated grid is that you have more options for display, but the best feature, in my opinion, is that the equal column height problem is solved by default. Since browser support is fair (there are a few issues with older versions of IE), we're good to go.
+
+# 2016/12/08/Create-Print-ready-Dashboard-Using-CSS/index.html
+
+- filename: 2016/12/08/Create-Print-ready-Dashboard-Using-CSS/index.html
+  article_title: Create print-ready dashboard using CSS
+  question: How do you apply different stylesheets to different window sizes?
+  answer: media query
+  context: "In today's web design, everything is about adapting websites to different kinds of devices, and you should be familiar with media queries. In case you're not, a simple definition of media query would be - applying different stylesheets depending on device window size. So, a print media query is changing the CSS properties of HTML elements in a way we want them to look on paper or in a print mode.  To get a better understanding of print CSS, we will use the dashboard as an example. Here is how our dashboard looks like on a desktop-sized screen:"
+
+- filename: 2016/12/08/Create-Print-ready-Dashboard-Using-CSS/index.html
+  article_title: Create print-ready dashboard using CSS
+  question: When using a print query, what should you do with audio and video?
+  answer: hide them, or show just the title
+  context: Here are a few useful tips and tricks when using the print media query. As you can guess, elements such as video and audio can not be reproduced on paper. The best thing you can do here is to hide them, or show just the title. When using different kinds of slideshows, showing just one slide can do the trick. If you click here on paper you will not be redirected to a new paper, so showing a full URL is a way to go. Another useful feature is a possibility to switch between portrait and landscape orientation.
+
+# 2017/01/13/unit-of-work-a-design-pattern/index.html
+
+- filename: 2017/01/13/unit-of-work-a-design-pattern/index.html
+  article_title: Unit of Work - a Design Pattern
+  question: What is a design pattern?
+  answer: a general reusable solution to a commonly occurring problem
+  context: A design pattern is a general reusable solution to a commonly occurring problem in software development. It cannot be transformed directly into the source code as a finished design since it is more of a template that can be used in many different situations. Unit of work is one of them - and in this post, we‚Äôll explain how to use it and how to implement it in ASP.NET using Entity Framework.
+
+- filename: 2017/01/13/unit-of-work-a-design-pattern/index.html
+  article_title: Unit of Work - a Design Pattern
+  question: How does unit of work prevent unfinished requests from changing data?
+  answer: Unit of Work is handling them all in the TransactionScope
+  context: A design pattern is a general reusable solution to a commonly occurring problem in software development. It cannot be transformed directly into the source code as a finished design since it is more of a template that can be used in many different situations. Unit of work is one of them - and in this post, we‚Äôll explain how to use it and how to implement it in ASP.NET using Entity Framework.
+
+# 2017/01/27/introduction-to-azure-resource-manager/index.html
+
+- filename: 2017/01/27/introduction-to-azure-resource-manager/index.html
+  article_title: Introduction to Azure Resource Manager
+  question: What is a resource in ARM?
+  answer: a single manageable item
+  context: Before we dive deeper into ARM features, it‚Äôs important to understand the terminology.  A Resource is a single manageable item available through Azure, for example, a database, load balancer, virtual network, virtual machine, storage account, etc.  A Resource Group is a container that holds related resources.  A Resource Manager (ARM) template is a JSON file that defines resources to be deployed to a Resource Group.
+
+# 2017/02/09/model-binding-asp-net-mvc/index.html
+
+- filename: 2017/02/09/model-binding-asp-net-mvc/index.html
+  article_title: Model binding in ASP.NET MVC
+  question: What does model binding in ASP.NET MVC simplify?
+  answer: working with data sent by the browser
+  context: Model binding is a mechanism ASP.NET MVC uses to create parameter objects defined in controller action methods. The parameters can be of any type, from simple to complex ones. It simplifies working with data sent by the browser because data is automatically assigned to the specified model. Without this mechanism, developers would need to manually assign values to model properties, which would result in writing almost the same code in every action method.
+
+# 2017/02/22/google-maps-javascript-api-intro/index.html
+
+- filename: 2017/02/22/google-maps-javascript-api-intro/index.html
+  article_title: Google Maps JavaScript API - Intro
+  question: Where can you get a google api key?
+  answer: Google API Console
+  context: "This article will teach you how to use Google Maps JavaScript API, and will cover initialization, custom styling, drawing basic shapes, adding markers, info window, and using geocoding service.  Map setup First, we need the API key (we can get one from Google API Console): Create Google account if you don‚Äôt have one.  Create a new project.  Enable Google Maps JavaScript API.  Under credentials, create new API key (you can restrict key only to your site)."
+
+# 2017/03/13/security-in-an-angularjs-application/index.html
+
+- filename: 2017/03/13/security-in-an-angularjs-application/index.html
+  article_title: Security in an AngularJS application
+  question: How does angular protect against XSRF?
+  answer: the double-submit cookie defense pattern
+  context: AngularJS also provides protection from certain types of attacks if the server is compatible and properly configured. Firstly, for those who do not know, cookies are domain-specific data that persists when making requests. If cookies are being used for authorization between the server and the client, AngularJS provides protection from XSRF attacks by using the double-submit cookie defense pattern. For example, we can set up our MVC or WebAPI server to send out a cookie called XSRF-TOKEN. When AngularJS detects that cookie in the response header, it creates a custom X-XSRF-TOKEN header with the value of the XSRF-TOKEN cookie. The two values are then compared on the server, and if they match, the authorization is valid. The attacker cannot trick the browser to send out the custom header since it is something AngularJS sends when making legitimate requests from within the app.
+
+- filename: 2017/03/13/security-in-an-angularjs-application/index.html
+  article_title: Security in an AngularJS application
+  question: Why shouldn't you put sensitive data in a web token?
+  answer: A token is not encrypted, but encoded
+  context: There are a couple of ways of authorizing communication between client and server. For one, we can use cookies, but there are plenty of ways to exploit them if we‚Äôre not careful. The most common way is through the use of tokens, which are encoded bits of data containing authorization data, information about the user, expiration time, and whatever else we choose to put in it. A token is not encrypted, but encoded, so we need to be careful not to put sensitive data (like passwords). We will be looking at an example that uses tokens generated on the server.
+
+# 2017/03/15/di-asp-net-core/index.html
+
+- filename: 2017/03/15/di-asp-net-core/index.html
+  article_title: Dependency Injection in ASP.NET Core
+  question: What are the different lifetimes of services in the context of ASP.NET Core?
+  answer: Singleton, Scoped, or Transient
+  context: "Once the services are defined, it is necessary to register the dependencies in ConfigureServices method inside the Startup.cs class, so ASP.NET can know about them. When declaring a service, in ASP.NET Core context, there are three kinds of object lifetimes to choose from: Singleton, Scoped, or Transient. It is important to understand how each of them works, so we know which one to use, in what situations."
+
+- filename: 2017/03/15/di-asp-net-core/index.html
+  article_title: Dependency Injection in ASP.NET Core
+  question: What is a good example of a singleton?
+  answer: A logger
+  context: Providing the implementation as a second type parameter will lazy-load the service the first time it is requested. Another option, but not a better one, would be to create a specific instance of the concrete implementation ourselves, inside the ConfigureServices method.  Singletons are useful for resources which are shared by the entire application and need to be managed. A logger is used as a classic example of a singleton. If we only use one log stream, e.g., console, all we need is one logger instance for our outputs.
+
+# 2017/04/11/custom-intellisense-with-monaco-editor/index.html
+
+- filename: 2017/04/11/custom-intellisense-with-monaco-editor/index.html
+  article_title: Custom IntelliSense with Monaco Editor
+  question: Other than written content, what else should you think about to make your bot more appealing to users?
+  answer: visual design
+  context: What we also need to know is how much information is needed - we don‚Äôt want to provide too much nor too little of it. Besides just written content, we should think about the visual design of our bot making it more appealing to users. And, the one we find really important, always close the loop. The user gives you feedback ‚Äì thank them, display a message, the user tells you what to do, again ‚Äì display a message.
+

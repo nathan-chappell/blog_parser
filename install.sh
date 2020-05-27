@@ -5,28 +5,33 @@ MONO_SITE=http://www.mono-software.com
 SITE_PATH=/files/
 SITE_ZIP=site.zip
 ZIP_URL=${MONO_SITE}${SITE_PATH}${SITE_ZIP}
-ES_PATH=https://artifacts.elastic.co/downloads/elasticsearch/
+ES_URL=https://artifacts.elastic.co/downloads/elasticsearch/
 ES_BASE=elasticsearch
 ES_VERSION=7.7.0
 ES_PATH="${ES_BASE}-${ES_VERSION}"
 ES_ARCH=linux-x86_64
 ES_TARGET="${ES_PATH}-${ES_ARCH}.tar.gz"
+LOG_FILE="install_log.log"
 
 completion_message="Installation complete. Be sure to check out the readme. To use the application, it is necssary to start an elasticsearch instance (node) before running main.py."
 
-message_() {
-    if [ -e $SYS_PYTHON ]; then
-        python -c "from util import bannerfy; print(bannerfy('$1'))"
-    else
-        echo "********************************************************************************"
-        echo $1
-        echo "********************************************************************************"
-    fi
-}
+# https://serverfault.com/questions/103501/how-can-i-fully-log-all-bash-scripts-actions
+
+#exec 3>&1 4>&2
+#exec 1>${LOG_FILE} 2>&1
+
+(
 
 message() {
-    message_ "$1"
-    message_ "$1" >> install_log.log
+    timestamp=$(date +"%Y/%m/%d %H:%M:%S")
+    echo "${timestamp}"
+    if [ -e $SYS_PYTHON ]; then
+        python3 -c "from util import bannerfy; print(bannerfy('$1'))"
+    else
+        echo "********************************************************************************"
+        echo "$1"
+        echo "********************************************************************************"
+    fi
 }
 
 check_dep() {
@@ -54,7 +59,7 @@ dl_if_not_exists() {
     if [ -e ${1##*/} ]; then
         message "${1} already exists, continuing installation"
     else
-        wget $1
+        wget --progress=dot:giga "$1"
     fi
 }
 
@@ -81,7 +86,7 @@ message "extracting $SITE_ZIP"
 unzip $SITE_ZIP -d site
 
 message "downloading ElasticSearch"
-dl_if_not_exists "${ES_PATH}${ES_TARGET}"
+dl_if_not_exists "${ES_URL}${ES_TARGET}"
 
 message "extracting ElasticSearch"
 tar -xf $ES_TARGET
@@ -91,3 +96,4 @@ cp stopwords ${ES_PATH}/config/stopwords
 
 message "$completion_message"
 
+) |& tee ${LOG_FILE}

@@ -539,6 +539,7 @@
   article_title: Hacking BMW I-BUS With Raspberry PI
   question: What controls navigation on a BMW?
   answer: I-bus (Information Bus)
+  context: The core of car communication is a bus line - two-way serial communication line, with one or two wires for the signal. All cars have multiple bus systems that group electronics depending on their use in the car, like CAN-bus, I-bus, K-bus, D-bus, etc. We will focus on I-bus (Information Bus) which is used to control radio, CD, navigation, interior lights, parking sensors, steering wheel buttons, etc. I-Bus can be found on all BMW E39 (5-series 1995-2003), E38 (7-series 1994-2001), E46 (3-series 1998-2005), E53 (X5 1999-2006), some Minies under BMW and some Rovers.
 
 # 2016/12/02/building-a-simple-css-grid-with-flexbox/index.html
 

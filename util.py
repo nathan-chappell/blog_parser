@@ -36,12 +36,21 @@ def get_log(source_filename: str, stderr=False, mode='a'):
         log.addHandler(handler)
     return log
 
-def smooth_split_i(s: str, max_w: int) -> int:
-    if len(s) < max_w: return max_w
-    i = max_w
-    for i in range(max_w-1,max_w//2,-1):
+def smooth_split_i(s: str, w: int) -> int:
+    if len(s) < w: return w
+    i = w
+    for i in range(w-1,w//2,-1):
         if s[i].isspace() or s[i] == '-': return i
-    return max_w
+    return w
+
+def smooth_split(s:str, w: int) -> List[str]:
+    paragraph: List[str] = []
+    i = 0
+    while i < len(s):
+        j = smooth_split_i(s[i:i+w-4],w-4)
+        paragraph.append(s[i:i+j].strip())
+        i += j
+    return paragraph
 
 #
 # print text with a * border
@@ -63,13 +72,8 @@ def bannerfy(s: str) -> str:
     else:
         res = "\n" + header + "\n"
         for p in s.split("\n"):
-            i = 0
-            while i < len(p):
-                j = smooth_split_i(p[i:i+w-4],w-4)
-                res += row_fmt.format(s=p[i:i+j]) + "\n"
-                i += j
-                #res += row_fmt.format(s=p[i:i+w-4]) + "\n"
-                #i += w-4
+            for s in smooth_split(p,w-4):
+                res += row_fmt.format(s=s) + "\n"
         return res + footer
 
 #

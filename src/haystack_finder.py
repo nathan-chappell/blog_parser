@@ -15,7 +15,26 @@ from haystack import Finder # type: ignore
 import multiprocessing
 import pdb
 
-def get_finder(config: ES_CONFIG) -> Finder:
+
+model_tokenizers = {
+    'distilbert': {
+        'model': 'distilbert-base-cased-distilled-squad',
+        'tokenizer': 'distilbert-base-cased'
+    },
+    'distilbert-squad2': {
+        'model': 'twmkn9/distilbert-base-uncased-squad2',
+        'tokenizer': 'distilbert-base-cased'
+    },
+    'xlm-roberta': {
+        'model': 'xlm-roberta-base',
+        'tokenizer': 'xlm-mlm-en-2048'
+    },
+}
+
+def get_finder(
+        config: ES_CONFIG, 
+        model_tokenizer = 'distilbert',
+    ) -> Finder:
 
     documentStore = ElasticsearchDocumentStore(
             host = config.hostname,
@@ -30,15 +49,16 @@ def get_finder(config: ES_CONFIG) -> Finder:
     #)
     #pdb.set_trace()
     reader = TransformersReader(
-            #use_gpu = -1, # don't have nvida graphics card...
+            #model = model,
+            #tokenizer = tokenizer,
+            # use_gpu = -1, # don't have nvida graphics card...
+            **model_tokenizers[model_tokenizer],
             use_gpu = 0, # ai-machine-2
     )
-
     finder = Finder(
             reader = reader,
             retriever = retriever
     )
-
     return finder
 
 if __name__ == '__main__':
@@ -54,4 +74,4 @@ if __name__ == '__main__':
         print(banner)
         #pdb.set_trace()
         pprint(answers,indent=2)
-            
+

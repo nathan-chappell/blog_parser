@@ -21,6 +21,7 @@ from util import smooth_split, bannerfy # type: ignore
 samples_filename = 'yml_samples.yml'
 results_dir = './results'
 
+
 #
 # the dumb status bar is ugly, but informative.
 # tqdm is out, because another library is using it, and in general using a
@@ -43,11 +44,13 @@ class Prediction(yaml.YAMLObject):
     pr: float # ... probability
     f1: float
     answer: str
+    metadata: Dict[str,str]
 
     def __init__(self,pr,f1,answer):
         self.pr = pr
         self.f1 = f1
         self.answer = answer
+        self.metadata = {}
 
     def __repr__(self) -> str:
         return yaml.dump(self)
@@ -73,6 +76,14 @@ class Result(yaml.YAMLObject):
         self.answer = answer
         self.context = context
         self.predictions = []
+
+    @staticmethod
+    def from_sample(sample: Sample) -> Result:
+        return Result(
+            sample.question,
+            sample.answer,
+            samples.context
+        )
 
     def add_prediction(self,prediction: Union[Prediction,Dict[str,Any]]):
         if isinstance(prediction,Prediction):
@@ -148,7 +159,7 @@ class ExperimentBase:
         return samples
 
     def prepare(self):
-        ...
+        pass
 
     #
     # just get the result, time is kept in run_experiment()

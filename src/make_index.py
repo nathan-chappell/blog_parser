@@ -15,7 +15,7 @@ from pprint import pprint, pformat
 from glob import glob
 from logging import DEBUG, WARN
 from typing import Dict, Iterable
-from itertools import chain
+from itertools import chain, product
 
 log = get_log(__file__, stderr=True, mode='w')
 log.setLevel(DEBUG)
@@ -65,6 +65,11 @@ class BlogIndexConfig(ES_CONFIG):
             'analysis': get_my_analysis(self.stemmer,self.stopwords),
         }
 
+def get_all_configs() -> List[ES_CONFIG]:
+    configs: List[ES_CONFIG] = []
+    for stem_opt, stopword_opt in product([True,False],[True,False]):
+        configs.append(BlogIndexConfig(stem_opt, stopword_opt))
+    return configs
 
 def parse_blogs(site_dir: str, config: ES_CONFIG) -> None:
     filenames = glob(site_dir + '/20*/**/*index.html', recursive=True)
@@ -131,16 +136,13 @@ def try_make_index(config: ES_CONFIG) -> None:
     except MakeIndexCancelled:
         pass
 
-
 def make_default_index(stemming=False,stopwords=True) -> ES_CONFIG:
     config = BlogIndexConfig(stemming, stopwords)
     try_make_index(config)
     return config
 
 def make_all_indices() -> None:
-    from itertools import product
-    for stem_opt, stopword_opt in product([True,False],[True,False]):
-        config = BlogIndexConfig(stem_opt, stopword_opt)
+    for config in get_all_configs()
         try:
             make_index(config)
             parse_blogs('../site',config)

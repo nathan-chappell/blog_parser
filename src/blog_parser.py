@@ -36,6 +36,8 @@ valid_transitions: Iterable[Tuple[State,State]] = set([
     ('metadata','article'),
     ('article','subtitle'),
     ('subtitle','article'),
+    ('article','pre'),
+    ('pre','article'),
     ('article','done'),
 ])
 
@@ -134,19 +136,22 @@ class BlogParser(MachineHTMLParser):
         elif ms == ('article','*','DATA'):
             self.paragraph.text += ms.tagOrData
 
-        # we keep <code> and <p> tags for use in chunking text later
+        # remove pre-formatted code
+
+        elif ms == ('article','pre','starttag'):
+            self.transition('pre')
+
+        elif ms == ('pre','pre','endtag'):
+            self.transition('article')
+
+        # we keep and <p> tags for use in chunking text later
+        # no longer keeping <code> tags, they weren't helpful
 
         elif ms == ('article','p','starttag'):
             self.paragraph.text += "<p>"
 
         elif ms == ('article','p','endtag'):
             self.paragraph.text += "</p>"
-
-        elif ms == ('article','code','starttag'):
-            self.paragraph.text += '<code>'
-
-        elif ms == ('article','code','endtag'):
-            self.paragraph.text += '</code>'
 
         elif ms == ('subtitle','*','DATA'):
             self.paragraph.paragraph_title += ms.tagOrData

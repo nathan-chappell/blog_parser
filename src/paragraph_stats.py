@@ -6,7 +6,7 @@ from util import get_log, word_count
 import numpy as np # type: ignore
 from typing import Iterable, List, Dict
 from datetime import datetime, timedelta
-from logging import DEBUG
+from logging import DEBUG, WARN
 
 Samples = List[float]
 Label = str
@@ -15,7 +15,7 @@ Stats = Dict[Label,Samples]
 # logging
 
 log = get_log(__file__,stderr=True,mode='w') # mode 'w' to overwrite
-log.setLevel(DEBUG)
+log.setLevel(WARN)
 
 def log_info(paragraph: Paragraph, length: float, time: float):
     id_ = f'{paragraph.filename}|{paragraph.paragraph_title}'

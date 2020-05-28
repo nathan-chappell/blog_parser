@@ -22,33 +22,38 @@ JsonObject = Dict[str, Union[bool, int, str, object]]
 
 # some custom analyzers
 
-my_analyzer: JsonObject = {
-    'type': 'custom',
-    'tokenizer': 'standard',
-    'filter': [
-            'asciifolding',
-            'lowercase',
-            #'my_stopword_filter',
-            #'stemmer',
-    ]
-}
+def get_my_analyzer(stemmer=False,stopwords=False) -> JsonObject:
+    filters = ['asciifolding','lowercase']
+    if stemmer: filters.append('my_stopword_filter')
+    if stopwords: filters.append('stemmer')
 
-my_stopword_filter: JsonObject = {
-    'type': 'stop',
-    'ignore_case': True,
-    'stopwords_path': './stopwords',
-}
+    return {
+        'type': 'custom',
+        'tokenizer': 'standard',
+        'filter': filters
+    }
 
-my_analysis: JsonObject = {
-    'analyzer': {'my_analyzer': my_analyzer},
-    'filter': {'my_stopword_filter': my_stopword_filter}
-}
+def get_my_analysis(stemmer=False,stopwords=False):
+    my_stopword_filter: JsonObject = {
+        'type': 'stop',
+        'ignore_case': True,
+        'stopwords_path': './stopwords',
+    }
+
+    my_analysis: JsonObject = {
+        'analyzer': {'my_analyzer': get_my_analyzer(stemmer,stopwords)},
+        'filter': {'my_stopword_filter': my_stopword_filter},
+    }
+    #if stopwords:
+        #my_analysis.update({'filter': {'my_stopword_filter': my_stopword_filter}})
+
+    return my_analysis
 
 class ES_CONFIG:
     hostname: str = 'localhost'
     port: int = 9200
-    index: str = 'site'
     external_source_id_field: str = 'filename'
+    index: str = 'site'
 
     @property
     def hosts(self):

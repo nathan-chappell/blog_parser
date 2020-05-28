@@ -6,6 +6,7 @@ from html.parser import HTMLParser
 import re
 import sys
 from typing import Iterable, List, Tuple, Optional
+from logging import WARN
 
 if sys.version_info >= (3,8):
     from typing import Literal
@@ -18,6 +19,7 @@ TagOrData = str
 State = str
 
 log = get_log(__file__,stderr=True)
+log.setLevel(WARN)
 
 class ParserError(Exception): pass
 class ValidatorError(Exception): pass

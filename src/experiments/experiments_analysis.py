@@ -1,7 +1,9 @@
 # experiments_analysis.py
 
-from experiments import Result, Prediction
-from util import bannerfy
+from experiments_base import Result, Prediction, add_parent_dir_to_path
+add_parent_dir_to_path()
+
+from util import bannerfy # type: ignore
 
 from typing import List, Callable, Union, Optional
 import yaml
@@ -69,4 +71,4 @@ if __name__ == '__main__':
     stats = analyze_results(y)
     for stat in stats:
         print(stat)
-    print(np.corrcoef(np.stack
+    #print(np.corrcoef(np.stack

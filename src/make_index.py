@@ -7,26 +7,41 @@ from util import bannerfy, get_log, input_command, get_new_name
 from middlewares import Middlewares, pa_log, pa_sanitize_ws, pa_chunk_long
 from middlewares import pa_remove_empty, pa_cat_short, pa_remove_ptag
 from es_middleware import ESMiddleware
-from es_config import ES_CONFIG, my_analyzer, my_analysis, JsonObject
+from es_config import ES_CONFIG, get_my_analyzer, get_my_analysis, JsonObject
 
 from elasticsearch import Elasticsearch # type: ignore
 
 from pprint import pprint, pformat
 from glob import glob
-from logging import DEBUG
-from typing import Dict
+from logging import DEBUG, WARN
+from typing import Dict, Iterable
 from itertools import chain
 
 log = get_log(__file__, stderr=True, mode='w')
 log.setLevel(DEBUG)
 
 class BlogIndexConfig(ES_CONFIG):
-    index: str = 'site'
+    stemmer: bool
+    stopwords: bool
+
+    def __init__(self,stemmer=False,stopwords=False):
+        super().__init__()
+        self.stemmer = stemmer
+        self.stopwords = stopwords
+        self.index = self._make_index_name()
+
+    def _make_index_name(self) -> str:
+        desc = [
+            'site',
+            'stemmer' if self.stemmer else 'nostemmer',
+            'stopwords' if self.stopwords else 'nostopword',
+            ]
+        return '_'.join(desc)
 
     # the only reason this is a property is that it is a bit convoluted to
     # create
     @property
-    def mappings(self):
+    def mappings(self) -> JsonObject:
         default_prop: Dict[str, str] = {
             'type': 'text', 'analyzer': 'my_analyzer'
         }
@@ -35,17 +50,20 @@ class BlogIndexConfig(ES_CONFIG):
         mappings: JsonObject = {
             'properties': {k: default_prop.copy() for k in properties}
         }
-        mappings['properties']['date']['type'] = 'date'
-        del mappings['properties']['date']['analyzer']
+        #
+        # ignoring typing here because I don't have a goo JsonObject type...
+        #
+        mappings['properties']['date']['type'] = 'date' # type: ignore
+        del mappings['properties']['date']['analyzer'] # type: ignore
 
         return mappings
 
-    settings: JsonObject = {
-        'index': {
-            'number_of_shards': 1,
-        },
-        'analysis': my_analysis,
-    }
+    @property
+    def settings(self) -> JsonObject: 
+        return {
+            'index': { 'number_of_shards': 1 },
+            'analysis': get_my_analysis(self.stemmer,self.stopwords),
+        }
 
 
 def parse_blogs(site_dir: str, config: ES_CONFIG) -> None:
@@ -106,14 +124,29 @@ def make_index(config: ES_CONFIG):
         log.error(e)
         raise e
 
-def make_default_index() -> ES_CONFIG:
-    config = BlogIndexConfig()
+def try_make_index(config: ES_CONFIG) -> None:
     try:
         make_index(config)
-        parse_blogs('./site',config)
+        parse_blogs('../site',config)
     except MakeIndexCancelled:
         pass
+
+
+def make_default_index(stemming=False,stopwords=True) -> ES_CONFIG:
+    config = BlogIndexConfig(stemming, stopwords)
+    try_make_index(config)
     return config
 
+def make_all_indices() -> None:
+    from itertools import product
+    for stem_opt, stopword_opt in product([True,False],[True,False]):
+        config = BlogIndexConfig(stem_opt, stopword_opt)
+        try:
+            make_index(config)
+            parse_blogs('../site',config)
+        except MakeIndexCancelled:
+            pass
+
 if __name__ == '__main__':
-    make_default_index()
+    #make_default_index()
+    make_all_indices()

@@ -55,13 +55,13 @@ def smooth_split(s:str, w: int) -> List[str]:
 #
 # print text with a * border
 #
-def bannerfy(s: str) -> str:
+def bannerfy(s: str,banner_char='*') -> str:
     w = 80
     lpad = 1
     rpad = 1
-    header = footer = '*'*w
-    l = '*' + ' '*lpad
-    r = ' '*rpad + '*'
+    header = footer = banner_char*w
+    l = banner_char + ' '*lpad
+    r = ' '*rpad + banner_char
     row_fmt = l + "{s:" + str(w-lpad-rpad-2) + "}" + r
     onerow_fmt = l + "{s:^" + str(w-lpad-rpad-2) + "}" + r
 

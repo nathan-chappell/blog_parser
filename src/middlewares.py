@@ -5,12 +5,12 @@ from util import get_log, word_count
 
 from typing import List
 import re
-from logging import DEBUG
+from logging import DEBUG, WARN
 
 Middlewares = List[ParagraphsAction]
 
 log = get_log(__file__, stderr=True, mode='a')
-log.setLevel(DEBUG)
+log.setLevel(WARN)
 
 def pa_log(paragraphs: Paragraphs) -> Paragraphs:
     log.info("\n".join(map(str,paragraphs)))
@@ -23,7 +23,7 @@ def pa_sanitize_ws(paragraphs: Paragraphs) -> Paragraphs:
     return paragraphs
 
 def pa_chunk_long(paragraphs: Paragraphs) -> Paragraphs:
-    max_paragraph_length = 400
+    max_paragraph_length = 300
 
     def split_text_at_p_tag(text: str) -> List[str]:
         #return re.split('</?p>',text)
@@ -53,7 +53,7 @@ def pa_chunk_long(paragraphs: Paragraphs) -> Paragraphs:
     return _paragraphs
 
 def pa_cat_short(paragraphs: Paragraphs) -> Paragraphs:
-    min_paragraph_length = 100
+    min_paragraph_length = 50
     #
     # modifies l by concatenating it with r
     #

@@ -1,6 +1,6 @@
 # test_index.py
 
-from es_config import ES_CONFIG, JsonObject, my_analysis
+from es_config import ES_CONFIG, JsonObject, get_my_analysis
 from make_index import make_index
 
 from elasticsearch import Elasticsearch # type: ignore
@@ -26,7 +26,7 @@ class TestIndex(ES_CONFIG):
         'index': {
             'number_of_shards': 1,
         },
-        'analysis': my_analysis,
+        'analysis': get_my_analysis(),
     }
 
     @staticmethod

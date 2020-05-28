@@ -9,8 +9,10 @@ from elasticsearch import Elasticsearch # type: ignore
 from typing import Dict, Union
 from pprint import pformat
 import json
+from logging import WARN
 
 log = get_log(__file__,stderr=True,mode='w')
+log.setLevel(WARN)
 
 def get_id(paragraph: Paragraph) -> str:
     id_str = paragraph.filename + paragraph.paragraph_title

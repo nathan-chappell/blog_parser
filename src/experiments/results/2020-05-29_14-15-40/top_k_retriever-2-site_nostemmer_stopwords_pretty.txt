@@ -1,10 +1,22 @@
+
+################################################################################
+# Experiment: top_k_retriever-2-site_nostemmer_stopwords                       #
+# Description: Vary the parameter 'top_k_retriever' in the finder. I           #
+# expect that lower top_k_retriever will have better results because           #
+# there will be less chance for the finder to get confused by higher           #
+# confidence in less relevant contexts                                         #
+################################################################################
+----------------------------------------
+
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | what's the best way to use custom fonts on a website?
 my answer:          | font-face
 ....................
-prediction          | @font-face. | pr: 0.914, f1: 1.000
-prediction          | @font-face. | pr: 0.069, f1: 1.000
+prediction          | f1: 1.000, pr: 0.948 | @font-face
+prediction          | f1: 1.000, pr: 0.786 | @font-face.
+prediction          | f1: 1.000, pr: 0.037 | @font-face. @font-face
 ....................
-time                | 0.149
+time                | 0.385
 context             | There are several approaches for integrating custom
                     fonts to standards-compliant web pages - some of them
                     use custom scripts (Cufon, sIFR, FLIR), and others use
@@ -15,25 +27,29 @@ context             | There are several approaches for integrating custom
                     -system fonts on your web site is @font-face.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | what's the easiest way to get web fonts?
 my answer:          | pick them up from various web sites
 ....................
-prediction          | to pick them up from various web sites | pr: 0.774, f1: 0.933
-prediction          | to pick them up | pr: 0.087, f1: 0.545
+prediction          | f1: 0.000, pr: 0.418 | simply upload your font file to one of the @font-face generators,
+prediction          | f1: 0.000, pr: 0.224 | upload your font file to one of the @font-face generators,
+prediction          | f1: 0.933, pr: 0.167 | to pick them up from various web sites
 ....................
-time                | 0.147
+time                | 0.350
 context             | The easiest way to get web fonts is to pick them up
                     from various web sites that hold vast font
                     repositories of free or commercial fonts.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | what causes the error The import org.apache.cordova cannot be resolved
 my answer:          | Missing cordova-2.2.0.jar file
 ....................
-prediction          | cordova-2.2.0.jar file | pr: 0.455, f1: 0.909
-prediction          | Missing cordova-2.2.0.jar file | pr: 0.239, f1: 1.000
+prediction          | f1: 1.000, pr: 0.954 | Missing cordova-2.2.0.jar file
+prediction          | f1: 0.000, pr: 0.052 | current higher than allowed
+prediction          | f1: 0.000, pr: 0.037 | Lower current
 ....................
-time                | 0.178
+time                | 0.384
 context             | Missing cordova-2.2.0.jar file is causing the infamous
                     The import org.apache.cordova cannot be resolved
                     error. You should have Eclipse, Android SDK and the
@@ -42,13 +58,15 @@ context             | Missing cordova-2.2.0.jar file is causing the infamous
                     project using
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | After installing virtualbox, what's the first thing you need to do?
 my answer:          | install the VirtualBox guest additions
 ....................
-prediction          | restarting the machine for the first time and logging in | pr: 0.285, f1: 0.143
-prediction          | logging in | pr: 0.198, f1: 0.000
+prediction          | f1: 0.286, pr: 0.599 | install Mobx.
+prediction          | f1: 0.000, pr: 0.263 | Mobx.
+prediction          | f1: 0.143, pr: 0.144 | restarting the machine for the first time and logging in
 ....................
-time                | 0.183
+time                | 0.375
 context             | After restarting the machine for the first time and
                     logging in we need to install the VirtualBox guest
                     additions to get access to all available features of
@@ -57,13 +75,15 @@ context             | After restarting the machine for the first time and
                     Additions... action from Devices menu.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How should I install redmine on ubuntu?
 my answer:          | Downloading and building Redmine from source is a preferred way to install it
 ....................
-prediction          | Downloading and building Redmine from source | pr: 0.865, f1: 0.632
-prediction          | Downloading | pr: 0.026, f1: 0.143
+prediction          | f1: 0.000, pr: 0.134 | 12.04 LTS 64 bit.
+prediction          | f1: 0.286, pr: 0.080 | I’ll use it to get latest source.
+prediction          | f1: 0.316, pr: 0.074 | use it to get latest source.
 ....................
-time                | 0.183
+time                | 0.351
 context             | Now we need to get Redmine source. Downloading and
                     building Redmine from source is a preferred way to
                     install it since we will benefit from the latest fixes
@@ -75,13 +95,15 @@ context             | Now we need to get Redmine source. Downloading and
                     checked out to subdolfer redmine-2.1
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is a Gemfile?
 my answer:          | it contains configuration settings
 ....................
-prediction          | it contains configuration settings for all required gems. | pr: 0.679, f1: 0.667
-prediction          | contains configuration settings for all required gems. | pr: 0.100, f1: 0.545
+prediction          | f1: 0.400, pr: 0.316 | configuration settings for all required gems.
+prediction          | f1: 0.667, pr: 0.234 | it contains configuration settings for all required gems.
+prediction          | f1: 0.000, pr: 0.023 | root application component.
 ....................
-time                | 0.153
+time                | 0.383
 context             | After downloading the code we need to modify a few
                     configuration files in Redmine project to support our
                     development environment. We will start with Gemfile,
@@ -90,13 +112,15 @@ context             | After downloading the code we need to modify a few
                     accommodate our environment
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is moon-apns?
 my answer:          | an open source C# library
 ....................
-prediction          | open source C# library | pr: 0.397, f1: 0.889
-prediction          | an open source C# library | pr: 0.346, f1: 1.000
+prediction          | f1: 0.889, pr: 0.561 | open source C# library
+prediction          | f1: 1.000, pr: 0.244 | an open source C# library
+prediction          | f1: 0.000, pr: 0.003 | Apple Push Notification Service
 ....................
-time                | 0.177
+time                | 0.384
 context             | We will use an open source C# library called Moon-APNS
                     to send messages to APNS. You can find more info on it
                     on arashnorouzi blog. Just download the library from
@@ -105,13 +129,15 @@ context             | We will use an open source C# library called Moon-APNS
                     from the ServerApp.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What are delegates in .NET?
 my answer:          | basically function pointers
 ....................
-prediction          | function pointers. | pr: 0.685, f1: 0.800
-prediction          | basically function pointers. | pr: 0.279, f1: 1.000
+prediction          | f1: 0.800, pr: 0.932 | function pointers.
+prediction          | f1: 1.000, pr: 0.056 | basically function pointers.
+prediction          | f1: 0.000, pr: 0.047 | NHibernate, LLBLGen,
 ....................
-time                | 0.175
+time                | 0.319
 context             | The main idea is to declare two delegates. As we all
                     know, delegates in .NET are basically function
                     pointers. The first one is used to reference a
@@ -119,13 +145,15 @@ context             | The main idea is to declare two delegates. As we all
                     performed on each entity.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What browser does not support @font-face?
 my answer:          | Internet Explorer Mobile on Windows Phone 7.5
 ....................
-prediction          | Internet Explorer Mobile | pr: 0.826, f1: 0.545
-prediction          | Internet Explorer | pr: 0.100, f1: 0.400
+prediction          | f1: 0.000, pr: 0.342 | full browser
+prediction          | f1: 0.000, pr: 0.318 | browser
+prediction          | f1: 0.000, pr: 0.083 | web
 ....................
-time                | 0.177
+time                | 0.351
 context             | Every major browser platform supports @font-face,
                     except Internet Explorer Mobile on Windows Phone 7.5.
                     This problem can be solved using Cufon, a javascript
@@ -133,25 +161,29 @@ context             | Every major browser platform supports @font-face,
                     canvas and VML to render the fonts.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Which css rules are not supported by cufon?
 my answer:          | line-height
 ....................
-prediction          | line-height | pr: 0.428, f1: 1.000
-prediction          | line-height css rule | pr: 0.420, f1: 0.667
+prediction          | f1: 1.000, pr: 0.819 | line-height
+prediction          | f1: 0.000, pr: 0.137 | CSS
+prediction          | f1: 0.000, pr: 0.101 | CSS rule
 ....................
-time                | 0.177
+time                | 0.369
 context             | There is one issue that remains to be solved: line
                     -height css rule is not supported by Cufon. You can
                     work around this limitation by
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How can I test an edit/ delete script without backup?
 my answer:          | run it inside of a BEGIN TRANSACTION / ROLLBACK TRANSACTION block
 ....................
-prediction          | run it inside of a BEGIN TRANSACTION / ROLLBACK TRANSACTION block | pr: 0.181, f1: 1.000
-prediction          | run it inside of a BEGIN TRANSACTION / ROLLBACK TRANSACTION block and add script | pr: 0.127, f1: 0.857
+prediction          | f1: 0.000, pr: 0.688 | deleted the wrong data.
+prediction          | f1: 0.000, pr: 0.116 | your script deleted the wrong data.
+prediction          | f1: 0.143, pr: 0.010 | replace the ROLLBACK with COMMIT
 ....................
-time                | 0.182
+time                | 0.352
 context             | What if you have a large DB that takes long to back-up
                     and you really don't have that time? What if you
                     absolutely must do the edit/update without backup.
@@ -162,26 +194,30 @@ context             | What if you have a large DB that takes long to back-up
                     regardless if I have a backup or not
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What template has membership functionality?
 my answer:          | MVC 4
 ....................
-prediction          | MVC 4 | pr: 0.706, f1: 1.000
-prediction          | MVC 4 template | pr: 0.216, f1: 0.800
+prediction          | f1: 1.000, pr: 0.768 | MVC 4
+prediction          | f1: 0.000, pr: 0.401 | Angular 2
+prediction          | f1: 0.800, pr: 0.110 | MVC 4 template
 ....................
-time                | 0.152
+time                | 0.399
 context             | Even though there is an MVC 4 template for a new
                     Internet project that contains membership
                     functionality, some people like to start building
                     their apps from an empty project.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Why doesn't Live SDK work on WP7?
 my answer:          | it isn't suppose to work that way
 ....................
-prediction          | Live SDK isn't working with it. | pr: 0.023, f1: 0.400
-prediction          | async and await are working on WP7, | pr: 0.022, f1: 0.000
+prediction          | f1: 0.000, pr: 0.277 | async and await
+prediction          | f1: 0.267, pr: 0.254 | it doesn’t have any supporting circuitry,
+prediction          | f1: 0.143, pr: 0.056 | doesn’t have any supporting circuitry,
 ....................
-time                | 0.177
+time                | 0.353
 context             | I'd like to start with Live SDK sample landing page for
                     Windows Phone. There is a link to download it, and it
                     says it's working on WP7. There is also a code sample.
@@ -192,13 +228,15 @@ context             | I'd like to start with Live SDK sample landing page for
                     should use the event pattern instead.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How do you set a password format in ASP.net?
 my answer:          | set a single setting in your web.config
 ....................
-prediction          | to set a single setting in your web.config | pr: 0.252, f1: 0.941
-prediction          | to set a single setting | pr: 0.119, f1: 0.615
+prediction          | f1: 0.000, pr: 0.254 | change the ASP.NET membership password format
+prediction          | f1: 0.941, pr: 0.108 | to set a single setting in your web.config
+prediction          | f1: 1.000, pr: 0.107 | set a single setting in your web.config
 ....................
-time                | 0.177
+time                | 0.380
 context             | Setting the password formats in ASP.Net is quite
                     simple. All you need to do is to set a single setting
                     in your web.config and you are ready to go. But what
@@ -211,25 +249,29 @@ context             | Setting the password formats in ASP.Net is quite
                     password format.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What should you do before changing the password format?
 my answer:          | make a database backup
 ....................
-prediction          | make a database backup | pr: 0.897, f1: 1.000
-prediction          | to make a database backup | pr: 0.025, f1: 0.889
+prediction          | f1: 0.000, pr: 0.657 | convert them to the new password format.
+prediction          | f1: 0.000, pr: 0.381 | change the ASP.NET membership password format
+prediction          | f1: 0.000, pr: 0.167 | Our goal is to change the ASP.NET membership password format
 ....................
-time                | 0.152
+time                | 0.380
 context             | We strongly recommend you to make a database backup
                     before you start playing either with password format
                     conversion or some other data manipulation task.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is Osijek Software City?
 my answer:          | association of local software companies and independent contractors
 ....................
-prediction          | The association of local software companies and independent contractors | pr: 0.557, f1: 0.941
-prediction          | association of local software companies and independent contractors | pr: 0.268, f1: 1.000
+prediction          | f1: 0.182, pr: 0.937 | Department of Mathematics
+prediction          | f1: 0.941, pr: 0.614 | The association of local software companies and independent contractors
+prediction          | f1: 1.000, pr: 0.258 | association of local software companies and independent contractors
 ....................
-time                | 0.177
+time                | 0.351
 context             | The association of local software companies and
                     independent contractors - known as Osijek Software
                     City - now includes several hundred developers with
@@ -240,13 +282,15 @@ context             | The association of local software companies and
                     stack, to Java and .NET.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What does angular-file-upload do?
 my answer:          | handles file upload for you and lets you upload files asynchronously to the server
 ....................
-prediction          | lets you upload files asynchronously to the server. | pr: 0.446, f1: 0.800
-prediction          | handles file upload for you | pr: 0.069, f1: 0.588
+prediction          | f1: 0.800, pr: 0.339 | lets you upload files asynchronously to the server.
+prediction          | f1: 0.667, pr: 0.100 | upload files asynchronously to the server.
+prediction          | f1: 0.000, pr: 0.008 | use any additional added/customized functionality across your project
 ....................
-time                | 0.148
+time                | 0.383
 context             | Angular-file-upload directive is an awesome lightweight
                     AngularJS directive which handles file upload for you
                     and lets you upload files asynchronously to the
@@ -255,13 +299,15 @@ context             | Angular-file-upload directive is an awesome lightweight
                     with .NET WebAPI service.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Why can you now access azure resources from any domain?
 my answer:          | Microsoft recently introduced Cross-Origin Resource Sharing (CORS) support
 ....................
-prediction          | quite handy. | pr: 0.360, f1: 0.000
-prediction          | is quite handy. | pr: 0.240, f1: 0.000
+prediction          | f1: 0.000, pr: 0.627 | quite handy.
+prediction          | f1: 0.000, pr: 0.156 | is quite handy.
+prediction          | f1: 0.000, pr: 0.065 | processing time and bandwidth of your server are being wasted
 ....................
-time                | 0.177
+time                | 0.385
 context             | Microsoft recently introduced Cross-Origin Resource
                     Sharing (CORS) support for Azure blobs, queues and
                     tables.  This means you can now access Azure resources
@@ -280,13 +326,15 @@ context             | Microsoft recently introduced Cross-Origin Resource
                     resources.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How can you change Azure CORS rules?
 my answer:          | using the Azure SDK
 ....................
-prediction          | through the Azure management portal | pr: 0.136, f1: 0.444
-prediction          | using the Azure SDK | pr: 0.093, f1: 1.000
+prediction          | f1: 0.286, pr: 0.968 | on-the-fly,
+prediction          | f1: 1.000, pr: 0.195 | using the Azure SDK:
+prediction          | f1: 0.000, pr: 0.074 | If you really need to code this yourself and add it to your project,
 ....................
-time                | 0.180
+time                | 0.384
 context             | To be able to upload files this way, you would of
                     course need to enable CORS for a particular Azure
                     Storage account you want to use. There are two tips
@@ -296,13 +344,15 @@ context             | To be able to upload files this way, you would of
                     using the Azure SDK
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How can you make bulleted lists prettier?
 my answer:          | using em dashes
 ....................
-prediction          | em dashes | pr: 0.103, f1: 0.800
-prediction          | em dashes before the text. | pr: 0.078, f1: 0.500
+prediction          | f1: 0.250, pr: 0.394 | using a ng-repeat directive,
+prediction          | f1: 0.000, pr: 0.255 | ng-repeat directive,
+prediction          | f1: 0.667, pr: 0.100 | using em dashes before the text.
 ....................
-time                | 0.178
+time                | 0.380
 context             | The default browser styles for the bulleted lists are a
                     bit boring and not really pretty. Let's fix that up
                     with a quick Sass mixin by using em dashes before the
@@ -313,13 +363,15 @@ context             | The default browser styles for the bulleted lists are a
                     (for further reuse).
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is a shared access signature?
 my answer:          | an URL
 ....................
-prediction          | (SAS)'. | pr: 0.135, f1: 0.000
-prediction          | 'upload through a Shared Access Signature (SAS)'. | pr: 0.103, f1: 0.000
+prediction          | f1: 0.000, pr: 0.298 | \\mono-filesvr1\baasicfiles.
+prediction          | f1: 0.000, pr: 0.084 | Shared Access Signature
+prediction          | f1: 0.000, pr: 0.044 | \\mono-filesvr1\baasicfiles.
 ....................
-time                | 0.175
+time                | 0.319
 context             | This brings us to the next point - when I say 'upload
                     through WAMS', what I really mean by this is 'upload
                     through a Shared Access Signature (SAS)'. SAS is
@@ -333,13 +385,15 @@ context             | This brings us to the next point - when I say 'upload
                     recommend you read this great post about Azure SAS).
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is a shared access signature used for?
 my answer:          | make consecutive AJAX upload requests
 ....................
-prediction          | make consecutive AJAX upload requests against the Azure REST API. | pr: 0.217, f1: 0.667
-prediction          | to make consecutive AJAX upload requests against the Azure REST API. | pr: 0.174, f1: 0.625
+prediction          | f1: 0.909, pr: 0.107 | to make consecutive AJAX upload requests
+prediction          | f1: 0.000, pr: 0.097 | \\mono-filesvr1\baasicfiles.
+prediction          | f1: 1.000, pr: 0.088 | make consecutive AJAX upload requests
 ....................
-time                | 0.179
+time                | 0.381
 context             | This brings us to the next point - when I say 'upload
                     through WAMS', what I really mean by this is 'upload
                     through a Shared Access Signature (SAS)'. SAS is
@@ -353,13 +407,15 @@ context             | This brings us to the next point - when I say 'upload
                     recommend you read this great post about Azure SAS).
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What happens if you try to upload a file through a SAS URI without enabling CORS?
 my answer:          | your upload PUT requests against Azure will be rejected
 ....................
-prediction          | your upload PUT requests against Azure will be rejected. | pr: 0.493, f1: 1.000
-prediction          | rejected. | pr: 0.172, f1: 0.200
+prediction          | f1: 1.000, pr: 0.546 | your upload PUT requests against Azure will be rejected.
+prediction          | f1: 0.941, pr: 0.199 | upload PUT requests against Azure will be rejected.
+prediction          | f1: 0.421, pr: 0.070 | it will be used to make consecutive AJAX upload requests
 ....................
-time                | 0.183
+time                | 0.381
 context             | To upload files through an SAS URI, Cross-Origin
                     Resource Sharing needs to be enabled over at Azure for
                     your particular domain. If you don't enable CORS, your
@@ -374,13 +430,15 @@ context             | To upload files through an SAS URI, Cross-Origin
                     you to add/edit the rules.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is the purpose of the geek gathering?
 my answer:          | discovering new tricks and secrets about JavaScript, design, UX, cloud computing, databases, big data, Internet of things, Web application security, hybrid Web development and other cutting-edge software development topics.
 ....................
-prediction          | discovering new tricks and secrets | pr: 0.343, f1: 0.312
-prediction          | discovering new tricks | pr: 0.023, f1: 0.200
+prediction          | f1: 0.000, pr: 0.423 | to put Osijek on a global IT industry map,
+prediction          | f1: 0.000, pr: 0.171 | Our goal is to put Osijek on a global IT industry map,
+prediction          | f1: 0.312, pr: 0.061 | discovering new tricks and secrets
 ....................
-time                | 0.183
+time                | 0.383
 context             | If the name still doesn't sound familiar - The Geek
                     Gathering is all about discovering new tricks and
                     secrets about JavaScript, design, UX, cloud computing,
@@ -394,13 +452,15 @@ context             | If the name still doesn't sound familiar - The Geek
                     good job.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Who opened the Geek Gathering in 2014?
 my answer:          | Douglas Crockford
 ....................
-prediction          | Douglas Crockford. | pr: 0.984, f1: 1.000
-prediction          | Douglas Crockford. | pr: 0.009, f1: 1.000
+prediction          | f1: 0.000, pr: 0.996 | Espressif
+prediction          | f1: 0.000, pr: 0.218 | both attendees and speakers.
+prediction          | f1: 0.000, pr: 0.077 | speakers.
 ....................
-time                | 0.181
+time                | 0.381
 context             | The conference was opened by the man himself, Douglas
                     Crockford. His talk, 'The Better Parts' was one of
                     those out-of-the-box experiences. Many of us swear by
@@ -413,13 +473,15 @@ context             | The conference was opened by the man himself, Douglas
                     me, you don't want to miss it.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What are the problems loading long lists in Angular?
 my answer:          | slow rendering speed (always) huge amount of watchers
 ....................
-prediction          | slow rendering speed | pr: 0.456, f1: 0.545
-prediction          | slow rendering speed (always) huge amount of watchers | pr: 0.276, f1: 1.000
+prediction          | f1: 1.000, pr: 0.366 | slow rendering speed (always) huge amount of watchers
+prediction          | f1: 0.000, pr: 0.163 | paging or infinite scrolling,
+prediction          | f1: 0.000, pr: 0.062 | using paging or infinite scrolling,
 ....................
-time                | 0.148
+time                | 0.350
 context             | There are two problems with generating long lists in
                     Angular:  slow rendering speed (always) huge amount of
                     watchers (if your list contains multiple interactive
@@ -427,13 +489,15 @@ context             | There are two problems with generating long lists in
                     time)
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is the recommended number of watchers in Angular?
 my answer:          | around 2000
 ....................
-prediction          | 2000. | pr: 0.520, f1: 0.667
-prediction          | around 2000. | pr: 0.442, f1: 1.000
+prediction          | f1: 0.667, pr: 0.776 | 2000.
+prediction          | f1: 0.000, pr: 0.560 | count the watchers
+prediction          | f1: 1.000, pr: 0.201 | around 2000.
 ....................
-time                | 0.177
+time                | 0.353
 context             | Slow rendering will make it longer for the data to
                     actually show up in the browser (on initial and every
                     subsequent render) and huge amount of watchers will
@@ -448,13 +512,15 @@ context             | Slow rendering will make it longer for the data to
                     some time.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is JSX?
 my answer:          | a Reacts compiler
 ....................
-prediction          | a Reacts compiler | pr: 0.249, f1: 1.000
-prediction          | Reacts compiler | pr: 0.078, f1: 0.800
+prediction          | f1: 0.000, pr: 0.537 | (ReactItemList)
+prediction          | f1: 1.000, pr: 0.450 | a Reacts compiler
+prediction          | f1: 0.800, pr: 0.226 | Reacts compiler
 ....................
-time                | 0.182
+time                | 0.351
 context             | React-tools will provide you with JSX which is a Reacts
                     compiler that transforms its JS/XML-like syntax into
                     native JavaScript. To write ReactJS components you
@@ -468,13 +534,15 @@ context             | React-tools will provide you with JSX which is a Reacts
                     your project.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is Q?
 my answer:          | one of the most popular and well rounded JS promise libraries with NodeJS support
 ....................
-prediction          | one of the most popular and well rounded JS promise libraries | pr: 0.456, f1: 0.880
-prediction          | JS promise libraries | pr: 0.035, f1: 0.353
+prediction          | f1: 0.000, pr: 0.338 | (var q = ...)
+prediction          | f1: 0.000, pr: 0.271 | (var
+prediction          | f1: 0.880, pr: 0.070 | one of the most popular and well rounded JS promise libraries
 ....................
-time                | 0.183
+time                | 0.384
 context             | However, you might also want to support the error-first
                     callback pattern as well, for all the developers out
                     there who prefer to use the standard NodeJS approach.
@@ -485,13 +553,15 @@ context             | However, you might also want to support the error-first
                     API's.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What parts of an application is SocketIO best suited for?
 my answer:          | real-time communication
 ....................
-prediction          | everything else | pr: 0.414, f1: 0.000
-prediction          | everything else you might be better off using standard REST API calls. | pr: 0.115, f1: 0.000
+prediction          | f1: 1.000, pr: 0.365 | real-time communication
+prediction          | f1: 0.429, pr: 0.355 | all the parts of your application that require real-time communication
+prediction          | f1: 0.000, pr: 0.131 | the most important parts of the code
 ....................
-time                | 0.182
+time                | 0.381
 context             | Even if you're using SocketIO, chances are you don't
                     really need all your communication between the client
                     and the server to go through sockets. For all the
@@ -520,13 +590,15 @@ context             | Even if you're using SocketIO, chances are you don't
                     session data between the two.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What are mono's company values?
 my answer:          | Great products and code Human centric design Quality as a tradition
 ....................
-prediction          | Great products and code Human centric design Quality | pr: 0.639, f1: 0.842
-prediction          | Great products | pr: 0.177, f1: 0.308
+prediction          | f1: 0.000, pr: 0.446 | our customers above all else
+prediction          | f1: 0.000, pr: 0.432 | id in /Employee/Edit/{id} Request.QueryString
+prediction          | f1: 0.000, pr: 0.219 | customers above all else
 ....................
-time                | 0.148
+time                | 0.380
 context             | The initial step for achieving better communication was
                     redesigning the way we present Mono to the world. The
                     time was right for redesigning our visual identity so
@@ -534,13 +606,15 @@ context             | The initial step for achieving better communication was
                     code Human centric design Quality as a tradition
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Why did mono change their visual identify from a pixel and blue color scheme?
 my answer:          | too cold and generic
 ....................
-prediction          | way too cold and generic, | pr: 0.192, f1: 0.889
-prediction          | The pixel, along with the blue color scheme was way too cold and generic, | pr: 0.066, f1: 0.444
+prediction          | f1: 0.222, pr: 0.534 | reflects our energy and passion.
+prediction          | f1: 1.000, pr: 0.434 | too cold and generic,
+prediction          | f1: 0.889, pr: 0.149 | way too cold and generic,
 ....................
-time                | 0.179
+time                | 0.385
 context             | We have done a lot of desk research and discussions on
                     the logical evolutionary steps for our visual
                     identity. The result was clear -- we wanted to keep
@@ -555,13 +629,15 @@ context             | We have done a lot of desk research and discussions on
                     brand colors to vibrant red and elegant black.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Why did mono make a new website?
 my answer:          | add new value to our clients, users and the community
 ....................
-prediction          | to add new value to our clients, users and the community. | pr: 0.555, f1: 1.000
-prediction          | add new value to our clients, users and the community. | pr: 0.159, f1: 1.000
+prediction          | f1: 1.000, pr: 0.603 | to add new value to our clients, users and the community.
+prediction          | f1: 1.000, pr: 0.133 | add new value to our clients, users and the community.
+prediction          | f1: 0.100, pr: 0.126 | it won’t hurt to catch up with some basics.
 ....................
-time                | 0.153
+time                | 0.380
 context             | Over the last couple of months we've been working hard
                     on our new visual identity and the new Mono website.
                     Today is the day where we share the results of this
@@ -574,39 +650,45 @@ context             | Over the last couple of months we've been working hard
                     accomplished over the years.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What does quality and reliability of a website design depend on?
 my answer:          | how users percieve it
 ....................
-prediction          | how users percieve it. | pr: 0.901, f1: 1.000
-prediction          | how users percieve it. | pr: 0.035, f1: 1.000
+prediction          | f1: 1.000, pr: 0.931 | how users percieve it.
+prediction          | f1: 0.000, pr: 0.131 | tube characteristics).
+prediction          | f1: 0.000, pr: 0.059 | Depending on tube and gas type,
 ....................
-time                | 0.179
+time                | 0.385
 context             | Quality and reliability of the website design largely
                     depends on how users percieve it. Good photography and
                     visual design guides the users and communicates an
                     atmosphere around a certain brand or product.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What does good photography do for a brand?
 my answer:          | guides the users and communicates an atmosphere
 ....................
-prediction          | guides the users | pr: 0.412, f1: 0.600
-prediction          | guides the users and communicates an atmosphere around a certain brand or product. | pr: 0.065, f1: 0.700
+prediction          | f1: 0.000, pr: 0.556 | enhance your website.
+prediction          | f1: 1.000, pr: 0.277 | guides the users and communicates an atmosphere
+prediction          | f1: 0.000, pr: 0.215 | Humanize your photographs to enhance your website.
 ....................
-time                | 0.183
+time                | 0.385
 context             | Quality and reliability of the website design largely
                     depends on how users percieve it. Good photography and
                     visual design guides the users and communicates an
                     atmosphere around a certain brand or product.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Why should you hire a pro photographer?
 my answer:          | Professional photographers are already familiar with lightning, they know their camera really well and don't lack in equipment that is too expensive for an amateur
 ....................
-prediction          | does not guarantee quality of your photo story. | pr: 0.128, f1: 0.000
-prediction          | hiring a professional does not guarantee quality of your photo story. | pr: 0.050, f1: 0.000
+prediction          | f1: 0.000, pr: 0.367 | to create a rough sketch of the photo shooting environment.
+prediction          | f1: 0.000, pr: 0.193 | does not guarantee quality of your photo story.
+prediction          | f1: 0.000, pr: 0.147 | create a rough sketch of the photo shooting environment.
 ....................
-time                | 0.181
+time                | 0.350
 context             | The best and most recommended option is to hire a pro.
                     If you have a team member who is a semi-pro or an
                     amateur photographer with a good set of lens and a
@@ -626,13 +708,15 @@ context             | The best and most recommended option is to hire a pro.
                     what is best for your project.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is Baasic?
 my answer:          | Baasic provides a standard set of backend features
 ....................
-prediction          | a standard set of backend features | pr: 0.375, f1: 0.857
-prediction          | provides a standard set of backend features | pr: 0.211, f1: 0.933
+prediction          | f1: 0.000, pr: 0.900 | blog starter kits.
+prediction          | f1: 0.000, pr: 0.260 | projects
+prediction          | f1: 0.000, pr: 0.126 | Our projects
 ....................
-time                | 0.148
+time                | 0.381
 context             | Here is a short introduction to this new
                     product/service: Baasic provides a standard set of
                     backend features - after all, BaaS in its name does
@@ -647,13 +731,15 @@ context             | Here is a short introduction to this new
                     programming language and development framework.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is Baasic?
 my answer:          | Baasic provides a standard set of backend features
 ....................
-prediction          | a standard set of backend features | pr: 0.375, f1: 0.857
-prediction          | provides a standard set of backend features | pr: 0.211, f1: 0.933
+prediction          | f1: 0.000, pr: 0.900 | blog starter kits.
+prediction          | f1: 0.000, pr: 0.260 | projects
+prediction          | f1: 0.000, pr: 0.126 | Our projects
 ....................
-time                | 0.178
+time                | 0.383
 context             | Here is a short introduction to this new
                     product/service: Baasic provides a standard set of
                     backend features - after all, BaaS in its name does
@@ -668,13 +754,15 @@ context             | Here is a short introduction to this new
                     programming language and development framework.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What can cause your software to be classified as unwanted?
 my answer:          | not having a link to the EULA along with uninstall instructions somewhere at the download page
 ....................
-prediction          | not having a link to the EULA | pr: 0.322, f1: 0.636
-prediction          | not having a link to the EULA along with uninstall instructions | pr: 0.269, f1: 0.846
+prediction          | f1: 0.636, pr: 0.422 | not having a link to the EULA
+prediction          | f1: 0.000, pr: 0.158 | some flexibility in interpretation of these policies after all.
+prediction          | f1: 0.846, pr: 0.120 | not having a link to the EULA along with uninstall instructions
 ....................
-time                | 0.177
+time                | 0.381
 context             | A short Google search revealed that there are not too
                     many resources regarding this problem - I guess that
                     this will change very soon. However, one post from the
@@ -691,13 +779,15 @@ context             | A short Google search revealed that there are not too
                     documents.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Can postgresql scale horizontally?
 my answer:          | it cannot scale out horizontally
 ....................
-prediction          | it cannot scale out horizontally | pr: 0.341, f1: 1.000
-prediction          | cannot scale out horizontally | pr: 0.221, f1: 0.889
+prediction          | f1: 1.000, pr: 0.414 | it cannot scale out horizontally
+prediction          | f1: 0.889, pr: 0.220 | cannot scale out horizontally
+prediction          | f1: 0.000, pr: 0.073 | PostgreSQL has its own tools for the job,
 ....................
-time                | 0.182
+time                | 0.353
 context             | While we've used SQL Server in most of our previous
                     implementations, after doing some preliminary tests,
                     PostgreSQL proved to be a very capable relational
@@ -724,13 +814,15 @@ context             | While we've used SQL Server in most of our previous
                     and applications.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is the first rule of horizontally scaling a database?
 my answer:          | avoid it at all costs
 ....................
-prediction          | to avoid it at all costs.'. | pr: 0.840, f1: 0.909
-prediction          | avoid it at all costs.'. | pr: 0.063, f1: 1.000
+prediction          | f1: 0.909, pr: 0.788 | to avoid it at all costs.”.
+prediction          | f1: 0.000, pr: 0.465 | cannot scale out horizontally
+prediction          | f1: 0.200, pr: 0.249 | it cannot scale out horizontally
 ....................
-time                | 0.152
+time                | 0.321
 context             | To quote one of the posters at stackexchange, 'first
                     rule of horizontal scaling of a database is to avoid
                     it at all costs.'.  If you still need to scale out,
@@ -739,13 +831,15 @@ context             | To quote one of the posters at stackexchange, 'first
                     tools for the job, including CitusDB and Postgres-XL.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What does STONITH stand for?
 my answer:          | Shoot The Other Node In The Head
 ....................
-prediction          | (Shoot The Other Node In The Head), | pr: 0.845, f1: 1.000
-prediction          | (Shoot The Other Node In The Head), | pr: 0.075, f1: 1.000
+prediction          | f1: 0.000, pr: 0.843 | object-relational-mapping
+prediction          | f1: 0.000, pr: 0.535 | robust fencing/STONITH.
+prediction          | f1: 0.000, pr: 0.462 | fencing/STONITH.
 ....................
-time                | 0.178
+time                | 0.385
 context             | In our case, we needed full support for failover - in a
                     two DB servers scenarios, if the primary server fails
                     then the standby server should begin failover
@@ -778,13 +872,15 @@ context             | In our case, we needed full support for failover - in a
                     virtual machine.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What can cause extreme data corruption in postgresql?
 my answer:          | attempts to use PostgreSQL in multi-master shared storage configurations
 ....................
-prediction          | attempts to use PostgreSQL in multi-master shared storage configurations | pr: 0.910, f1: 1.000
-prediction          | multi-master shared storage configurations | pr: 0.029, f1: 0.667
+prediction          | f1: 1.000, pr: 0.795 | attempts to use PostgreSQL in multi-master shared storage configurations
+prediction          | f1: 0.571, pr: 0.056 | attempts to use PostgreSQL
+prediction          | f1: 0.000, pr: 0.048 | errors)
 ....................
-time                | 0.182
+time                | 0.354
 context             | In our case, we needed full support for failover - in a
                     two DB servers scenarios, if the primary server fails
                     then the standby server should begin failover
@@ -817,13 +913,15 @@ context             | In our case, we needed full support for failover - in a
                     virtual machine.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is a failover cluster?
 my answer:          | a group of servers
 ....................
-prediction          | a group of servers that work together to maintain high availability of applications and services | pr: 0.571, f1: 0.444
-prediction          | group of servers that work together to maintain high availability of applications and services | pr: 0.047, f1: 0.353
+prediction          | f1: 0.000, pr: 0.246 | Hyper-V
+prediction          | f1: 0.000, pr: 0.138 | Hyper-V server
+prediction          | f1: 0.000, pr: 0.079 | Hyper-V
 ....................
-time                | 0.180
+time                | 0.380
 context             | A failover cluster is a group of servers that work
                     together to maintain high availability of applications
                     and services (these are known as roles). If one of the
@@ -840,13 +938,15 @@ context             | A failover cluster is a group of servers that work
                     nodes and to 8,000 virtual machines.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How many physical nodes can a failover cluster handle?
 my answer:          | up to 64
 ....................
-prediction          | 64 | pr: 0.694, f1: 0.500
-prediction          | 64 physical nodes | pr: 0.161, f1: 0.333
+prediction          | f1: 0.500, pr: 0.805 | 64
+prediction          | f1: 0.000, pr: 0.560 | two or more
+prediction          | f1: 0.000, pr: 0.381 | two
 ....................
-time                | 0.148
+time                | 0.385
 context             | A failover cluster is a group of servers that work
                     together to maintain high availability of applications
                     and services (these are known as roles). If one of the
@@ -863,13 +963,15 @@ context             | A failover cluster is a group of servers that work
                     nodes and to 8,000 virtual machines.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is a virtual router?
 my answer:          | an abstract representation of multiple routers
 ....................
-prediction          | an abstract representation of multiple routers - master | pr: 0.099, f1: 0.923
-prediction          | abstract representation of multiple routers - master and backup - acting as a group. | pr: 0.069, f1: 0.556
+prediction          | f1: 0.556, pr: 0.101 | abstract representation of multiple routers - master and backup - acting as a group.
+prediction          | f1: 0.267, pr: 0.064 | multiple routers - master and backup - acting as a group.
+prediction          | f1: 0.000, pr: 0.054 | The Virtual Machine Queue
 ....................
-time                | 0.179
+time                | 0.384
 context             | Just to briefly mention the rest of the network
                     infrastructure (firewalls, routers and load balancers)
                     in front of these servers. Everything is set up in a
@@ -898,13 +1000,15 @@ context             | Just to briefly mention the rest of the network
                     describe 'our' approach in more details.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is a fast json serializer?
 my answer:          | the Json.NET serializer
 ....................
-prediction          | Json.NET serializer | pr: 0.162, f1: 0.857
-prediction          | super-fast serializer. | pr: 0.104, f1: 0.286
+prediction          | f1: 0.857, pr: 0.620 | Json.NET serializer
+prediction          | f1: 0.286, pr: 0.615 | standard Json serializers
+prediction          | f1: 0.667, pr: 0.366 | Json.NET
 ....................
-time                | 0.181
+time                | 0.385
 context             | In this post, I will not introduce yet another super
                     -fast serializer. I also promise not to rely on quick
                     and dirty techniques to enhance the existing ones. I
@@ -917,13 +1021,15 @@ context             | In this post, I will not introduce yet another super
                     all other serializers.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What causes the spikes in the serialization graph?
 my answer:          | .Net's garbage collector
 ....................
-prediction          | the .Net's garbage collector | pr: 0.566, f1: 0.889
-prediction          | .Net's garbage collector | pr: 0.256, f1: 1.000
+prediction          | f1: 0.889, pr: 0.552 | the .Net’s garbage collector
+prediction          | f1: 0.000, pr: 0.521 | serialization duration.
+prediction          | f1: 1.000, pr: 0.345 | .Net’s garbage collector
 ....................
-time                | 0.148
+time                | 0.380
 context             | On top of that, a graph has a few spikes, which look
                     strange. After some time spent on the subject, we
                     realized that the spikes are caused by the .Net's
@@ -934,13 +1040,15 @@ context             | On top of that, a graph has a few spikes, which look
                     500000 weather readings, respectively.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How many servers run a Hyper-V hypervisor?
 my answer:          | two
 ....................
-prediction          | two | pr: 0.790, f1: 1.000
-prediction          | two servers | pr: 0.187, f1: 0.667
+prediction          | f1: 1.000, pr: 0.838 | two
+prediction          | f1: 0.667, pr: 0.149 | two servers
+prediction          | f1: 0.000, pr: 0.004 | couple
 ....................
-time                | 0.151
+time                | 0.353
 context             | The basic setup includes two servers running Hyper-V
                     hypervisor and a Storage Area Network (SAN) as a
                     shared storage mechanism. Additional Hyper-V servers
@@ -951,13 +1059,15 @@ context             | The basic setup includes two servers running Hyper-V
                     with the SAN.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | On the SAN, what does the DatabaseStorage volume store?
 my answer:          | PostgreSQL databases
 ....................
-prediction          | PostgreSQL databases. | pr: 0.875, f1: 1.000
-prediction          | PostgreSQL | pr: 0.084, f1: 0.667
+prediction          | f1: 1.000, pr: 0.537 | PostgreSQL databases.
+prediction          | f1: 0.000, pr: 0.262 | the system disk of our database server.
+prediction          | f1: 0.000, pr: 0.177 | the system disk
 ....................
-time                | 0.181
+time                | 0.398
 context             | We are creating multiple volumes on our SAN that will
                     serve different purposes: - SystemStorage volume will
                     hold the system disk of our database server. -
@@ -968,13 +1078,15 @@ context             | We are creating multiple volumes on our SAN that will
                     used for failover cluster quorum configuration
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What role needs to be added to the servers in Hyper-V clusters?
 my answer:          | Hyper-V
 ....................
-prediction          | Hyper-V | pr: 0.206, f1: 1.000
-prediction          | Hyper-V role | pr: 0.070, f1: 0.800
+prediction          | f1: 1.000, pr: 0.795 | Hyper-V
+prediction          | f1: 0.000, pr: 0.472 | Cluster Manager,
+prediction          | f1: 0.000, pr: 0.031 | the Cluster Manager,
 ....................
-time                | 0.180
+time                | 0.350
 context             | Basic installation and networking For a start, you will
                     need to add the Hyper-V role to the servers. In Server
                     Manager - Manage menu, click Add Roles and Features,
@@ -985,13 +1097,15 @@ context             | Basic installation and networking For a start, you will
                     get installed.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How many NICs should be used in failover clustering?
 my answer:          | at least two separate NICs
 ....................
-prediction          | at least two | pr: 0.466, f1: 0.750
-prediction          | at least two separate NICs | pr: 0.190, f1: 1.000
+prediction          | f1: 0.750, pr: 0.456 | at least two
+prediction          | f1: 0.333, pr: 0.265 | two
+prediction          | f1: 0.000, pr: 0.011 | all your virtual machines fault tolerant.
 ....................
-time                | 0.182
+time                | 0.382
 context             | Is is always a good idea to use at least two separate
                     NICs in failover clustering scenarios: the public
                     interface is configured with the IP address that will
@@ -1013,13 +1127,15 @@ context             | Is is always a good idea to use at least two separate
                     step for setting up a failover cluster.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Is Failover Clustering available in the standard edition of Windows Server 2012?
 my answer:          | Failover clustering is available in both Standard and Datacenter editions
 ....................
-prediction          | Failover clustering is available in both Standard and Datacenter editions | pr: 0.162, f1: 1.000
-prediction          | in both Standard and Datacenter editions | pr: 0.120, f1: 0.750
+prediction          | f1: 0.571, pr: 0.223 | Failover clustering is available
+prediction          | f1: 1.000, pr: 0.152 | Failover clustering is available in both Standard and Datacenter editions
+prediction          | f1: 0.111, pr: 0.097 | R2: what’s new in Windows Server 2012 R2.
 ....................
-time                | 0.178
+time                | 0.352
 context             | Failover clustering is available in both Standard and
                     Datacenter editions of Windows Server 2012 R2.
                     Generally speaking, clustering involves using two or
@@ -1032,13 +1148,15 @@ context             | Failover clustering is available in both Standard and
                     to the users.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Why do you need to validate your cluster environment after adding the failover clustering feature?
 my answer:          | Microsoft does not provide support unless all the hardware passes all the tests
 ....................
-prediction          | you will create a cluster. | pr: 0.040, f1: 0.000
-prediction          | Microsoft does not provide support | pr: 0.038, f1: 0.625
+prediction          | f1: 0.625, pr: 0.208 | Microsoft does not provide support
+prediction          | f1: 0.476, pr: 0.059 | This is an essential step: Microsoft does not provide support
+prediction          | f1: 0.087, pr: 0.008 | it will be your local server on which the wizard is running.
 ....................
-time                | 0.177
+time                | 0.383
 context             | After the failover clustering feature is added, you
                     need to validate the environment in which you will
                     create a cluster. This is an essential step: Microsoft
@@ -1051,13 +1169,15 @@ context             | After the failover clustering feature is added, you
                     Validate Configuration link in the Management pane.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What should you do if you get the error: No disks suitable for cluster disks were found
 my answer:          | make sure that your SAN is supported
 ....................
-prediction          | make sure that your SAN is supported | pr: 0.810, f1: 1.000
-prediction          | your SAN is supported | pr: 0.032, f1: 0.727
+prediction          | f1: 1.000, pr: 0.865 | make sure that your SAN is supported
+prediction          | f1: 0.000, pr: 0.025 | extend a volume.
+prediction          | f1: 0.727, pr: 0.010 | your SAN is supported
 ....................
-time                | 0.182
+time                | 0.369
 context             | You can also add more disks at any time by clicking on
                     the Add Disk option in the Actions pane of the Disks
                     section. If you receive an error saying 'No disks
@@ -1072,13 +1192,15 @@ context             | You can also add more disks at any time by clicking on
                     iSCSI Initiator Properties).
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What feature in Windows Server makes shared disks concurrently accessible to all nodes in a failover cluster?
 my answer:          | Cluster Shared Volumes
 ....................
-prediction          | CSV | pr: 0.598, f1: 0.000
-prediction          | CSV (Cluster Shared Volumes) | pr: 0.338, f1: 0.857
+prediction          | f1: 0.000, pr: 0.573 | CSV
+prediction          | f1: 0.000, pr: 0.312 | no data loss.
+prediction          | f1: 0.000, pr: 0.211 | rapid failover with no data loss.
 ....................
-time                | 0.181
+time                | 0.400
 context             | CSV (Cluster Shared Volumes) is a feature in Windows
                     Server in which shared disks are concurrently
                     accessible to all nodes within a failover cluster. You
@@ -1096,13 +1218,15 @@ context             | CSV (Cluster Shared Volumes) is a feature in Windows
                     configuration.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | When did google start indexing content rendered by javascript?
 my answer:          | early as 2008
 ....................
-prediction          | 2008, | pr: 0.809, f1: 0.500
-prediction          | as early as 2008, | pr: 0.118, f1: 1.000
+prediction          | f1: 0.500, pr: 0.869 | 2008,
+prediction          | f1: 1.000, pr: 0.099 | as early as 2008,
+prediction          | f1: 0.000, pr: 0.007 | Whenever you need to pull content from an “external” URL
 ....................
-time                | 0.148
+time                | 0.385
 context             | Traditionally, search engine crawlers were only looking
                     at the raw textual content contained within the HTTP
                     response body and didn't really interpret what a
@@ -1120,13 +1244,15 @@ context             | Traditionally, search engine crawlers were only looking
                     crawling proposal we made back in 2009.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What can you do to save a crawler from the effort of executing javascript on its own?
 my answer:          | serve the prerendered HTML snapshot
 ....................
-prediction          | serve | pr: 0.545, f1: 0.333
-prediction          | serve the prerendered HTML snapshot | pr: 0.249, f1: 1.000
+prediction          | f1: 0.182, pr: 0.399 | install the middleware on your server.
+prediction          | f1: 1.000, pr: 0.379 | serve the prerendered HTML snapshot
+prediction          | f1: 0.833, pr: 0.230 | you will serve the prerendered HTML snapshot
 ....................
-time                | 0.148
+time                | 0.384
 context             | letting you know that you should handle the response
                     differently inside your JS application. On most
                     occasions, you will serve the prerendered HTML
@@ -1138,13 +1264,15 @@ context             | letting you know that you should handle the response
                     the header of your pages:
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What enables search engines to index dynamic content?
 my answer:          | prerendering services
 ....................
-prediction          | prerendering services | pr: 0.970, f1: 1.000
-prediction          | prerendering | pr: 0.025, f1: 0.667
+prediction          | f1: 1.000, pr: 0.957 | prerendering services
+prediction          | f1: 0.000, pr: 0.210 | Ajax crawling scheme
+prediction          | f1: 0.000, pr: 0.058 | Ajax crawling
 ....................
-time                | 0.180
+time                | 0.352
 context             | As described in our previous article on SEO for
                     JavaScript applications, prerendering services still
                     play an important role in enabling search engine
@@ -1153,13 +1281,15 @@ context             | As described in our previous article on SEO for
                     infrastructure.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What does prerender.io do?
 my answer:          | optimize your JavaScript applications for search engines
 ....................
-prediction          | optimize your JavaScript applications for search engines | pr: 0.062, f1: 1.000
-prediction          | allow you to optimize your JavaScript applications for search engines | pr: 0.044, f1: 0.824
+prediction          | f1: 0.824, pr: 0.068 | optimize your JavaScript applications for search engines without an effort
+prediction          | f1: 0.095, pr: 0.059 | you just purchase an account with them and install the middleware on your server.
+prediction          | f1: 0.000, pr: 0.055 | install git,
 ....................
-time                | 0.182
+time                | 0.382
 context             | Prerender.io is a great service that allow you to
                     optimize your JavaScript applications for search
                     engines without an effort - you just purchase an
@@ -1174,13 +1304,15 @@ context             | Prerender.io is a great service that allow you to
                     14.04 to run our local instance of Prerender.io.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Why would you use the redis caching plugin?
 my answer:          | it offers scalability and a simple cache expiration mechanism
 ....................
-prediction          | it offers scalability and a simple cache expiration mechanism. | pr: 0.435, f1: 1.000
-prediction          | offers scalability and a simple cache expiration mechanism. | pr: 0.147, f1: 0.941
+prediction          | f1: 1.000, pr: 0.286 | it offers scalability and a simple cache expiration mechanism.
+prediction          | f1: 0.875, pr: 0.153 | scalability and a simple cache expiration mechanism.
+prediction          | f1: 0.000, pr: 0.004 | We are using Redis in our projects,
 ....................
-time                | 0.179
+time                | 0.380
 context             | Generating HTML snapshots is a resource-intensive
                     process, so some sort of caching strategy should be
                     used to improve the performance. Prerender.io comes
@@ -1191,13 +1323,15 @@ context             | Generating HTML snapshots is a resource-intensive
                     sufficient for the task at hand.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | When would you define a custom lifetime or scope?
 my answer:          | to reuse instances within the lifetime of a scope (ambient instances) and to specify a deterministic dispose of resources
 ....................
-prediction          | when a scope lifetime ends. | pr: 0.205, f1: 0.300
-prediction          | ends. | pr: 0.083, f1: 0.000
+prediction          | f1: 0.571, pr: 0.466 | to reuse instances within the lifetime
+prediction          | f1: 0.167, pr: 0.419 | disentangled from the injection and binding changes all together.
+prediction          | f1: 0.750, pr: 0.152 | to reuse instances within the lifetime of a scope
 ....................
-time                | 0.153
+time                | 0.351
 context             | When working with Ninject, one can specify standard
                     lifetime designators like InSingletonScope and
                     InTransientScope in the bindings section. There are
@@ -1208,13 +1342,15 @@ context             | When working with Ninject, one can specify standard
                     lifetime ends.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What's the biggest challenge in making ninject aware of a custom scope?
 my answer:          | propagating its context
 ....................
-prediction          | not wiring it in the bindings, | pr: 0.164, f1: 0.000
-prediction          | wiring it in the bindings, | pr: 0.127, f1: 0.000
+prediction          | f1: 0.000, pr: 0.562 | not wiring it in the bindings,
+prediction          | f1: 0.000, pr: 0.136 | instantiation.
+prediction          | f1: 0.000, pr: 0.025 | during instantiation.
 ....................
-time                | 0.178
+time                | 0.383
 context             | In order for the whole thing to work in the
                     InNamedScope example above, BarFactory (or in a real
                     life situation, a really complex chain of objects)
@@ -1229,13 +1365,15 @@ context             | In order for the whole thing to work in the
                     propagating its context in an async/await environment.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How can you deterministically dispose of an instance bound to a custom scope?
 my answer:          | have that scope implement the Ninject's INotifyWhenDisposed interface
 ....................
-prediction          | Ninject's INotifyWhenDisposed interface. | pr: 0.056, f1: 0.615
-prediction          | the Ninject's INotifyWhenDisposed interface. | pr: 0.052, f1: 0.714
+prediction          | f1: 0.000, pr: 0.592 | InTransientScope
+prediction          | f1: 0.000, pr: 0.237 | InTransientScope way,
+prediction          | f1: 0.200, pr: 0.068 | INotifyWhenDisposed
 ....................
-time                | 0.179
+time                | 0.351
 context             | Amazingly, googling Ninject deterministic dispose gives
                     various confusing posts, so one may need to dig
                     further to find a coherent answer. I found it nicely
@@ -1252,13 +1390,15 @@ context             | Amazingly, googling Ninject deterministic dispose gives
                     universal disposable scope:
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What does AWS do?
 my answer:          | (AWS) provides a platform that is well suited for building fault-tolerant software
 ....................
-prediction          | building fault-tolerant software. | pr: 0.822, f1: 0.471
-prediction          | provides a platform that is well suited for building fault-tolerant software. | pr: 0.054, f1: 0.960
+prediction          | f1: 0.000, pr: 0.347 | enhance user engagement, user productivity, and product usage.
+prediction          | f1: 0.000, pr: 0.121 | enhance user engagement, user productivity,
+prediction          | f1: 0.100, pr: 0.025 | cold standby failover configurations for shared-storage,
 ....................
-time                | 0.183
+time                | 0.383
 context             | Amazon Web Services (AWS) provides a platform that is
                     well suited for building fault-tolerant software.
                     Similar services are offered by other cloud providers,
@@ -1284,13 +1424,15 @@ context             | Amazon Web Services (AWS) provides a platform that is
                     solutions.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What let's you use AWS resources in a virtual network?
 my answer:          | Amazon Virtual Private Cloud
 ....................
-prediction          | Amazon Virtual Private Cloud | pr: 0.625, f1: 1.000
-prediction          | Amazon Virtual Private Cloud (VPC) | pr: 0.285, f1: 0.889
+prediction          | f1: 1.000, pr: 0.512 | Amazon Virtual Private Cloud
+prediction          | f1: 0.000, pr: 0.459 | Azure,
+prediction          | f1: 0.889, pr: 0.306 | Amazon Virtual Private Cloud (VPC)
 ....................
-time                | 0.182
+time                | 0.352
 context             | Amazon Virtual Private Cloud (VPC) lets you provision a
                     logically isolated section of the 'big' Amazon cloud
                     where you can launch AWS resources in a virtual
@@ -1306,13 +1448,15 @@ context             | Amazon Virtual Private Cloud (VPC) lets you provision a
                     Internet, providing greater security.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What causes Amazon RDS to automatically perform a failover?
 my answer:          | an infrastructure failure
 ....................
-prediction          | infrastructure failure, | pr: 0.702, f1: 0.800
-prediction          | an infrastructure failure, | pr: 0.199, f1: 1.000
+prediction          | f1: 1.000, pr: 0.526 | an infrastructure failure,
+prediction          | f1: 0.800, pr: 0.462 | infrastructure failure,
+prediction          | f1: 0.000, pr: 0.357 | create a second security group for private access.
 ....................
-time                | 0.181
+time                | 0.382
 context             | A word about Multi-AZ deployments, which turns out to
                     be one of the coolest database features we use in the
                     AWS. When you provision a Multi-AZ DB Instance, Amazon
@@ -1330,13 +1474,15 @@ context             | A word about Multi-AZ deployments, which turns out to
                     manual intervention.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What web service supports the redis in-memory caching engine?
 my answer:          | Amazon ElastiCache
 ....................
-prediction          | Amazon ElastiCache | pr: 0.963, f1: 1.000
-prediction          | ElastiCache | pr: 0.017, f1: 0.667
+prediction          | f1: 0.000, pr: 0.950 | Prerender.io
+prediction          | f1: 1.000, pr: 0.938 | Amazon ElastiCache
+prediction          | f1: 0.667, pr: 0.027 | ElastiCache
 ....................
-time                | 0.148
+time                | 0.320
 context             | Amazon ElastiCache is a web service that makes it easy
                     to deploy, operate, and scale an in-memory cache. It
                     supports two open-source in-memory caching engines,
@@ -1346,13 +1492,15 @@ context             | Amazon ElastiCache is a web service that makes it easy
                     cross zone redundancy.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What does typescript compile to?
 my answer:          | plain JavaScript
 ....................
-prediction          | plain JavaScript, | pr: 0.972, f1: 1.000
-prediction          | plain JavaScript, | pr: 0.007, f1: 1.000
+prediction          | f1: 1.000, pr: 0.899 | plain JavaScript,
+prediction          | f1: 0.667, pr: 0.772 | JavaScript
+prediction          | f1: 0.667, pr: 0.065 | JavaScript,
 ....................
-time                | 0.177
+time                | 0.353
 context             | If you are using AngularJS as your UI framework, be
                     prepared, Angular 2 delivers a substantial change. No
                     more plain old JavaScript - say hi to Typescript.
@@ -1369,13 +1517,15 @@ context             | If you are using AngularJS as your UI framework, be
                     says the Angular 2 team, but more on that later.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What are the small chunks of code called which later are connected to form the application?
 my answer:          | components
 ....................
-prediction          | components | pr: 0.989, f1: 1.000
-prediction          | one big application. Those small chunks of code are components | pr: 0.002, f1: 0.182
+prediction          | f1: 1.000, pr: 0.983 | components
+prediction          | f1: 0.000, pr: 0.088 | spaghetti code)
+prediction          | f1: 0.000, pr: 0.083 | CQRS,
 ....................
-time                | 0.182
+time                | 0.381
 context             | Angular 2 is entirely component based; there are no
                     $scopes or controllers. Instead, you are writing small
                     chunks of code that are later connected to form one
@@ -1390,13 +1540,15 @@ context             | Angular 2 is entirely component based; there are no
                     somewhere else, we have to export it.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What do all Angular component names end with?
 my answer:          | Component
 ....................
-prediction          | Component, | pr: 0.869, f1: 1.000
-prediction          | Component, and the name of the file that holds it with .component. | pr: 0.076, f1: 0.167
+prediction          | f1: 1.000, pr: 0.909 | Component,
+prediction          | f1: 0.000, pr: 0.142 | data flow direction.
+prediction          | f1: 0.000, pr: 0.046 | root application component.
 ....................
-time                | 0.181
+time                | 0.381
 context             | As for the naming convention, each component name ends
                     with Component, and the name of the file that holds it
                     with .component. All the files are in kebab-case, so
@@ -1405,13 +1557,15 @@ context             | As for the naming convention, each component name ends
                     this: my-custom.component.ts.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What are attribute directives?
 my answer:          | the ones that change the appearance or behavior of an element they are applied to
 ....................
-prediction          | the ones that change the appearance or behavior of an element they are applied to. | pr: 0.435, f1: 1.000
-prediction          | ones that change the appearance or behavior of an element they are applied to. | pr: 0.253, f1: 1.000
+prediction          | f1: 0.000, pr: 0.437 | bootstrapping, data and event binding and filtering
+prediction          | f1: 1.000, pr: 0.323 | ones that change the appearance or behavior of an element they are applied to.
+prediction          | f1: 1.000, pr: 0.313 | the ones that change the appearance or behavior of an element they are applied to.
 ....................
-time                | 0.148
+time                | 0.353
 context             | Attribute directives are the ones that change the
                     appearance or behavior of an element they are applied
                     to. These directives are specified by their selector
@@ -1427,13 +1581,15 @@ context             | Attribute directives are the ones that change the
                     here).
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | In Angular 2, what is the name of the root component?
 my answer:          | AppComponent
 ....................
-prediction          | 'AppComponent'. | pr: 0.938, f1: 1.000
-prediction          | 'AppComponent'. | pr: 0.034, f1: 1.000
+prediction          | f1: 1.000, pr: 0.724 | “AppComponent”.
+prediction          | f1: 1.000, pr: 0.210 | “AppComponent”.
+prediction          | f1: 0.000, pr: 0.064 | Component,
 ....................
-time                | 0.180
+time                | 0.385
 context             | What is also new is that there is no bootstrap
                     directive. What we are doing instead is calling the
                     bootstrap function and passing in the root application
@@ -1441,13 +1597,15 @@ context             | What is also new is that there is no bootstrap
                     'AppComponent'.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What's the difference between promises and observables?
 my answer:          | Observables are lazy
 ....................
-prediction          | what's the difference | pr: 0.024, f1: 0.000
-prediction          | what's the difference between promises and observables? | pr: 0.023, f1: 0.000
+prediction          | f1: 1.000, pr: 0.530 | Observables are lazy
+prediction          | f1: 0.000, pr: 0.327 | we will be using “async” and “await”,
+prediction          | f1: 0.000, pr: 0.231 | we will be using “async” and “await”,
 ....................
-time                | 0.153
+time                | 0.351
 context             | In Angular 2, services are often used to fetch the data
                     from the server. While doing so they use HTTP client
                     that is built in Angular 2. There was a slight twist
@@ -1464,13 +1622,15 @@ context             | In Angular 2, services are often used to fetch the data
                     them in this great video which is worth watching.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How can brands make their interactions with users more personal?
 my answer:          | chat bots
 ....................
-prediction          | chat bots. | pr: 0.643, f1: 1.000
-prediction          | using AI Ashley talked about the most were chat bots. | pr: 0.017, f1: 0.333
+prediction          | f1: 0.333, pr: 0.124 | using AI Ashley talked about the most were chat bots.
+prediction          | f1: 0.000, pr: 0.092 | situation—we connected delight with functionality.
+prediction          | f1: 0.000, pr: 0.065 | using AI Ashley
 ....................
-time                | 0.178
+time                | 0.353
 context             | But the part of using AI Ashley talked about the most
                     were chat bots. Making those, brands can make their
                     interactions with users more direct and personal. If
@@ -1489,13 +1649,15 @@ context             | But the part of using AI Ashley talked about the most
                     would want to use.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Other than written content, what else should you think about to make your bot more appealing to users?
 my answer:          | visual design
 ....................
-prediction          | visual design | pr: 0.568, f1: 1.000
-prediction          | the visual design | pr: 0.419, f1: 0.800
+prediction          | f1: 0.000, pr: 0.876 | jobs the user needs to do and how fast they want the information.
+prediction          | f1: 1.000, pr: 0.654 | visual design
+prediction          | f1: 0.800, pr: 0.343 | the visual design
 ....................
-time                | 0.176
+time                | 0.381
 context             | What we also need to know is how much information is
                     needed - we don't want to provide too much nor too
                     little of it. Besides just written content, we should
@@ -1506,13 +1668,15 @@ context             | What we also need to know is how much information is
                     tells you what to do, again – display a message.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is a bus line?
 my answer:          | two-way serial communication line
 ....................
-prediction          | two-way serial communication line, | pr: 0.589, f1: 1.000
-prediction          | two-way serial communication | pr: 0.057, f1: 0.889
+prediction          | f1: 0.000, pr: 0.473 | a live list
+prediction          | f1: 1.000, pr: 0.363 | two-way serial communication line,
+prediction          | f1: 0.000, pr: 0.201 | live list
 ....................
-time                | 0.182
+time                | 0.348
 context             | The core of car communication is a bus line - two-way
                     serial communication line, with one or two wires for
                     the signal. All cars have multiple bus systems that
@@ -1526,13 +1690,15 @@ context             | The core of car communication is a bus line - two-way
                     1999-2006), some Minies under BMW and some Rovers.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What controls navigation on a BMW?
 my answer:          | I-bus (Information Bus)
 ....................
-prediction          | I-bus | pr: 0.325, f1: 0.667
-prediction          | I-bus (Information Bus) | pr: 0.206, f1: 1.000
+prediction          | f1: 0.000, pr: 0.476 | remote controller
+prediction          | f1: 1.000, pr: 0.325 | I-bus (Information Bus)
+prediction          | f1: 1.000, pr: 0.218 | I-bus (Information Bus)
 ....................
-time                | 0.152
+time                | 0.352
 context             | The core of car communication is a bus line - two-way
                     serial communication line, with one or two wires for
                     the signal. All cars have multiple bus systems that
@@ -1546,13 +1712,15 @@ context             | The core of car communication is a bus line - two-way
                     1999-2006), some Minies under BMW and some Rovers.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How can you build a simple css grid?
 my answer:          | with flexbox
 ....................
-prediction          | with flexbox | pr: 0.478, f1: 1.000
-prediction          | flexbox | pr: 0.231, f1: 0.667
+prediction          | f1: 0.667, pr: 0.509 | flexbox
+prediction          | f1: 1.000, pr: 0.243 | with flexbox
+prediction          | f1: 0.000, pr: 0.113 | responsive, flexible, pure CSS grid layouts,
 ....................
-time                | 0.177
+time                | 0.380
 context             | Rather then using “we cover all possible scenarios”
                     solutions that bring a whole new set of rules and
                     specifics to your workflow, you can easily build your
@@ -1567,13 +1735,15 @@ context             | Rather then using “we cover all possible scenarios”
                     versions of IE), we're good to go.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is an advantage to using flexbox over a floated grid?
 my answer:          | you have more options for display
 ....................
-prediction          | you have more options for display, | pr: 0.563, f1: 1.000
-prediction          | more options for display, | pr: 0.213, f1: 0.800
+prediction          | f1: 1.000, pr: 0.529 | you have more options for display,
+prediction          | f1: 0.800, pr: 0.264 | more options for display,
+prediction          | f1: 0.000, pr: 0.080 | it’s hard to set predefined CSS classes
 ....................
-time                | 0.176
+time                | 0.385
 context             | Rather then using “we cover all possible scenarios”
                     solutions that bring a whole new set of rules and
                     specifics to your workflow, you can easily build your
@@ -1588,13 +1758,15 @@ context             | Rather then using “we cover all possible scenarios”
                     versions of IE), we're good to go.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How do you apply different stylesheets to different window sizes?
 my answer:          | media query
 ....................
-prediction          | a simple definition of media query | pr: 0.498, f1: 0.500
-prediction          | simple definition of media query | pr: 0.405, f1: 0.571
+prediction          | f1: 0.000, pr: 0.745 | using different authentication and authorization mechanisms.
+prediction          | f1: 0.500, pr: 0.492 | a simple definition of media query
+prediction          | f1: 0.571, pr: 0.398 | simple definition of media query
 ....................
-time                | 0.182
+time                | 0.350
 context             | In today's web design, everything is about adapting
                     websites to different kinds of devices, and you should
                     be familiar with media queries. In case you're not, a
@@ -1608,13 +1780,15 @@ context             | In today's web design, everything is about adapting
                     a desktop-sized screen:
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | When using a print query, what should you do with audio and video?
 my answer:          | hide them, or show just the title
 ....................
-prediction          | hide them, or show just the title. | pr: 0.182, f1: 1.000
-prediction          | hide them, | pr: 0.156, f1: 0.444
+prediction          | f1: 0.143, pr: 0.413 | changing the CSS properties of HTML elements
+prediction          | f1: 1.000, pr: 0.124 | hide them, or show just the title.
+prediction          | f1: 0.444, pr: 0.115 | hide them,
 ....................
-time                | 0.182
+time                | 0.354
 context             | Here are a few useful tips and tricks when using the
                     print media query. As you can guess, elements such as
                     video and audio can not be reproduced on paper. The
@@ -1627,13 +1801,15 @@ context             | Here are a few useful tips and tricks when using the
                     between portrait and landscape orientation.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is a design pattern?
 my answer:          | a general reusable solution to a commonly occurring problem
 ....................
-prediction          | a general reusable solution to a commonly occurring problem in software development. | pr: 0.737, f1: 0.842
-prediction          | general reusable solution to a commonly occurring problem in software development. | pr: 0.118, f1: 0.842
+prediction          | f1: 0.000, pr: 0.749 | expression and switch statement.
+prediction          | f1: 0.842, pr: 0.450 | a general reusable solution to a commonly occurring problem in software development.
+prediction          | f1: 1.000, pr: 0.193 | a general reusable solution to a commonly occurring problem
 ....................
-time                | 0.153
+time                | 0.385
 context             | A design pattern is a general reusable solution to a
                     commonly occurring problem in software development. It
                     cannot be transformed directly into the source code as
@@ -1644,13 +1820,15 @@ context             | A design pattern is a general reusable solution to a
                     Entity Framework.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How does unit of work prevent unfinished requests from changing data?
 my answer:          | Unit of Work is handling them all in the TransactionScope
 ....................
-prediction          | Entity Framework. | pr: 0.071, f1: 0.000
-prediction          | ASP.NET using Entity Framework. | pr: 0.056, f1: 0.000
+prediction          | f1: 0.952, pr: 0.189 | Since the Unit of Work is handling them all in the TransactionScope,
+prediction          | f1: 0.182, pr: 0.128 | TransactionScope,
+prediction          | f1: 0.211, pr: 0.021 | to keep a list of requests in one place
 ....................
-time                | 0.179
+time                | 0.347
 context             | A design pattern is a general reusable solution to a
                     commonly occurring problem in software development. It
                     cannot be transformed directly into the source code as
@@ -1661,13 +1839,15 @@ context             | A design pattern is a general reusable solution to a
                     Entity Framework.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is a resource in ARM?
 my answer:          | a single manageable item
 ....................
-prediction          | a single manageable item | pr: 0.240, f1: 1.000
-prediction          | a single manageable item available through Azure, | pr: 0.169, f1: 0.727
+prediction          | f1: 0.000, pr: 0.509 | Web App and SQL database.
+prediction          | f1: 0.000, pr: 0.080 | Resources can access configuration of other resources using resource functions,
+prediction          | f1: 0.000, pr: 0.052 | configuration of other resources using resource functions,
 ....................
-time                | 0.181
+time                | 0.352
 context             | Before we dive deeper into ARM features, it’s important
                     to understand the terminology.  A Resource is a single
                     manageable item available through Azure, for example,
@@ -1678,13 +1858,15 @@ context             | Before we dive deeper into ARM features, it’s important
                     resources to be deployed to a Resource Group.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What does model binding in ASP.NET MVC simplify?
 my answer:          | working with data sent by the browser
 ....................
-prediction          | working with data sent by the browser | pr: 0.378, f1: 1.000
-prediction          | data sent by the browser | pr: 0.026, f1: 0.833
+prediction          | f1: 1.000, pr: 0.179 | working with data sent by the browser
+prediction          | f1: 0.526, pr: 0.043 | data sent by the browser because data is automatically assigned to the specified model.
+prediction          | f1: 0.125, pr: 0.016 | relational data model we would find in a relational database.
 ....................
-time                | 0.148
+time                | 0.385
 context             | Model binding is a mechanism ASP.NET MVC uses to create
                     parameter objects defined in controller action
                     methods. The parameters can be of any type, from
@@ -1696,13 +1878,15 @@ context             | Model binding is a mechanism ASP.NET MVC uses to create
                     writing almost the same code in every action method.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Where can you get a google api key?
 my answer:          | Google API Console
 ....................
-prediction          | Google API Console): | pr: 0.830, f1: 1.000
-prediction          | Console): | pr: 0.029, f1: 0.500
+prediction          | f1: 1.000, pr: 0.959 | Google API Console):
+prediction          | f1: 0.000, pr: 0.227 | here.
+prediction          | f1: 0.000, pr: 0.207 | You can get a finished code sample here.
 ....................
-time                | 0.149
+time                | 0.355
 context             | This article will teach you how to use Google Maps
                     JavaScript API, and will cover initialization, custom
                     styling, drawing basic shapes, adding markers, info
@@ -1714,13 +1898,15 @@ context             | This article will teach you how to use Google Maps
                     restrict key only to your site).
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | How does angular protect against XSRF?
 my answer:          | the double-submit cookie defense pattern
 ....................
-prediction          | by using the double-submit cookie defense pattern. | pr: 0.492, f1: 0.857
-prediction          | double-submit cookie defense pattern. | pr: 0.224, f1: 0.909
+prediction          | f1: 0.909, pr: 0.469 | double-submit cookie defense pattern.
+prediction          | f1: 0.000, pr: 0.300 | using good practices on both server and client sides.
+prediction          | f1: 0.000, pr: 0.229 | using good practices
 ....................
-time                | 0.176
+time                | 0.349
 context             | AngularJS also provides protection from certain types
                     of attacks if the server is compatible and properly
                     configured. Firstly, for those who do not know,
@@ -1741,13 +1927,15 @@ context             | AngularJS also provides protection from certain types
                     app.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Why shouldn't you put sensitive data in a web token?
 my answer:          | A token is not encrypted, but encoded
 ....................
-prediction          | A token is not encrypted, but encoded, | pr: 0.118, f1: 1.000
-prediction          | A token is not encrypted, | pr: 0.036, f1: 0.833
+prediction          | f1: 1.000, pr: 0.540 | A token is not encrypted, but encoded,
+prediction          | f1: 0.000, pr: 0.126 | my account number had to be passed around in plain sight
+prediction          | f1: 0.727, pr: 0.116 | not encrypted, but encoded,
 ....................
-time                | 0.178
+time                | 0.382
 context             | There are a couple of ways of authorizing communication
                     between client and server. For one, we can use
                     cookies, but there are plenty of ways to exploit them
@@ -1761,13 +1949,15 @@ context             | There are a couple of ways of authorizing communication
                     tokens generated on the server.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What are the different lifetimes of services in the context of ASP.NET Core?
 my answer:          | Singleton, Scoped, or Transient
 ....................
-prediction          | Singleton, Scoped, or Transient. | pr: 0.892, f1: 1.000
-prediction          | Singleton, Scoped, or Transient. | pr: 0.034, f1: 1.000
+prediction          | f1: 1.000, pr: 0.951 | Singleton, Scoped, or Transient.
+prediction          | f1: 0.000, pr: 0.331 | when the data is required only for populating view elements.
+prediction          | f1: 0.000, pr: 0.045 | like when the data is required only for populating view elements.
 ....................
-time                | 0.183
+time                | 0.383
 context             | Once the services are defined, it is necessary to
                     register the dependencies in ConfigureServices method
                     inside the Startup.cs class, so ASP.NET can know about
@@ -1778,13 +1968,15 @@ context             | Once the services are defined, it is necessary to
                     know which one to use, in what situations.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | What is a good example of a singleton?
 my answer:          | A logger
 ....................
-prediction          | A logger | pr: 0.698, f1: 1.000
-prediction          | logger | pr: 0.299, f1: 0.667
+prediction          | f1: 0.000, pr: 0.747 | anything bound as InSingletonScope
+prediction          | f1: 1.000, pr: 0.665 | A logger
+prediction          | f1: 0.667, pr: 0.287 | logger
 ....................
-time                | 0.183
+time                | 0.375
 context             | Providing the implementation as a second type parameter
                     will lazy-load the service the first time it is
                     requested. Another option, but not a better one, would
@@ -1798,13 +1990,15 @@ context             | Providing the implementation as a second type parameter
                     outputs.
 ----------------------------------------
 
+experiment:         | top_k_retriever-2-site_nostemmer_stopwords
 question:           | Other than written content, what else should you think about to make your bot more appealing to users?
 my answer:          | visual design
 ....................
-prediction          | visual design | pr: 0.567, f1: 1.000
-prediction          | the visual design | pr: 0.420, f1: 0.800
+prediction          | f1: 0.000, pr: 0.876 | jobs the user needs to do and how fast they want the information.
+prediction          | f1: 1.000, pr: 0.654 | visual design
+prediction          | f1: 0.800, pr: 0.343 | the visual design
 ....................
-time                | 0.183
+time                | 0.354
 context             | What we also need to know is how much information is
                     needed - we don’t want to provide too much nor too
                     little of it. Besides just written content, we should

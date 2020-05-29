@@ -1,0 +1,44 @@
+question:           | what's the best way to use custom fonts on a website?
+my answer:          | font-face
+....................
+prediction          | @font-face. | pr: 0.914, f1: 1.000
+prediction          | @font-face. | pr: 0.069, f1: 1.000
+....................
+time                | 0.150
+context             | There are several approaches for integrating custom
+                    fonts to standards-compliant web pages - some of them
+                    use custom scripts (Cufon, sIFR, FLIR), and others use
+                    pure-CSS solutions, like @font-face. All of these
+                    technologies have valid arguments both for and against
+                    their use, but probably the most flexible and safest,
+                    and in general the best method for using various non
+                    -system fonts on your web site is @font-face.
+----------------------------------------
+
+question:           | what's the easiest way to get web fonts?
+my answer:          | pick them up from various web sites
+....................
+prediction          | to pick them up from various web sites | pr: 0.774, f1: 0.933
+prediction          | to pick them up | pr: 0.087, f1: 0.545
+....................
+time                | 0.148
+context             | The easiest way to get web fonts is to pick them up
+                    from various web sites that hold vast font
+                    repositories of free or commercial fonts.
+----------------------------------------
+
+question:           | what causes the error The import org.apache.cordova cannot be resolved
+my answer:          | Missing cordova-2.2.0.jar file
+....................
+prediction          | cordova-2.2.0.jar file | pr: 0.455, f1: 0.909
+prediction          | Missing cordova-2.2.0.jar file | pr: 0.239, f1: 1.000
+....................
+time                | 0.179
+context             | Missing cordova-2.2.0.jar file is causing the infamous
+                    The import org.apache.cordova cannot be resolved
+                    error. You should have Eclipse, Android SDK and the
+                    ADT plugin already installed on your machine, the PATH
+                    environment variables should be set up. Create a new
+                    project using
+----------------------------------------
+

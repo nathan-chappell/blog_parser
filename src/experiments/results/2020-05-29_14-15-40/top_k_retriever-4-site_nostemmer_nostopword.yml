@@ -1,0 +1,4362 @@
+- !Result
+  answer: font-face
+  context: There are several approaches for integrating custom fonts to standards-compliant
+    web pages - some of them use custom scripts (Cufon, sIFR, FLIR), and others use
+    pure-CSS solutions, like @font-face. All of these technologies have valid arguments
+    both for and against their use, but probably the most flexible and safest, and
+    in general the best method for using various non-system fonts on your web site
+    is @font-face.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: '@font-face'
+    f1: 1.0
+    metadata:
+      article_title: Custom fonts using Cufon on Windows Phone
+      author: Ivan Basic
+      date: '2013-03-10T00:00:00'
+      document_id: 3ea473f592e317a8490becfa395938b3
+      index: site_nostemmer_nostopword
+      name: Custom fonts using Cufon on Windows Phone, _1, by Ivan Basic
+      paragraph_title: _1
+    pr: 0.9480061780277289
+  - !Prediction
+    answer: '@font-face.'
+    f1: 1.0
+    metadata:
+      article_title: FontFace - custom fonts for your sites
+      author: Ivan Basic
+      date: '2012-01-24T00:00:00'
+      document_id: 4abe11ce3553547389ab617bfec79fed
+      index: site_nostemmer_nostopword
+      name: FontFace - custom fonts for your sites, , by Ivan Basic
+      paragraph_title: ''
+    pr: 0.7864505340434604
+  - !Prediction
+    answer: web @font-face generators
+    f1: 0.6666666666666666
+    metadata:
+      article_title: FontFace - custom fonts for your sites
+      author: Ivan Basic
+      date: '2012-01-24T00:00:00'
+      document_id: b0d230a8a392c2e7a26cecc52a2807e1
+      index: site_nostemmer_nostopword
+      name: FontFace - custom fonts for your sites, Generating everything we need_2,
+        by Ivan Basic
+      paragraph_title: Generating everything we need_2
+    pr: 0.7161257870252982
+  question: what's the best way to use custom fonts on a website?
+  time: 0.749379
+- !Result
+  answer: pick them up from various web sites
+  context: The easiest way to get web fonts is to pick them up from various web sites
+    that hold vast font repositories of free or commercial fonts.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: simply upload your font file to one of the @font-face generators,
+    f1: 0.0
+    metadata: &id001
+      article_title: FontFace - custom fonts for your sites
+      author: Ivan Basic
+      date: '2012-01-24T00:00:00'
+      document_id: b0d230a8a392c2e7a26cecc52a2807e1
+      index: site_nostemmer_nostopword
+      name: FontFace - custom fonts for your sites, Generating everything we need_2,
+        by Ivan Basic
+      paragraph_title: Generating everything we need_2
+    pr: 0.41808134243972006
+  - !Prediction
+    answer: upload your font file to one of the @font-face generators,
+    f1: 0.0
+    metadata: *id001
+    pr: 0.22356823243303836
+  - !Prediction
+    answer: probably the most flexible and safest,
+    f1: 0.0
+    metadata:
+      article_title: FontFace - custom fonts for your sites
+      author: Ivan Basic
+      date: '2012-01-24T00:00:00'
+      document_id: 4abe11ce3553547389ab617bfec79fed
+      index: site_nostemmer_nostopword
+      name: FontFace - custom fonts for your sites, , by Ivan Basic
+      paragraph_title: ''
+    pr: 0.21781934049387175
+  question: what's the easiest way to get web fonts?
+  time: 0.724422
+- !Result
+  answer: Missing cordova-2.2.0.jar file
+  context: Missing cordova-2.2.0.jar file is causing the infamous The import org.apache.cordova
+    cannot be resolved error. You should have Eclipse, Android SDK and the ADT plugin
+    already installed on your machine, the PATH environment variables should be set
+    up. Create a new project using
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Missing cordova-2.2.0.jar file
+    f1: 1.0
+    metadata:
+      article_title: Building Cordova 2.2.0
+      author: Tihomir Kit
+      date: '2012-12-20T00:00:00'
+      document_id: 4ae8cfb6b81da0152a8b2c90dcb85ff3
+      index: site_nostemmer_nostopword
+      name: Building Cordova 2.2.0, _1, by Tihomir Kit
+      paragraph_title: _1
+    pr: 0.9539418596917528
+  - !Prediction
+    answer: rmagic gem.
+    f1: 0.0
+    metadata:
+      article_title: Installing Redmine and Ubuntu on VirtualBox
+      author: Mario Madzar
+      date: '2013-01-07T00:00:00'
+      document_id: 4233576314922664901e39c37e9e23c2
+      index: site_nostemmer_nostopword
+      name: Installing Redmine and Ubuntu on VirtualBox, Installing Redmine, by Mario
+        Madzar
+      paragraph_title: Installing Redmine
+    pr: 0.6874052284079042
+  - !Prediction
+    answer: If the token is missing or invalid,
+    f1: 0.0
+    metadata:
+      article_title: Security in an AngularJS application
+      author: Dominik Crnojevac
+      date: '2017-03-13T00:00:00'
+      document_id: bd2ca3f4ce24e8f14e86b9978423aa44
+      index: site_nostemmer_nostopword
+      name: Security in an AngularJS application, Token based authorization_5, by
+        Dominik Crnojevac
+      paragraph_title: Token based authorization_5
+    pr: 0.6676363046241107
+  question: what causes the error The import org.apache.cordova cannot be resolved
+  time: 0.72484
+- !Result
+  answer: install the VirtualBox guest additions
+  context: After restarting the machine for the first time and logging in we need
+    to install the VirtualBox guest additions to get access to all available features
+    of the guest machine (mouse integration, full resolution, etc.). Just press Host+D
+    or choose Install Guest Additions... action from Devices menu.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Ruby dependencies
+    f1: 0.0
+    metadata:
+      article_title: Installing Redmine and Ubuntu on VirtualBox
+      author: Mario Madzar
+      date: '2013-01-07T00:00:00'
+      document_id: ca7d272604e9758d99f7251158df65bd
+      index: site_nostemmer_nostopword
+      name: Installing Redmine and Ubuntu on VirtualBox, Installing Ruby and RubyOnRails,
+        by Mario Madzar
+      paragraph_title: Installing Ruby and RubyOnRails
+    pr: 0.622936298828467
+  - !Prediction
+    answer: install activerecord mysql adapter
+    f1: 0.2222222222222222
+    metadata:
+      article_title: Installing Redmine and Ubuntu on VirtualBox
+      author: Mario Madzar
+      date: '2013-01-07T00:00:00'
+      document_id: 4233576314922664901e39c37e9e23c2
+      index: site_nostemmer_nostopword
+      name: Installing Redmine and Ubuntu on VirtualBox, Installing Redmine, by Mario
+        Madzar
+      paragraph_title: Installing Redmine
+    pr: 0.4772610578516634
+  - !Prediction
+    answer: "leave all scheduled activities aside and see what\u2019s going on."
+    f1: 0.0
+    metadata:
+      article_title: When Google says your software is unwanted
+      author: Denis Susac
+      date: '2015-04-23T00:00:00'
+      document_id: 2566d78fdb100732844001abc129f6f7
+      index: site_nostemmer_nostopword
+      name: When Google says your software is unwanted, _4, by Denis Susac
+      paragraph_title: _4
+    pr: 0.45493013316064435
+  question: After installing virtualbox, what's the first thing you need to do?
+  time: 0.75093
+- !Result
+  answer: Downloading and building Redmine from source is a preferred way to install
+    it
+  context: Now we need to get Redmine source. Downloading and building Redmine from
+    source is a preferred way to install it since we will benefit from the latest
+    fixes and upgrades provided by the community. Subversion is included in Ubuntu
+    and I'll use it to get latest source. You can find instructions for code checkout
+    on the Redmine site Download section - just enter the command below and the last
+    stable release will be checked out to subdolfer redmine-2.1
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: copying sample database configuration and modifying it.
+    f1: 0.2
+    metadata: &id002
+      article_title: Installing Redmine and Ubuntu on VirtualBox
+      author: Mario Madzar
+      date: '2013-01-07T00:00:00'
+      document_id: 9294d7521693fe604b150b088de5648e
+      index: site_nostemmer_nostopword
+      name: Installing Redmine and Ubuntu on VirtualBox, Redmine Configuration, by
+        Mario Madzar
+      paragraph_title: Redmine Configuration
+    pr: 0.44290354506246743
+  - !Prediction
+    answer: For added security,
+    f1: 0.0
+    metadata:
+      article_title: Installing Prerender.io
+      author: Denis Susac
+      date: '2016-02-22T00:00:00'
+      document_id: 3f136cfa4f375665ea22724b62262ee2
+      index: site_nostemmer_nostopword
+      name: Installing Prerender.io, Caching, by Denis Susac
+      paragraph_title: Caching
+    pr: 0.26803928190447834
+  - !Prediction
+    answer: copying sample database configuration
+    f1: 0.0
+    metadata: *id002
+    pr: 0.1400687442009163
+  question: How should I install redmine on ubuntu?
+  time: 0.754678
+- !Result
+  answer: it contains configuration settings
+  context: After downloading the code we need to modify a few configuration files
+    in Redmine project to support our development environment. We will start with
+    Gemfile, as it contains configuration settings for all required gems. I ended
+    up with changing these lines to accommodate our environment
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: configuration settings for all required gems.
+    f1: 0.4
+    metadata: &id003
+      article_title: Installing Redmine and Ubuntu on VirtualBox
+      author: Mario Madzar
+      date: '2013-01-07T00:00:00'
+      document_id: 4233576314922664901e39c37e9e23c2
+      index: site_nostemmer_nostopword
+      name: Installing Redmine and Ubuntu on VirtualBox, Installing Redmine, by Mario
+        Madzar
+      paragraph_title: Installing Redmine
+    pr: 0.31588841044816185
+  - !Prediction
+    answer: object-relational-mapping
+    f1: 0.0
+    metadata:
+      article_title: Advantages and disadvantages of micro-ORMs
+      author: Emanuel Skrenkovic
+      date: '2019-02-13T00:00:00'
+      document_id: e5613d8d1e73a7fefda41e56207ba028
+      index: site_nostemmer_nostopword
+      name: Advantages and disadvantages of micro-ORMs, What is an ORM?, by Emanuel
+        Skrenkovic
+      paragraph_title: What is an ORM?
+    pr: 0.27407682926600785
+  - !Prediction
+    answer: it contains configuration settings for all required gems.
+    f1: 0.6666666666666666
+    metadata: *id003
+    pr: 0.23374820796693285
+  question: What is a Gemfile?
+  time: 0.693532
+- !Result
+  answer: an open source C# library
+  context: We will use an open source C# library called Moon-APNS to send messages
+    to APNS. You can find more info on it on arashnorouzi blog. Just download the
+    library from GitHub, add its project to the solution and add references to the
+    Model project and Moon-APNS project from the ServerApp.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: open source C# library
+    f1: 0.8888888888888888
+    metadata: &id004
+      article_title: ASP.NET WebAPI, APNS and Android working together
+      author: Mario Madzar
+      date: '2013-02-01T00:00:00'
+      document_id: 0571176df31081a6fed707fdc1c3f5c3
+      index: site_nostemmer_nostopword
+      name: ASP.NET WebAPI, APNS and Android working together, MVC WebAPI service_4,
+        by Mario Madzar
+      paragraph_title: MVC WebAPI service_4
+    pr: 0.560920803794204
+  - !Prediction
+    answer: an open source C# library
+    f1: 1.0
+    metadata: *id004
+    pr: 0.24356349246128772
+  - !Prediction
+    answer: root application component.
+    f1: 0.0
+    metadata:
+      article_title: Please move, here comes Angular 2
+      author: Dino Repac
+      date: '2016-08-03T00:00:00'
+      document_id: 8e02cda310cef927019ae8c780d308c4
+      index: site_nostemmer_nostopword
+      name: Please move, here comes Angular 2, Template features, by Dino Repac
+      paragraph_title: Template features
+    pr: 0.07313913623777513
+  question: What is moon-apns?
+  time: 0.754544
+- !Result
+  answer: basically function pointers
+  context: The main idea is to declare two delegates. As we all know, delegates in
+    .NET are basically function pointers. The first one is used to reference a repository
+    method, and the second references an action performed on each entity.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: function pointers.
+    f1: 0.8
+    metadata: &id005
+      article_title: Delegates in action
+      author: Ivan Marusic
+      date: '2013-02-17T00:00:00'
+      document_id: 02b3865f713f24e1db3b05a5926527ab
+      index: site_nostemmer_nostopword
+      name: Delegates in action, Implementation, by Ivan Marusic
+      paragraph_title: Implementation
+    pr: 0.931812806788173
+  - !Prediction
+    answer: locking options
+    f1: 0.0
+    metadata:
+      article_title: Redis distributed locking for pragmatists
+      author: Kristijan Horvat
+      date: '2017-05-19T00:00:00'
+      document_id: b85c3e294212f300fa8f80bd20abc1d3
+      index: site_nostemmer_nostopword
+      name: Redis distributed locking for pragmatists, .NET C# locking options, by
+        Kristijan Horvat
+      paragraph_title: .NET C# locking options
+    pr: 0.7515954665902989
+  - !Prediction
+    answer: basically function pointers.
+    f1: 1.0
+    metadata: *id005
+    pr: 0.05620552593436834
+  question: What are delegates in .NET?
+  time: 0.724706
+- !Result
+  answer: Internet Explorer Mobile on Windows Phone 7.5
+  context: Every major browser platform supports @font-face, except Internet Explorer
+    Mobile on Windows Phone 7.5. This problem can be solved using Cufon, a javascript
+    text-image replacement solution that combines HTML5 canvas and VML to render the
+    fonts.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Internet Explorer Mobile
+    f1: 0.5454545454545454
+    metadata:
+      article_title: Custom fonts using Cufon on Windows Phone
+      author: Ivan Basic
+      date: '2013-03-10T00:00:00'
+      document_id: 3ea473f592e317a8490becfa395938b3
+      index: site_nostemmer_nostopword
+      name: Custom fonts using Cufon on Windows Phone, _1, by Ivan Basic
+      paragraph_title: _1
+    pr: 0.9137256487168344
+  - !Prediction
+    answer: website
+    f1: 0.0
+    metadata:
+      article_title: FontFace - custom fonts for your sites
+      author: Ivan Basic
+      date: '2012-01-24T00:00:00'
+      document_id: ffd3911a6b92b4a512aee5ef6c28eb0b
+      index: site_nostemmer_nostopword
+      name: FontFace - custom fonts for your sites, Basic usage, by Ivan Basic
+      paragraph_title: Basic usage
+    pr: 0.8841671121651586
+  - !Prediction
+    answer: full browser
+    f1: 0.0
+    metadata:
+      article_title: FontFace - custom fonts for your sites
+      author: Ivan Basic
+      date: '2012-01-24T00:00:00'
+      document_id: baeff7682ebab95edad6ce5f6568a586
+      index: site_nostemmer_nostopword
+      name: FontFace - custom fonts for your sites, Generating everything we need_1,
+        by Ivan Basic
+      paragraph_title: Generating everything we need_1
+    pr: 0.3416906902520509
+  question: What browser does not support @font-face?
+  time: 0.689816
+- !Result
+  answer: line-height
+  context: 'There is one issue that remains to be solved: line-height css rule is
+    not supported by Cufon. You can work around this limitation by'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: line-height
+    f1: 1.0
+    metadata:
+      article_title: Custom fonts using Cufon on Windows Phone
+      author: Ivan Basic
+      date: '2013-03-10T00:00:00'
+      document_id: 616356dc00ef48a0efc97c9396a6c576
+      index: site_nostemmer_nostopword
+      name: Custom fonts using Cufon on Windows Phone, _10, by Ivan Basic
+      paragraph_title: _10
+    pr: 0.819089983938909
+  - !Prediction
+    answer: W3C CR
+    f1: 0.0
+    metadata: &id006
+      article_title: Supercharge your colors with the PostCSS color() function
+      author: Mihael Tomic
+      date: '2017-08-08T00:00:00'
+      document_id: 37c678a47663b98b622d6de6085c63aa
+      index: site_nostemmer_nostopword
+      name: Supercharge your colors with the PostCSS color() function, Defining our
+        color theme, by Mihael Tomic
+      paragraph_title: Defining our color theme
+    pr: 0.3083250017966144
+  - !Prediction
+    answer: CSS variables which are W3C CR
+    f1: 0.0
+    metadata: *id006
+    pr: 0.199184588212308
+  question: Which css rules are not supported by cufon?
+  time: 0.720681
+- !Result
+  answer: run it inside of a BEGIN TRANSACTION / ROLLBACK TRANSACTION block
+  context: 'What if you have a large DB that takes long to back-up and you really
+    don''t have that time? What if you absolutely must do the edit/update without
+    backup. There is a way to test of the script is running fine: run it inside of
+    a BEGIN TRANSACTION / ROLLBACK TRANSACTION block and add script that checks the
+    results after the delete/update. I do this always, regardless if I have a backup
+    or not'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: deleted the wrong data.
+    f1: 0.0
+    metadata: &id007
+      article_title: How to prevent data loss during delete update in SQL Server
+      author: Goran Pavlovic
+      date: '2013-04-22T00:00:00'
+      document_id: 2a6c59e4270043fd9b485aa9a5229934
+      index: site_nostemmer_nostopword
+      name: How to prevent data loss during delete update in SQL Server, _3, by Goran
+        Pavlovic
+      paragraph_title: _3
+    pr: 0.6877915394163665
+  - !Prediction
+    answer: on the fly.
+    f1: 0.0
+    metadata:
+      article_title: How to prevent data loss during delete update in SQL Server
+      author: Goran Pavlovic
+      date: '2013-04-22T00:00:00'
+      document_id: f3e222c0b0635c34da05ef33a71a0090
+      index: site_nostemmer_nostopword
+      name: How to prevent data loss during delete update in SQL Server, _4, by Goran
+        Pavlovic
+      paragraph_title: _4
+    pr: 0.660885345145406
+  - !Prediction
+    answer: your script deleted the wrong data.
+    f1: 0.0
+    metadata: *id007
+    pr: 0.11629318110317488
+  question: How can I test an edit/ delete script without backup?
+  time: 0.688134
+- !Result
+  answer: MVC 4
+  context: Even though there is an MVC 4 template for a new Internet project that
+    contains membership functionality, some people like to start building their apps
+    from an empty project.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: MVC 4
+    f1: 1.0
+    metadata:
+      article_title: Adding ASP.NET SimpleMembership to an existing MVC 4 application
+      author: Dalibor Mesaric
+      date: '2013-05-07T00:00:00'
+      document_id: 02319583ad72dc40921ce020cab38b27
+      index: site_nostemmer_nostopword
+      name: Adding ASP.NET SimpleMembership to an existing MVC 4 application, , by
+        Dalibor Mesaric
+      paragraph_title: ''
+    pr: 0.7679431410295088
+  - !Prediction
+    answer: Angular 2
+    f1: 0.0
+    metadata:
+      article_title: Please move, here comes Angular 2
+      author: Dino Repac
+      date: '2016-08-03T00:00:00'
+      document_id: 8e02cda310cef927019ae8c780d308c4
+      index: site_nostemmer_nostopword
+      name: Please move, here comes Angular 2, Template features, by Dino Repac
+      paragraph_title: Template features
+    pr: 0.4013006742662739
+  - !Prediction
+    answer: ASP.NET
+    f1: 0.0
+    metadata:
+      article_title: 'Delegates in action, part 2: ASP.NET password encryption'
+      author: Ivan Marusic
+      date: '2013-06-10T00:00:00'
+      document_id: ab60f0916bd305797bf2e9f1822b8637
+      index: site_nostemmer_nostopword
+      name: 'Delegates in action, part 2: ASP.NET password encryption, , by Ivan Marusic'
+      paragraph_title: ''
+    pr: 0.19672809808193925
+  question: What template has membership functionality?
+  time: 0.70634
+- !Result
+  answer: it isn't suppose to work that way
+  context: I'd like to start with Live SDK sample landing page for Windows Phone.
+    There is a link to download it, and it says it's working on WP7. There is also
+    a code sample. Great! Except, um, that's the code sample for WP8. Even though
+    async and await are working on WP7, Live SDK isn't working with it. Why?! I was
+    stuck until I found that it isn't suppose to work that way - you should use the
+    event pattern instead.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: async and await
+    f1: 0.0
+    metadata:
+      article_title: Azure Mobile Services tips and tricks
+      author: Dalibor Mesaric
+      date: '2013-05-27T00:00:00'
+      document_id: bd73316d9ff804165edfeafefa36fdf9
+      index: site_nostemmer_nostopword
+      name: Azure Mobile Services tips and tricks, Documentation and code samples,
+        by Dalibor Mesaric
+      paragraph_title: Documentation and code samples
+    pr: 0.27653655648721553
+  - !Prediction
+    answer: "it doesn\u2019t have any supporting circuitry,"
+    f1: 0.26666666666666666
+    metadata:
+      article_title: 'IoT with ESP8266 - Part 1: Basics'
+      author: Ivan Cagalj
+      date: '2017-04-20T00:00:00'
+      document_id: cdb21a2a0d289a3d3751055f29fb8feb
+      index: site_nostemmer_nostopword
+      name: 'IoT with ESP8266 - Part 1: Basics, ESP-01, by Ivan Cagalj'
+      paragraph_title: ESP-01
+    pr: 0.254050251184168
+  - !Prediction
+    answer: the PATH environment variables should be set up.
+    f1: 0.0
+    metadata:
+      article_title: Building Cordova 2.2.0
+      author: Tihomir Kit
+      date: '2012-12-20T00:00:00'
+      document_id: 4ae8cfb6b81da0152a8b2c90dcb85ff3
+      index: site_nostemmer_nostopword
+      name: Building Cordova 2.2.0, _1, by Tihomir Kit
+      paragraph_title: _1
+    pr: 0.09268476551156368
+  question: Why doesn't Live SDK work on WP7?
+  time: 0.750018
+- !Result
+  answer: set a single setting in your web.config
+  context: Setting the password formats in ASP.Net is quite simple. All you need to
+    do is to set a single setting in your web.config and you are ready to go. But
+    what if you've already used Clear password format, your application is in a production
+    environment, and you decide to change it to the Hashed password format? You cannot
+    just change the PasswordFormat setting and expect that everything will work fine.
+    You have to care of the old entries and convert them to the new password format.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: conversion
+    f1: 0.0
+    metadata: &id008
+      article_title: 'Delegates in action, part 2: ASP.NET password encryption'
+      author: Ivan Marusic
+      date: '2013-06-10T00:00:00'
+      document_id: 4db5fea73bf773f634cdcbbd3488c55e
+      index: site_nostemmer_nostopword
+      name: 'Delegates in action, part 2: ASP.NET password encryption, Summary, by
+        Ivan Marusic'
+      paragraph_title: Summary
+    pr: 0.32183591808808387
+  - !Prediction
+    answer: change the ASP.NET membership password format
+    f1: 0.0
+    metadata:
+      article_title: 'Delegates in action, part 2: ASP.NET password encryption'
+      author: Ivan Marusic
+      date: '2013-06-10T00:00:00'
+      document_id: ab60f0916bd305797bf2e9f1822b8637
+      index: site_nostemmer_nostopword
+      name: 'Delegates in action, part 2: ASP.NET password encryption, , by Ivan Marusic'
+      paragraph_title: ''
+    pr: 0.25369371640954874
+  - !Prediction
+    answer: password format conversion
+    f1: 0.0
+    metadata: *id008
+    pr: 0.23595932222924887
+  question: How do you set a password format in ASP.net?
+  time: 0.693452
+- !Result
+  answer: make a database backup
+  context: We strongly recommend you to make a database backup before you start playing
+    either with password format conversion or some other data manipulation task.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: make a database backup
+    f1: 1.0
+    metadata:
+      article_title: 'Delegates in action, part 2: ASP.NET password encryption'
+      author: Ivan Marusic
+      date: '2013-06-10T00:00:00'
+      document_id: 4db5fea73bf773f634cdcbbd3488c55e
+      index: site_nostemmer_nostopword
+      name: 'Delegates in action, part 2: ASP.NET password encryption, Summary, by
+        Ivan Marusic'
+      paragraph_title: Summary
+    pr: 0.9271219422440815
+  - !Prediction
+    answer: jobs the user needs to do and how fast they want the information.
+    f1: 0.0
+    metadata:
+      article_title: AI - our best friend, or is it?
+      author: Ivana Simic
+      date: '2016-11-28T00:00:00'
+      document_id: 002f69ebfecba5cb3e3111066c323d59
+      index: site_nostemmer_nostopword
+      name: "AI - our best friend, or is it?, AI as our right-hand assistant\u2026\
+        _3, by Ivana Simic"
+      paragraph_title: "AI as our right-hand assistant\u2026_3"
+    pr: 0.8136196177707653
+  - !Prediction
+    answer: convert them to the new password format.
+    f1: 0.0
+    metadata:
+      article_title: 'Delegates in action, part 2: ASP.NET password encryption'
+      author: Ivan Marusic
+      date: '2013-06-10T00:00:00'
+      document_id: 8e6a54058bf5008f80ef45217bf1308b
+      index: site_nostemmer_nostopword
+      name: 'Delegates in action, part 2: ASP.NET password encryption, The problem,
+        by Ivan Marusic'
+      paragraph_title: The problem
+    pr: 0.6568747289070807
+  question: What should you do before changing the password format?
+  time: 0.690796
+- !Result
+  answer: association of local software companies and independent contractors
+  context: The association of local software companies and independent contractors
+    - known as Osijek Software City - now includes several hundred developers with
+    different backgrounds and is growing stronger every month. Our goal is to put
+    Osijek on a global IT industry map, and our members cover a large spectrum of
+    different technologies, from Magento and LAMP stack, to Java and .NET.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Department of Mathematics
+    f1: 0.18181818181818182
+    metadata:
+      article_title: Deep learning for medical imaging, part 1
+      author: Dijana Penic
+      date: '2020-03-06T00:00:00'
+      document_id: c659456ac06502e1555f1c6471c4c528
+      index: site_nostemmer_nostopword
+      name: Deep learning for medical imaging, part 1, Research, by Dijana Penic
+      paragraph_title: Research
+    pr: 0.936940626484855
+  - !Prediction
+    answer: The association of local software companies and independent contractors
+    f1: 0.9411764705882353
+    metadata: &id009
+      article_title: The Geek Gathering 2013
+      author: Denis Susac
+      date: '2013-10-17T00:00:00'
+      document_id: 9babae3c5310fad7c4057efc05d759be
+      index: site_nostemmer_nostopword
+      name: The Geek Gathering 2013, , by Denis Susac
+      paragraph_title: ''
+    pr: 0.6141296085584003
+  - !Prediction
+    answer: association of local software companies and independent contractors
+    f1: 1.0
+    metadata: *id009
+    pr: 0.25846345525816616
+  question: What is Osijek Software City?
+  time: 0.728231
+- !Result
+  answer: handles file upload for you and lets you upload files asynchronously to
+    the server
+  context: Angular-file-upload directive is an awesome lightweight AngularJS directive
+    which handles file upload for you and lets you upload files asynchronously to
+    the server. This post will give you basic understanding on how to upload files
+    by using this directive together with .NET WebAPI service.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: it iterates through each selected file
+    f1: 0.1111111111111111
+    metadata: &id010
+      article_title: Async upload using angular-file-upload directive and .NET WebAPI
+        service
+      author: Tihomir Kit
+      date: '2013-12-08T00:00:00'
+      document_id: e2cf13220260ab686d6b17b5e93afc61
+      index: site_nostemmer_nostopword
+      name: Async upload using angular-file-upload directive and .NET WebAPI service,
+        _6, by Tihomir Kit
+      paragraph_title: _6
+    pr: 0.43221014393528634
+  - !Prediction
+    answer: lets you upload files asynchronously to the server.
+    f1: 0.8
+    metadata:
+      article_title: Async upload using angular-file-upload directive and .NET WebAPI
+        service
+      author: Tihomir Kit
+      date: '2013-12-08T00:00:00'
+      document_id: 081e42f9a070dfeead7a82c3b9f2f0bc
+      index: site_nostemmer_nostopword
+      name: Async upload using angular-file-upload directive and .NET WebAPI service,
+        _1, by Tihomir Kit
+      paragraph_title: _1
+    pr: 0.3387889504455899
+  - !Prediction
+    answer: iterates through each selected file
+    f1: 0.11764705882352941
+    metadata: *id010
+    pr: 0.23840335919126332
+  question: What does angular-file-upload do?
+  time: 0.699946
+- !Result
+  answer: Microsoft recently introduced Cross-Origin Resource Sharing (CORS) support
+  context: Microsoft recently introduced Cross-Origin Resource Sharing (CORS) support
+    for Azure blobs, queues and tables.  This means you can now access Azure resources
+    using AJAX-only calls from any domain which is quite handy. Imagine having a website
+    hosted on your own server and allowing your users to upload large files to Azure
+    Storage. Previously, you would need to upload and siphon all the data through
+    your server and you would have to use Azure Storage SDK to do it. This means that
+    processing time and bandwidth of your server are being wasted just for relaying
+    data to its real destination. The good news is - you can now upload files to Azure
+    Storage directly from the browser, using only client-side code and the Azure REST
+    API, and without wasting additional server resources.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: quite handy.
+    f1: 0.0
+    metadata: &id011
+      article_title: Managing Azure CORS rules
+      author: Tihomir Kit
+      date: '2013-12-28T00:00:00'
+      document_id: 32201d878c709887fb3efbdd6ce2856d
+      index: site_nostemmer_nostopword
+      name: Managing Azure CORS rules, _1, by Tihomir Kit
+      paragraph_title: _1
+    pr: 0.6265493206313266
+  - !Prediction
+    answer: is quite handy.
+    f1: 0.0
+    metadata: *id011
+    pr: 0.15561743752361856
+  - !Prediction
+    answer: resource functions, and automatically configure themselves.
+    f1: 0.0
+    metadata:
+      article_title: Introduction to Azure Resource Manager
+      author: Slaven Vladisavljevic
+      date: '2017-01-27T00:00:00'
+      document_id: f8fe89c720608d8c363d3e0f88ba9301
+      index: site_nostemmer_nostopword
+      name: Introduction to Azure Resource Manager, ARM Template, by Slaven Vladisavljevic
+      paragraph_title: ARM Template
+    pr: 0.09191625919554536
+  question: Why can you now access azure resources from any domain?
+  time: 0.720095
+- !Result
+  answer: using the Azure SDK
+  context: 'To be able to upload files this way, you would of course need to enable
+    CORS for a particular Azure Storage account you want to use. There are two tips
+    that could save you time with this:  as far as I know, you can''t manage Azure
+    CORS rules through the Azure management portal at this moment, it needs to be
+    done using the Azure SDK'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: on-the-fly,
+    f1: 0.2857142857142857
+    metadata:
+      article_title: Managing Azure CORS rules
+      author: Tihomir Kit
+      date: '2013-12-28T00:00:00'
+      document_id: 82d5a4c957f739e749094e539026879a
+      index: site_nostemmer_nostopword
+      name: Managing Azure CORS rules, _3, by Tihomir Kit
+      paragraph_title: _3
+    pr: 0.9676803090280437
+  - !Prediction
+    answer: add some code to your project,
+    f1: 0.0
+    metadata:
+      article_title: Managing Azure CORS rules
+      author: Tihomir Kit
+      date: '2013-12-28T00:00:00'
+      document_id: 0d116dd943a4a0212c9a769761e50a46
+      index: site_nostemmer_nostopword
+      name: Managing Azure CORS rules, _4, by Tihomir Kit
+      paragraph_title: _4
+    pr: 0.0633695252479245
+  - !Prediction
+    answer: upload blobs directly from the web browser.
+    f1: 0.18181818181818182
+    metadata:
+      article_title: Building Windows Azure Media Services async CORS enabled upload
+      author: Tihomir Kit
+      date: '2014-02-19T00:00:00'
+      document_id: 01c6b6ef1fd873e70b42083457d6f85c
+      index: site_nostemmer_nostopword
+      name: Building Windows Azure Media Services async CORS enabled upload, Why async
+        cors enabled upload?, by Tihomir Kit
+      paragraph_title: Why async cors enabled upload?
+    pr: 0.056724029389932706
+  question: How can you change Azure CORS rules?
+  time: 0.719502
+- !Result
+  answer: using em dashes
+  context: The default browser styles for the bulleted lists are a bit boring and
+    not really pretty. Let's fix that up with a quick Sass mixin by using em dashes
+    before the text.  Let's set up some basic variables first. The $list-nice-dash
+    is an option between an en-dash and an em-dash respectively. Use $list-nice-generate-html-class
+    variable for HTML class generation for the list (for further reuse).
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: bindonce
+    f1: 0.0
+    metadata:
+      article_title: Improving AngularJS long list rendering performance using ReactJS
+      author: Tihomir Kit
+      date: '2014-06-20T00:00:00'
+      document_id: 41ce27e8db7d8bd74b053cf85275f2bd
+      index: site_nostemmer_nostopword
+      name: Improving AngularJS long list rendering performance using ReactJS, _3,
+        by Tihomir Kit
+      paragraph_title: _3
+    pr: 0.5600659719191583
+  - !Prediction
+    answer: using a ng-repeat directive,
+    f1: 0.25
+    metadata: &id012
+      article_title: Improving AngularJS long list rendering performance using ReactJS
+      author: Tihomir Kit
+      date: '2014-06-20T00:00:00'
+      document_id: 407a48d2be6a4bc7735ebc7885b3c8b7
+      index: site_nostemmer_nostopword
+      name: Improving AngularJS long list rendering performance using ReactJS, _1,
+        by Tihomir Kit
+      paragraph_title: _1
+    pr: 0.39423404662370487
+  - !Prediction
+    answer: ng-repeat directive,
+    f1: 0.0
+    metadata: *id012
+    pr: 0.25489170856172194
+  question: How can you make bulleted lists prettier?
+  time: 0.724739
+- !Result
+  answer: an URL
+  context: This brings us to the next point - when I say 'upload through WAMS', what
+    I really mean by this is 'upload through a Shared Access Signature (SAS)'. SAS
+    is basically an URL which we will create for each file (a video in our case) and
+    it will be used to make consecutive AJAX upload requests against the Azure REST
+    API. Each SAS has its validity duration and a permission type like read, write,
+    list and delete. These will all be defined in the backend portion of the code.
+    (if you want to know more about SAS, i recommend you read this great post about
+    Azure SAS).
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Cluster Shared Volume
+    f1: 0.0
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: aa60d92572fc71bdffa9e59c5b3f279b
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Failover Clustering_1, by Denis Susac
+      paragraph_title: Failover Clustering_1
+    pr: 0.7288888916371121
+  - !Prediction
+    answer: a single, highly redundant disk array
+    f1: 0.0
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: ac4c62a8fc37758f0fe0f6f36f972df2
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Database_6, by Denis Susac
+      paragraph_title: Database_6
+    pr: 0.09457770718508174
+  - !Prediction
+    answer: Shared Access Signature
+    f1: 0.0
+    metadata:
+      article_title: Building Windows Azure Media Services async CORS enabled upload
+      author: Tihomir Kit
+      date: '2014-02-19T00:00:00'
+      document_id: 3606cef670918d51bfeecd02ab4d3a47
+      index: site_nostemmer_nostopword
+      name: Building Windows Azure Media Services async CORS enabled upload, 2. Upload
+        workflow_1, by Tihomir Kit
+      paragraph_title: 2. Upload workflow_1
+    pr: 0.08419366499463621
+  question: What is a shared access signature?
+  time: 0.72473
+- !Result
+  answer: make consecutive AJAX upload requests
+  context: This brings us to the next point - when I say 'upload through WAMS', what
+    I really mean by this is 'upload through a Shared Access Signature (SAS)'. SAS
+    is basically an URL which we will create for each file (a video in our case) and
+    it will be used to make consecutive AJAX upload requests against the Azure REST
+    API. Each SAS has its validity duration and a permission type like read, write,
+    list and delete. These will all be defined in the backend portion of the code.
+    (if you want to know more about SAS, i recommend you read this great post about
+    Azure SAS).
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: "storing highly available VM\u2019s."
+    f1: 0.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites'
+      author: Denis Susac
+      date: '2016-01-25T00:00:00'
+      document_id: 5f4baefb84f77834054b1ee6dc735278
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites,
+        _5, by Denis Susac'
+      paragraph_title: _5
+    pr: 0.8000427989487946
+  - !Prediction
+    answer: cold standby failover configurations for shared-storage,
+    f1: 0.0
+    metadata: &id013
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: ac4c62a8fc37758f0fe0f6f36f972df2
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Database_6, by Denis Susac
+      paragraph_title: Database_6
+    pr: 0.2876321818744927
+  - !Prediction
+    answer: cold standby failover configurations
+    f1: 0.0
+    metadata: *id013
+    pr: 0.28082654531086604
+  question: What is a shared access signature used for?
+  time: 0.685753
+- !Result
+  answer: your upload PUT requests against Azure will be rejected
+  context: To upload files through an SAS URI, Cross-Origin Resource Sharing needs
+    to be enabled over at Azure for your particular domain. If you don't enable CORS,
+    your upload PUT requests against Azure will be rejected. You can read a bit more
+    about managing Azure CORS rules in my previous post. Normally you would have to
+    set the rules up through your source-code, but since this is a one-time set-up,
+    it makes no sense to keep this code in your project. That's why we made a simple
+    web app for managing Azure CORS rules which you can download over at github. It
+    will make it easier for you to add/edit the rules.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: your upload PUT requests against Azure will be rejected.
+    f1: 1.0
+    metadata: &id014
+      article_title: Building Windows Azure Media Services async CORS enabled upload
+      author: Tihomir Kit
+      date: '2014-02-19T00:00:00'
+      document_id: a776abd7ba147cc8cb81594c169edc53
+      index: site_nostemmer_nostopword
+      name: Building Windows Azure Media Services async CORS enabled upload, Enabling
+        CORS, by Tihomir Kit
+      paragraph_title: Enabling CORS
+    pr: 0.5458831610811359
+  - !Prediction
+    answer: upload PUT requests against Azure will be rejected.
+    f1: 0.9411764705882353
+    metadata: *id014
+    pr: 0.19869415246929378
+  - !Prediction
+    answer: it will keep your WAMS credentials safe
+    f1: 0.25
+    metadata:
+      article_title: Building Windows Azure Media Services async CORS enabled upload
+      author: Tihomir Kit
+      date: '2014-02-19T00:00:00'
+      document_id: b2b8adbdb752aa1262feeb60b8041c97
+      index: site_nostemmer_nostopword
+      name: Building Windows Azure Media Services async CORS enabled upload, 2. Upload
+        workflow_4, by Tihomir Kit
+      paragraph_title: 2. Upload workflow_4
+    pr: 0.17745486135249067
+  question: What happens if you try to upload a file through a SAS URI without enabling
+    CORS?
+  time: 0.73812
+- !Result
+  answer: discovering new tricks and secrets about JavaScript, design, UX, cloud computing,
+    databases, big data, Internet of things, Web application security, hybrid Web
+    development and other cutting-edge software development topics.
+  context: 'If the name still doesn''t sound familiar - The Geek Gathering is all
+    about discovering new tricks and secrets about JavaScript, design, UX, cloud computing,
+    databases, big data, Internet of things, Web application security, hybrid Web
+    development and other cutting-edge software development topics. More details on
+    its humble beginnings are available here. Mono was in charge of the content: we''ve
+    been trying to bring world-class speakers to our part of the world, and according
+    to the feedback, it appears that we did a good job.'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: to put Osijek on a global IT industry map,
+    f1: 0.0
+    metadata:
+      article_title: The Geek Gathering 2013
+      author: Denis Susac
+      date: '2013-10-17T00:00:00'
+      document_id: 9babae3c5310fad7c4057efc05d759be
+      index: site_nostemmer_nostopword
+      name: The Geek Gathering 2013, , by Denis Susac
+      paragraph_title: ''
+    pr: 0.42296367364641085
+  - !Prediction
+    answer: I cleaned all irrelevant code
+    f1: 0.0
+    metadata: &id015
+      article_title: Hacking BMW K-BUS with Raspberry PI
+      author: Mario Madzar
+      date: '2017-06-16T00:00:00'
+      document_id: 5b1f7ba2b908d1e8ad51f95c00f2a2a2
+      index: site_nostemmer_nostopword
+      name: Hacking BMW K-BUS with Raspberry PI, Implementation_3, by Mario Madzar
+      paragraph_title: Implementation_3
+    pr: 0.40159751750564965
+  - !Prediction
+    answer: cleaned all irrelevant code
+    f1: 0.0
+    metadata: *id015
+    pr: 0.21078897088600002
+  question: What is the purpose of the geek gathering?
+  time: 0.691048
+- !Result
+  answer: Douglas Crockford
+  context: The conference was opened by the man himself, Douglas Crockford. His talk,
+    'The Better Parts' was one of those out-of-the-box experiences. Many of us swear
+    by his book, and were simultaneously surprised and inspired by his views on the
+    new features in ECMAScript 6. I still don't have production-quality videos from
+    this year's conference, so here's a good quality recording of the same talk he
+    held at the neighboring conference just a month ago, and believe me, you don't
+    want to miss it.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: both attendees and speakers.
+    f1: 0.0
+    metadata: &id016
+      article_title: The Geek Gathering
+      author: Denis Susac
+      date: '2014-05-19T00:00:00'
+      document_id: 20ec6da9f3a14a4696c66ed4f7b41816
+      index: site_nostemmer_nostopword
+      name: The Geek Gathering, _1, by Denis Susac
+      paragraph_title: _1
+    pr: 0.21836370199284794
+  - !Prediction
+    answer: currentItem
+    f1: 0.0
+    metadata:
+      article_title: Custom IntelliSense with Monaco Editor
+      author: Ivana Simic
+      date: '2017-04-11T00:00:00'
+      document_id: e1b4236c33d3301602bccd8dee5a7d7f
+      index: site_nostemmer_nostopword
+      name: Custom IntelliSense with Monaco Editor, Step 4 - Provider implementation_11,
+        by Ivana Simic
+      paragraph_title: Step 4 - Provider implementation_11
+    pr: 0.13139324155174315
+  - !Prediction
+    answer: speakers.
+    f1: 0.0
+    metadata: *id016
+    pr: 0.0767772846812651
+  question: Who opened the Geek Gathering in 2014?
+  time: 0.748691
+- !Result
+  answer: slow rendering speed (always) huge amount of watchers
+  context: 'There are two problems with generating long lists in Angular:  slow rendering
+    speed (always) huge amount of watchers (if your list contains multiple interactive
+    elements or lots of dynamic data that changes over time)'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: slow rendering speed (always) huge amount of watchers
+    f1: 1.0
+    metadata:
+      article_title: Improving AngularJS long list rendering performance using ReactJS
+      author: Tihomir Kit
+      date: '2014-06-20T00:00:00'
+      document_id: 41ce27e8db7d8bd74b053cf85275f2bd
+      index: site_nostemmer_nostopword
+      name: Improving AngularJS long list rendering performance using ReactJS, _3,
+        by Tihomir Kit
+      paragraph_title: _3
+    pr: 0.36617001585253206
+  - !Prediction
+    answer: bootstrapping, data and event binding and filtering
+    f1: 0.0
+    metadata:
+      article_title: Please move, here comes Angular 2
+      author: Dino Repac
+      date: '2016-08-03T00:00:00'
+      document_id: 8e02cda310cef927019ae8c780d308c4
+      index: site_nostemmer_nostopword
+      name: Please move, here comes Angular 2, Template features, by Dino Repac
+      paragraph_title: Template features
+    pr: 0.09795538285741756
+  - !Prediction
+    answer: "we don\u2019t want to lose all the goodies"
+    f1: 0.0
+    metadata:
+      article_title: Improving AngularJS long list rendering performance using ReactJS
+      author: Tihomir Kit
+      date: '2014-06-20T00:00:00'
+      document_id: 5d42373e3d655f4eb89ddda4e9915ef4
+      index: site_nostemmer_nostopword
+      name: Improving AngularJS long list rendering performance using ReactJS, _6,
+        by Tihomir Kit
+      paragraph_title: _6
+    pr: 0.05492091231262908
+  question: What are the problems loading long lists in Angular?
+  time: 0.720816
+- !Result
+  answer: around 2000
+  context: Slow rendering will make it longer for the data to actually show up in
+    the browser (on initial and every subsequent render) and huge amount of watchers
+    will make your website laggy and less responsive in general once everything is
+    rendered. Keep in mind that recommended amount of watchers per page is around
+    2000. So if your list is not that long but 'only' has a lot of watchers, you might
+    be able to work around the problem using bindonce which will significantly decrease
+    the number of watchers on your page. If your list however is quite long, rendering
+    it will take some time.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: '2000.'
+    f1: 0.6666666666666666
+    metadata:
+      article_title: Improving AngularJS long list rendering performance using ReactJS
+      author: Tihomir Kit
+      date: '2014-06-20T00:00:00'
+      document_id: 41ce27e8db7d8bd74b053cf85275f2bd
+      index: site_nostemmer_nostopword
+      name: Improving AngularJS long list rendering performance using ReactJS, _3,
+        by Tihomir Kit
+      paragraph_title: _3
+    pr: 0.7763066672738361
+  - !Prediction
+    answer: count the watchers
+    f1: 0.0
+    metadata:
+      article_title: Improving AngularJS long list rendering performance using ReactJS
+      author: Tihomir Kit
+      date: '2014-06-20T00:00:00'
+      document_id: 5d42373e3d655f4eb89ddda4e9915ef4
+      index: site_nostemmer_nostopword
+      name: Improving AngularJS long list rendering performance using ReactJS, _6,
+        by Tihomir Kit
+      paragraph_title: _6
+    pr: 0.5596674420493741
+  - !Prediction
+    answer: '14009'
+    f1: 0.0
+    metadata:
+      article_title: Improving AngularJS long list rendering performance using ReactJS
+      author: Tihomir Kit
+      date: '2014-06-20T00:00:00'
+      document_id: c12dd5853cdef73cd4117a0260dbc926
+      index: site_nostemmer_nostopword
+      name: Improving AngularJS long list rendering performance using ReactJS, Performance,
+        by Tihomir Kit
+      paragraph_title: Performance
+    pr: 0.3956875900753545
+  question: What is the recommended number of watchers in Angular?
+  time: 0.724678
+- !Result
+  answer: a Reacts compiler
+  context: React-tools will provide you with JSX which is a Reacts compiler that transforms
+    its JS/XML-like syntax into native JavaScript. To write ReactJS components you
+    will need an empty JS file with the following line at the beginning of the file
+    /** @jsx React.DOM */ and any ReactJS components code bellow that. After you run
+    the JSX watcher (jsx --watch jsx_folder/ scripts_folder/) on folder where that
+    JS file resides in it will look for changes and (re)create a second (native JS)
+    file which you will need to include into your project.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: (ReactItemList)
+    f1: 0.0
+    metadata:
+      article_title: Improving AngularJS long list rendering performance using ReactJS
+      author: Tihomir Kit
+      date: '2014-06-20T00:00:00'
+      document_id: 3f4052c466f39c5cd574c96956667bc4
+      index: site_nostemmer_nostopword
+      name: Improving AngularJS long list rendering performance using ReactJS, Code,
+        by Tihomir Kit
+      paragraph_title: Code
+    pr: 0.5367252163802227
+  - !Prediction
+    answer: a Reacts compiler
+    f1: 1.0
+    metadata: &id017
+      article_title: Improving AngularJS long list rendering performance using ReactJS
+      author: Tihomir Kit
+      date: '2014-06-20T00:00:00'
+      document_id: ef257c9b22efda939af27778ccfc17da
+      index: site_nostemmer_nostopword
+      name: Improving AngularJS long list rendering performance using ReactJS, Setup,
+        by Tihomir Kit
+      paragraph_title: Setup
+    pr: 0.4501347301266989
+  - !Prediction
+    answer: Reacts compiler
+    f1: 0.8
+    metadata: *id017
+    pr: 0.22554661353916927
+  question: What is JSX?
+  time: 0.691446
+- !Result
+  answer: one of the most popular and well rounded JS promise libraries with NodeJS
+    support
+  context: However, you might also want to support the error-first callback pattern
+    as well, for all the developers out there who prefer to use the standard NodeJS
+    approach. Since Q is currently one of the most popular and well rounded JS promise
+    libraries with NodeJS support, in this post we'll be using Q to implement a module
+    function that will support dual promise/callback API's.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: how much information is needed
+    f1: 0.0
+    metadata:
+      article_title: AI - our best friend, or is it?
+      author: Ivana Simic
+      date: '2016-11-28T00:00:00'
+      document_id: bbb4db7156df1352acfe74b407368ea7
+      index: site_nostemmer_nostopword
+      name: "AI - our best friend, or is it?, AI as our right-hand assistant\u2026\
+        _4, by Ivana Simic"
+      paragraph_title: "AI as our right-hand assistant\u2026_4"
+    pr: 0.3845616102107101
+  - !Prediction
+    answer: (var q = ...)
+    f1: 0.0
+    metadata: &id018
+      article_title: 'Getting Started With LLBLGen - Part 2: Basic CRUD queries'
+      author: Domagoj Zakanj
+      date: '2018-07-21T00:00:00'
+      document_id: 71010cdc581fa5f2937e9b2d7e5ec529
+      index: site_nostemmer_nostopword
+      name: 'Getting Started With LLBLGen - Part 2: Basic CRUD queries, Fetching only
+        needed data_1, by Domagoj Zakanj'
+      paragraph_title: Fetching only needed data_1
+    pr: 0.3380440985884743
+  - !Prediction
+    answer: (var
+    f1: 0.0
+    metadata: *id018
+    pr: 0.2709931109392123
+  question: What is Q?
+  time: 0.722057
+- !Result
+  answer: real-time communication
+  context: Even if you're using SocketIO, chances are you don't really need all your
+    communication between the client and the server to go through sockets. For all
+    the parts of your application that require real-time communication SocketIO will
+    be perfect but for everything else you might be better off using standard REST
+    API calls. Why? Without going into 'speed' and 'ease of implementation' pros and
+    cons (there's plenty of that lying around the Internet) I see a few reasons why
+    one might want to use both in the same application. REST is still a bit more 'standard'
+    way to exchange data and if there is no real need to use websockets everywhere,
+    your team might be a bit more comfortable using REST since it's what they've been
+    using 'ever since'. Other than that, you might be in the middle of a project that
+    previously used REST for everything and now the need arose to develop a component
+    which requires real-time communication. Of course, you won't be rewriting all
+    your code to SocketIO because there are more important things to dedicate your
+    time to. Or you might simply believe SocketIO should be in charge of everything
+    real-time and REST should be used to handle everything else - which is also perfectly
+    fine. Either way, you'll most probably get into situation where you'll want to
+    share session data between the two.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: VGG16 model
+    f1: 0.0
+    metadata:
+      article_title: Deep learning for medical imaging, part 1
+      author: Dijana Penic
+      date: '2020-03-06T00:00:00'
+      document_id: ca93cbd6d4e366d8250578c2ddd8060a
+      index: site_nostemmer_nostopword
+      name: Deep learning for medical imaging, part 1, Fine-tuning_9, by Dijana Penic
+      paragraph_title: Fine-tuning_9
+    pr: 0.36583223797520503
+  - !Prediction
+    answer: real-time communication
+    f1: 1.0
+    metadata: &id019
+      article_title: Sharing sessions between SocketIO and Express using Redis
+      author: Tihomir Kit
+      date: '2014-08-25T00:00:00'
+      document_id: 6b5fb4f539e69f5804e336f628e0253d
+      index: site_nostemmer_nostopword
+      name: Sharing sessions between SocketIO and Express using Redis, Introduction_3,
+        by Tihomir Kit
+      paragraph_title: Introduction_3
+    pr: 0.3647448295960132
+  - !Prediction
+    answer: all the parts of your application that require real-time communication
+    f1: 0.42857142857142855
+    metadata: *id019
+    pr: 0.3550120640248693
+  question: What parts of an application is SocketIO best suited for?
+  time: 0.749699
+- !Result
+  answer: Great products and code Human centric design Quality as a tradition
+  context: 'The initial step for achieving better communication was redesigning the
+    way we present Mono to the world. The time was right for redesigning our visual
+    identity so it reflects our company values:  Great products and code Human centric
+    design Quality as a tradition'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: learning and knowledge
+    f1: 0.14285714285714285
+    metadata:
+      article_title: Time for a change - extending our visual identity
+      author: Mihael Tomic
+      date: '2018-04-03T00:00:00'
+      document_id: e7a654a7c0123b69bdaf67123442fcb8
+      index: site_nostemmer_nostopword
+      name: Time for a change - extending our visual identity, Creating and defining
+        organization structure, by Mihael Tomic
+      paragraph_title: Creating and defining organization structure
+    pr: 0.861446805883542
+  - !Prediction
+    answer: Great products and code Human centric design Quality as a tradition
+    f1: 1.0
+    metadata: &id020
+      article_title: Redesigning the Mono experience
+      author: Igor Plac
+      date: '2015-01-08T00:00:00'
+      document_id: 7979044af0b1fff83c141dea293963b8
+      index: site_nostemmer_nostopword
+      name: Redesigning the Mono experience, Presenting ourselves, by Igor Plac
+      paragraph_title: Presenting ourselves
+    pr: 0.5293505439472099
+  - !Prediction
+    answer: Great products and code Human centric design Quality
+    f1: 0.8421052631578947
+    metadata: *id020
+    pr: 0.4427768460195196
+  question: What are mono's company values?
+  time: 0.720574
+- !Result
+  answer: too cold and generic
+  context: We have done a lot of desk research and discussions on the logical evolutionary
+    steps for our visual identity. The result was clear -- we wanted to keep the core
+    idea of a 'pixel' that was a cornerstone of our old visual identity. It is a good
+    representation of the digital world, but we felt it did not represent our brand
+    good enough on its own - however, we've decided to use it as a core element of
+    the new design. The pixel, along with the blue color scheme was way too cold and
+    generic, so that had to go away. To achieve a warmer, more human approach we changed
+    our brand colors to vibrant red and elegant black.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: reflects our energy and passion.
+    f1: 0.2222222222222222
+    metadata:
+      article_title: Time for a change - extending our visual identity
+      author: Mihael Tomic
+      date: '2018-04-03T00:00:00'
+      document_id: 1339285246082e60f570ee0e0850675d
+      index: site_nostemmer_nostopword
+      name: Time for a change - extending our visual identity, , by Mihael Tomic
+      paragraph_title: ''
+    pr: 0.5341069682437762
+  - !Prediction
+    answer: Top-notch people and technology are what defines us the most,
+    f1: 0.13333333333333333
+    metadata:
+      article_title: Time for a change - extending our visual identity
+      author: Mihael Tomic
+      date: '2018-04-03T00:00:00'
+      document_id: 0a239ea2b6bb22d98e48b18e5cd398f2
+      index: site_nostemmer_nostopword
+      name: Time for a change - extending our visual identity, Design Direction, by
+        Mihael Tomic
+      paragraph_title: Design Direction
+    pr: 0.49204107487824444
+  - !Prediction
+    answer: too cold and generic,
+    f1: 1.0
+    metadata:
+      article_title: Redesigning the Mono experience
+      author: Igor Plac
+      date: '2015-01-08T00:00:00'
+      document_id: 552452ca2982143a7900aeece71cc29e
+      index: site_nostemmer_nostopword
+      name: Redesigning the Mono experience, Remembering the past, thinking for the
+        future, by Igor Plac
+      paragraph_title: Remembering the past, thinking for the future
+    pr: 0.4344368799484073
+  question: Why did mono change their visual identify from a pixel and blue color
+    scheme?
+  time: 0.723865
+- !Result
+  answer: add new value to our clients, users and the community
+  context: Over the last couple of months we've been working hard on our new visual
+    identity and the new Mono website. Today is the day where we share the results
+    of this work with the rest of the world.  The idea behind the new site is to add
+    new value to our clients, users and the community. Take your time to find out
+    about our new products such as Baasic and Theor.io, or see what's been happening
+    lately with MonoX and eCTD Office. You can meet the team and see what we've accomplished
+    over the years.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: to add new value to our clients, users and the community.
+    f1: 1.0
+    metadata: &id021
+      article_title: A new place called home
+      author: Andrej Mlinarevic
+      date: '2015-01-09T00:00:00'
+      document_id: 87685ee5858a2952d7a4373e0a6a7be7
+      index: site_nostemmer_nostopword
+      name: A new place called home, , by Andrej Mlinarevic
+      paragraph_title: ''
+    pr: 0.6033685379827602
+  - !Prediction
+    answer: add new value to our clients, users and the community.
+    f1: 1.0
+    metadata: *id021
+    pr: 0.1334620559613242
+  - !Prediction
+    answer: trying to bring world-class speakers to our part of the world,
+    f1: 0.3
+    metadata:
+      article_title: The Geek Gathering
+      author: Denis Susac
+      date: '2014-05-19T00:00:00'
+      document_id: 20ec6da9f3a14a4696c66ed4f7b41816
+      index: site_nostemmer_nostopword
+      name: The Geek Gathering, _1, by Denis Susac
+      paragraph_title: _1
+    pr: 0.11026706015812238
+  question: Why did mono make a new website?
+  time: 0.719729
+- !Result
+  answer: how users percieve it
+  context: Quality and reliability of the website design largely depends on how users
+    percieve it. Good photography and visual design guides the users and communicates
+    an atmosphere around a certain brand or product.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: how users percieve it.
+    f1: 1.0
+    metadata:
+      article_title: Importance of photography in web design
+      author: Mihael Tomic
+      date: '2015-02-05T00:00:00'
+      document_id: f9790de8855a2a6272fd38b1974577b8
+      index: site_nostemmer_nostopword
+      name: Importance of photography in web design, , by Mihael Tomic
+      paragraph_title: ''
+    pr: 0.9305703755949146
+  - !Prediction
+    answer: Colors
+    f1: 0.0
+    metadata:
+      article_title: Supercharge your colors with the PostCSS color() function
+      author: Mihael Tomic
+      date: '2017-08-08T00:00:00'
+      document_id: 627b92647f5148e22e1081897b5e513a
+      index: site_nostemmer_nostopword
+      name: Supercharge your colors with the PostCSS color() function, , by Mihael
+        Tomic
+      paragraph_title: ''
+    pr: 0.7437476745402662
+  - !Prediction
+    answer: apps.
+    f1: 0.0
+    metadata:
+      article_title: Redesigning the Mono experience
+      author: Igor Plac
+      date: '2015-01-08T00:00:00'
+      document_id: 186622bd9e0678a9ff301405ddce6fd6
+      index: site_nostemmer_nostopword
+      name: Redesigning the Mono experience, Engaging our own people, by Igor Plac
+      paragraph_title: Engaging our own people
+    pr: 0.33603535233766557
+  question: What does quality and reliability of a website design depend on?
+  time: 0.694143
+- !Result
+  answer: guides the users and communicates an atmosphere
+  context: Quality and reliability of the website design largely depends on how users
+    percieve it. Good photography and visual design guides the users and communicates
+    an atmosphere around a certain brand or product.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: enhance your website.
+    f1: 0.0
+    metadata:
+      article_title: Importance of photography in web design
+      author: Mihael Tomic
+      date: '2015-02-05T00:00:00'
+      document_id: e229b17a480015da778640f012bf5256
+      index: site_nostemmer_nostopword
+      name: Importance of photography in web design, Conclusion, by Mihael Tomic
+      paragraph_title: Conclusion
+    pr: 0.5563862481974979
+  - !Prediction
+    answer: changed our brand colors to vibrant red and elegant black.
+    f1: 0.11764705882352941
+    metadata:
+      article_title: Redesigning the Mono experience
+      author: Igor Plac
+      date: '2015-01-08T00:00:00'
+      document_id: 552452ca2982143a7900aeece71cc29e
+      index: site_nostemmer_nostopword
+      name: Redesigning the Mono experience, Remembering the past, thinking for the
+        future, by Igor Plac
+      paragraph_title: Remembering the past, thinking for the future
+    pr: 0.29951653390028454
+  - !Prediction
+    answer: guides the users and communicates an atmosphere
+    f1: 1.0
+    metadata:
+      article_title: Importance of photography in web design
+      author: Mihael Tomic
+      date: '2015-02-05T00:00:00'
+      document_id: f9790de8855a2a6272fd38b1974577b8
+      index: site_nostemmer_nostopword
+      name: Importance of photography in web design, , by Mihael Tomic
+      paragraph_title: ''
+    pr: 0.27722721245171833
+  question: What does good photography do for a brand?
+  time: 0.721136
+- !Result
+  answer: Professional photographers are already familiar with lightning, they know
+    their camera really well and don't lack in equipment that is too expensive for
+    an amateur
+  context: The best and most recommended option is to hire a pro. If you have a team
+    member who is a semi-pro or an amateur photographer with a good set of lens and
+    a DSLR you can take a walk on the wild side and make your own photos. Professional
+    photographers are already familiar with lightning, they know their camera really
+    well and don't lack in equipment that is too expensive for an amateur. On the
+    other hand, hiring a professional does not guarantee quality of your photo story.
+    Sometimes the story is not very well told by the photographer, sometimes the lightning/colours/tone
+    in the photographs doesn't reflect your brand or product. Those things happen
+    commonly so make sure you communicate your expectations and your brand with the
+    professional down to the detail. Put pros and cons on paper and decide what is
+    best for your project.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: to create a rough sketch of the photo shooting environment.
+    f1: 0.0
+    metadata: &id022
+      article_title: Importance of photography in web design
+      author: Mihael Tomic
+      date: '2015-02-05T00:00:00'
+      document_id: ebd0910f60f9b8ca8c01e464e54b904a
+      index: site_nostemmer_nostopword
+      name: Importance of photography in web design, Draw your setup environment for
+        the shooting, by Mihael Tomic
+      paragraph_title: Draw your setup environment for the shooting
+    pr: 0.36666559617763994
+  - !Prediction
+    answer: does not guarantee quality of your photo story.
+    f1: 0.0
+    metadata:
+      article_title: Importance of photography in web design
+      author: Mihael Tomic
+      date: '2015-02-05T00:00:00'
+      document_id: 43712cdd347bb5a02aae92265c2ff1e3
+      index: site_nostemmer_nostopword
+      name: Importance of photography in web design, Hire a professional or try DIY
+        style, by Mihael Tomic
+      paragraph_title: Hire a professional or try DIY style
+    pr: 0.19262692825667393
+  - !Prediction
+    answer: create a rough sketch of the photo shooting environment.
+    f1: 0.0
+    metadata: *id022
+    pr: 0.14658729559162698
+  question: Why should you hire a pro photographer?
+  time: 0.724511
+- !Result
+  answer: Baasic provides a standard set of backend features
+  context: 'Here is a short introduction to this new product/service: Baasic provides
+    a standard set of backend features - after all, BaaS in its name does not stand
+    for nothing. For those of you not familiar with this term, please refer to our
+    introductory article. However, this is only a beginning: Baasic hits a sweet spot
+    on the intersection of today''s BaaS solutions, content management systems and
+    modern application frameworks. It offers end-to-end functionality for web and
+    mobile application development that is not tied to a particular programming language
+    and development framework.'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: blog starter kits.
+    f1: 0.0
+    metadata:
+      article_title: SEO for JavaScript applications, 2016 edition
+      author: Denis Susac
+      date: '2016-02-18T00:00:00'
+      document_id: 5b2837dd4968a8368cdc8add7525f002
+      index: site_nostemmer_nostopword
+      name: SEO for JavaScript applications, 2016 edition, _6, by Denis Susac
+      paragraph_title: _6
+    pr: 0.9004183658882425
+  - !Prediction
+    answer: contains all the code needed to get and update its resources.
+    f1: 0.0
+    metadata:
+      article_title: Hacking BMW K-BUS with Raspberry PI
+      author: Mario Madzar
+      date: '2017-06-16T00:00:00'
+      document_id: 9a20d5a46fe165aaea9b002a9be31bb2
+      index: site_nostemmer_nostopword
+      name: Hacking BMW K-BUS with Raspberry PI, Implementation_7, by Mario Madzar
+      paragraph_title: Implementation_7
+    pr: 0.6423094040632797
+  - !Prediction
+    answer: projects
+    f1: 0.0
+    metadata:
+      article_title: Redesigning the Mono experience
+      author: Igor Plac
+      date: '2015-01-08T00:00:00'
+      document_id: 5f842542252ad44318e1a3249983cc24
+      index: site_nostemmer_nostopword
+      name: Redesigning the Mono experience, Design as a core service, by Igor Plac
+      paragraph_title: Design as a core service
+    pr: 0.2596254221210881
+  question: What is Baasic?
+  time: 0.713809
+- !Result
+  answer: Baasic provides a standard set of backend features
+  context: 'Here is a short introduction to this new product/service: Baasic provides
+    a standard set of backend features - after all, BaaS in its name does not stand
+    for nothing. For those of you not familiar with this term, please refer to our
+    introductory article. However, this is only a beginning: Baasic hits a sweet spot
+    on the intersection of today''s BaaS solutions, content management systems and
+    modern application frameworks. It offers end-to-end functionality for web and
+    mobile application development that is not tied to a particular programming language
+    and development framework.'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: blog starter kits.
+    f1: 0.0
+    metadata:
+      article_title: SEO for JavaScript applications, 2016 edition
+      author: Denis Susac
+      date: '2016-02-18T00:00:00'
+      document_id: 5b2837dd4968a8368cdc8add7525f002
+      index: site_nostemmer_nostopword
+      name: SEO for JavaScript applications, 2016 edition, _6, by Denis Susac
+      paragraph_title: _6
+    pr: 0.9004183658882425
+  - !Prediction
+    answer: contains all the code needed to get and update its resources.
+    f1: 0.0
+    metadata:
+      article_title: Hacking BMW K-BUS with Raspberry PI
+      author: Mario Madzar
+      date: '2017-06-16T00:00:00'
+      document_id: 9a20d5a46fe165aaea9b002a9be31bb2
+      index: site_nostemmer_nostopword
+      name: Hacking BMW K-BUS with Raspberry PI, Implementation_7, by Mario Madzar
+      paragraph_title: Implementation_7
+    pr: 0.6423094040632797
+  - !Prediction
+    answer: projects
+    f1: 0.0
+    metadata:
+      article_title: Redesigning the Mono experience
+      author: Igor Plac
+      date: '2015-01-08T00:00:00'
+      document_id: 5f842542252ad44318e1a3249983cc24
+      index: site_nostemmer_nostopword
+      name: Redesigning the Mono experience, Design as a core service, by Igor Plac
+      paragraph_title: Design as a core service
+    pr: 0.2596254221210881
+  question: What is Baasic?
+  time: 0.690559
+- !Result
+  answer: not having a link to the EULA along with uninstall instructions somewhere
+    at the download page
+  context: A short Google search revealed that there are not too many resources regarding
+    this problem - I guess that this will change very soon. However, one post from
+    the guys from HttpWatch was particularly informative and entertaining, and quickly
+    got us into the right track. It appears that not having a link to the EULA along
+    with uninstall instructions somewhere at the download page will immediately classify
+    your software as 'unwanted'. We still think that it is important for a software
+    company to have all terms and conditions displayed in plain sight, without loopholes,
+    ambiguity or small print; however, there should be a gentler way to handle the
+    issue of positioning links to such documents.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: not having a link to the EULA
+    f1: 0.6363636363636364
+    metadata:
+      article_title: When Google says your software is unwanted
+      author: Denis Susac
+      date: '2015-04-23T00:00:00'
+      document_id: dc55c188bd4f01f989f866ec53c092f2
+      index: site_nostemmer_nostopword
+      name: When Google says your software is unwanted, _8, by Denis Susac
+      paragraph_title: _8
+    pr: 0.4217633420853417
+  - !Prediction
+    answer: suspension of your AdWords account,
+    f1: 0.0
+    metadata:
+      article_title: When Google says your software is unwanted
+      author: Denis Susac
+      date: '2015-04-23T00:00:00'
+      document_id: 26c4b5104a0b529ce60e013e5859a28f
+      index: site_nostemmer_nostopword
+      name: When Google says your software is unwanted, _2, by Denis Susac
+      paragraph_title: _2
+    pr: 0.3228354138691749
+  - !Prediction
+    answer: we are compliant with everything they say in it
+    f1: 0.08333333333333333
+    metadata:
+      article_title: When Google says your software is unwanted
+      author: Denis Susac
+      date: '2015-04-23T00:00:00'
+      document_id: b693615a113d16325698e96a085fafb4
+      index: site_nostemmer_nostopword
+      name: When Google says your software is unwanted, _7, by Denis Susac
+      paragraph_title: _7
+    pr: 0.15061542957652918
+  question: What can cause your software to be classified as unwanted?
+  time: 0.719879
+- !Result
+  answer: it cannot scale out horizontally
+  context: While we've used SQL Server in most of our previous implementations, after
+    doing some preliminary tests, PostgreSQL proved to be a very capable relational
+    database. After all, it has millions of implementations over its 30-year history.
+    It is still being kept very relevant in the big data era by adding support for
+    new data types, such as JSON - a feature that is essential for implementing dynamic
+    types and similar functionality in Baasic and similar solutions. The capability
+    to handle schema-less data simultaneously with traditional relational data is
+    a big plus for us. However, as most of traditional RDBMSes designed to power transactional
+    workloads, it cannot scale out horizontally (at least without specialized add-ons).
+    When resources become thin, you would buy a bigger server, instead of scaling
+    the load out to multiple smaller machines. While scale-out approach is becoming
+    increasingly popular these days (mostly in various NoSQL incarnations), I would
+    still argue that scaling up is a viable solution for a large class of problems.
+    If you need to scale on a Google scale, scale out is the right way to go. However,
+    we are not Google, and neither are most of the web sites and applications.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: services can be scaled horizontally,
+    f1: 0.2
+    metadata:
+      article_title: Introduction to Azure Resource Manager
+      author: Slaven Vladisavljevic
+      date: '2017-01-27T00:00:00'
+      document_id: 25cb995c2621b83721f5d0f5a301667c
+      index: site_nostemmer_nostopword
+      name: Introduction to Azure Resource Manager, , by Slaven Vladisavljevic
+      paragraph_title: ''
+    pr: 0.5012415379353214
+  - !Prediction
+    answer: it cannot scale out horizontally
+    f1: 1.0
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: 71530a2a8a68f8f2a218b4e140858648
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Database_1, by Denis Susac
+      paragraph_title: Database_1
+    pr: 0.41384181190718294
+  - !Prediction
+    answer: vertically,
+    f1: 0.0
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: 7601ce9392d1e815bc47403f25ea8ee7
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Database_4, by Denis Susac
+      paragraph_title: Database_4
+    pr: 0.25826027395812545
+  question: Can postgresql scale horizontally?
+  time: 0.723702
+- !Result
+  answer: avoid it at all costs
+  context: To quote one of the posters at stackexchange, 'first rule of horizontal
+    scaling of a database is to avoid it at all costs.'.  If you still need to scale
+    out, there are now a few interesting solutions for SQL Server and Azure SQL Database.
+    PostgreSQL has its own tools for the job, including CitusDB and Postgres-XL.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: "to avoid it at all costs.\u201D."
+    f1: 0.9090909090909091
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: 7202d4ac88dc5fc63e7804f526debbce
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Database_2, by Denis Susac
+      paragraph_title: Database_2
+    pr: 0.7881114440916939
+  - !Prediction
+    answer: cannot scale out horizontally
+    f1: 0.0
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: 71530a2a8a68f8f2a218b4e140858648
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Database_1, by Denis Susac
+      paragraph_title: Database_1
+    pr: 0.46483930640778226
+  - !Prediction
+    answer: Scaling out
+    f1: 0.0
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: 308987f7fd10951e07d08368d771c4f6
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Terminology, by Denis Susac
+      paragraph_title: Terminology
+    pr: 0.27229029342769273
+  question: What is the first rule of horizontally scaling a database?
+  time: 0.719483
+- !Result
+  answer: Shoot The Other Node In The Head
+  context: In our case, we needed full support for failover - in a two DB servers
+    scenarios, if the primary server fails then the standby server should begin failover
+    procedures. On a side note, this is probably the right time to introduce concepts
+    of cold, warm and hot standby nodes. So, when the old primary server restarts,
+    we must have a mechanism for informing the old primary that it is no longer the
+    primary. This is known as STONITH (Shoot The Other Node In The Head), and is essential
+    to avoid situations where both systems think they are the primary, which is a
+    sure recipe for disaster, split-brain scenario and, ultimately, data loss. On
+    the other hand, attempts to use PostgreSQL in multi-master shared storage configurations
+    result in extremely severe data corruption. To make things more interesting, PostgreSQL
+    does not provide the tools required to identify a failure on the primary and notify
+    the standby database server out of the box. We did some research and tested a
+    lot of tools for solving this problem, and while some users are perfectly happy
+    with their choices, we were somewhat reluctant. In addition to that, running Windows
+    version of PostgreSQL in a production environment is really not the best idea
+    - and we already had a set of Windows Server 2012 R2 Servers with Hyper-V role
+    as a software infrastructure for a virtualized environment. Database servers are
+    running Linux, as multiple flavors of it are supported for use as a guest operating
+    system in a Hyper-V virtual machine.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: robust fencing/STONITH.
+    f1: 0.0
+    metadata: &id023
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: ac4c62a8fc37758f0fe0f6f36f972df2
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Database_6, by Denis Susac
+      paragraph_title: Database_6
+    pr: 0.5347640527415543
+  - !Prediction
+    answer: fencing/STONITH.
+    f1: 0.0
+    metadata: *id023
+    pr: 0.4624317479939535
+  - !Prediction
+    answer: Baasic
+    f1: 0.0
+    metadata:
+      article_title: Baasic beta now opened
+      author: Denis Susac
+      date: '2015-03-24T00:00:00'
+      document_id: 3da640491bc99d93386e9872718b0daf
+      index: site_nostemmer_nostopword
+      name: Baasic beta now opened, _2, by Denis Susac
+      paragraph_title: _2
+    pr: 0.40463882230171677
+  question: What does STONITH stand for?
+  time: 0.7201
+- !Result
+  answer: attempts to use PostgreSQL in multi-master shared storage configurations
+  context: In our case, we needed full support for failover - in a two DB servers
+    scenarios, if the primary server fails then the standby server should begin failover
+    procedures. On a side note, this is probably the right time to introduce concepts
+    of cold, warm and hot standby nodes. So, when the old primary server restarts,
+    we must have a mechanism for informing the old primary that it is no longer the
+    primary. This is known as STONITH (Shoot The Other Node In The Head), and is essential
+    to avoid situations where both systems think they are the primary, which is a
+    sure recipe for disaster, split-brain scenario and, ultimately, data loss. On
+    the other hand, attempts to use PostgreSQL in multi-master shared storage configurations
+    result in extremely severe data corruption. To make things more interesting, PostgreSQL
+    does not provide the tools required to identify a failure on the primary and notify
+    the standby database server out of the box. We did some research and tested a
+    lot of tools for solving this problem, and while some users are perfectly happy
+    with their choices, we were somewhat reluctant. In addition to that, running Windows
+    version of PostgreSQL in a production environment is really not the best idea
+    - and we already had a set of Windows Server 2012 R2 Servers with Hyper-V role
+    as a software infrastructure for a virtualized environment. Database servers are
+    running Linux, as multiple flavors of it are supported for use as a guest operating
+    system in a Hyper-V virtual machine.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: attempts to use PostgreSQL in multi-master shared storage configurations
+    f1: 1.0
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: c8197152316cca6980d6924d50f14b46
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Database_5, by Denis Susac
+      paragraph_title: Database_5
+    pr: 0.7948406508887587
+  - !Prediction
+    answer: Lower current
+    f1: 0.0
+    metadata: &id024
+      article_title: Building Arduino powered Nixie Clock
+      author: Ivan Kalafatic
+      date: '2018-08-27T00:00:00'
+      document_id: 42d427b91c4d316c123bc731489f3c70
+      index: site_nostemmer_nostopword
+      name: Building Arduino powered Nixie Clock, Hardware_36, by Ivan Kalafatic
+      paragraph_title: Hardware_36
+    pr: 0.2787642771949166
+  - !Prediction
+    answer: current higher than allowed
+    f1: 0.0
+    metadata: *id024
+    pr: 0.11544026168960819
+  question: What can cause extreme data corruption in postgresql?
+  time: 0.724059
+- !Result
+  answer: a group of servers
+  context: A failover cluster is a group of servers that work together to maintain
+    high availability of applications and services (these are known as roles). If
+    one of the servers (or nodes) fails, another node in the cluster can take over
+    its workload without any downtime. In addition, the clustered roles are monitored
+    to verify that they are working properly. If they are not working, they are restarted
+    or moved to another node. Failover clusters also provide Cluster Shared Volume
+    (CSV, more on that later) functionality that provides a consistent, distributed
+    namespace that clustered roles can use to access shared storage from all nodes.
+    Using this technology, you can scale up to 64 physical nodes and to 8,000 virtual
+    machines.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: a group of servers that work together to maintain high availability of
+      applications and services
+    f1: 0.4444444444444444
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: aa60d92572fc71bdffa9e59c5b3f279b
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Failover Clustering_1, by Denis Susac
+      paragraph_title: Failover Clustering_1
+    pr: 0.6456876214783946
+  - !Prediction
+    answer: Windows
+    f1: 0.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: 470203034452d153f349c5bcd07e3cb0
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        Virtual Machine Role, by Denis Susac'
+      paragraph_title: Virtual Machine Role
+    pr: 0.6193093152207396
+  - !Prediction
+    answer: the environment
+    f1: 0.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: 8cdf7ae436d0609b1efff590eff8be89
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        Cluster Validation_1, by Denis Susac'
+      paragraph_title: Cluster Validation_1
+    pr: 0.2500919335268712
+  question: What is a failover cluster?
+  time: 0.719818
+- !Result
+  answer: up to 64
+  context: A failover cluster is a group of servers that work together to maintain
+    high availability of applications and services (these are known as roles). If
+    one of the servers (or nodes) fails, another node in the cluster can take over
+    its workload without any downtime. In addition, the clustered roles are monitored
+    to verify that they are working properly. If they are not working, they are restarted
+    or moved to another node. Failover clusters also provide Cluster Shared Volume
+    (CSV, more on that later) functionality that provides a consistent, distributed
+    namespace that clustered roles can use to access shared storage from all nodes.
+    Using this technology, you can scale up to 64 physical nodes and to 8,000 virtual
+    machines.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: three
+    f1: 0.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites'
+      author: Denis Susac
+      date: '2016-01-25T00:00:00'
+      document_id: 989d290b347d780fabe3ca5ebc18095a
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites,
+        Active Directory integration_6, by Denis Susac'
+      paragraph_title: Active Directory integration_6
+    pr: 0.8658694372032159
+  - !Prediction
+    answer: all
+    f1: 0.0
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: cd2f30ca0b26d07715038a3d0f7673ca
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Failover Clustering_3, by Denis Susac
+      paragraph_title: Failover Clustering_3
+    pr: 0.8188933427897638
+  - !Prediction
+    answer: '64'
+    f1: 0.5
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: aa60d92572fc71bdffa9e59c5b3f279b
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Failover Clustering_1, by Denis Susac
+      paragraph_title: Failover Clustering_1
+    pr: 0.8047748697228982
+  question: How many physical nodes can a failover cluster handle?
+  time: 0.754723
+- !Result
+  answer: an abstract representation of multiple routers
+  context: 'Just to briefly mention the rest of the network infrastructure (firewalls,
+    routers and load balancers) in front of these servers. Everything is set up in
+    a redundant fashion. Therefore, firewalls/routers are using Virtual Router Redundancy
+    Protocol (VRRP) that introduce a concept of virtual routers, which are an abstract
+    representation of multiple routers - master and backup - acting as a group. When
+    an active routers fails, a backup router is automatically selected to replace
+    it. In a similar fashion, we are using multiple HAProxy load balancers, along
+    with multiple A DNS records for our service employing round robin technique. There
+    are multiple approaches for achieving the full redundancy and avoiding single
+    point of failure in this type of environment: for example, Stackoverflow apparently
+    uses keepalived to ensure high availability; heartbeat is also an alternative.
+    We opted for an alternative approach that combines DNS load balancing - which
+    achieves a fairly rough balance of traffic between multiple load balancers and
+    enable failover when one of load balancer dies - and using load balancers to do
+    their job on a more granular level. ''DNS Load Balancing and Using Multiple Load
+    Balancers in the Cloud'' and ''How To Configure DNS Round-Robin Load-Balancing
+    For High-Availability'' describe ''our'' approach in more details.'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: react-router-dom
+    f1: 0.0
+    metadata:
+      article_title: Code splitting and preloading React routes with Webpack
+      author: Domagoj Suhic
+      date: '2019-12-30T00:00:00'
+      document_id: 5f0fa96ce999cbc6938c228b7aa24284
+      index: site_nostemmer_nostopword
+      name: Code splitting and preloading React routes with Webpack, Initial setup_1,
+        by Domagoj Suhic
+      paragraph_title: Initial setup_1
+    pr: 0.6005647214944325
+  - !Prediction
+    answer: abstract representation of multiple routers - master and backup - acting
+      as a group.
+    f1: 0.5555555555555556
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: 8293906bea9075b3a87c5c01760e2d0c
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Network infrastructure_1, by Denis Susac
+      paragraph_title: Network infrastructure_1
+    pr: 0.10111414748885661
+  - !Prediction
+    answer: while the user is in a valid state and enters an invalid URL,
+    f1: 0.10526315789473684
+    metadata:
+      article_title: Security in an AngularJS application
+      author: Dominik Crnojevac
+      date: '2017-03-13T00:00:00'
+      document_id: f0a2a9744946da84b5e10afc3dc7bda5
+      index: site_nostemmer_nostopword
+      name: Security in an AngularJS application, Route redirecting, by Dominik Crnojevac
+      paragraph_title: Route redirecting
+    pr: 0.09817117187721536
+  question: What is a virtual router?
+  time: 0.724968
+- !Result
+  answer: the Json.NET serializer
+  context: In this post, I will not introduce yet another super-fast serializer. I
+    also promise not to rely on quick and dirty techniques to enhance the existing
+    ones. I will introduce a pretty simple mechanism which will allow you to optimize
+    Json serialization output. It is important to point out that the proposed solution
+    will be made on top of the Json.NET serializer which is already one of the fastest
+    serializers out there. The technique presented here should also be applicable
+    to all other serializers.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Json.NET serializer
+    f1: 0.8571428571428571
+    metadata:
+      article_title: JSON serialization caching
+      author: Darjan Bogdan
+      date: '2015-10-07T00:00:00'
+      document_id: d8b6d1b21aa6f0dafa36d99861119503
+      index: site_nostemmer_nostopword
+      name: JSON serialization caching, Introduction, by Darjan Bogdan
+      paragraph_title: Introduction
+    pr: 0.6197361673001645
+  - !Prediction
+    answer: standard Json serializers
+    f1: 0.2857142857142857
+    metadata:
+      article_title: JSON serialization caching
+      author: Darjan Bogdan
+      date: '2015-10-07T00:00:00'
+      document_id: 7c978e55aafcd6665a4f784b6576a5a8
+      index: site_nostemmer_nostopword
+      name: JSON serialization caching, , by Darjan Bogdan
+      paragraph_title: ''
+    pr: 0.6151132350818784
+  - !Prediction
+    answer: int, string and date types
+    f1: 0.0
+    metadata:
+      article_title: Azure Mobile Services tips and tricks
+      author: Dalibor Mesaric
+      date: '2013-05-27T00:00:00'
+      document_id: 730a9b335ff5561fb86abf156f4425d3
+      index: site_nostemmer_nostopword
+      name: Azure Mobile Services tips and tricks, Azure SQL storage, by Dalibor Mesaric
+      paragraph_title: Azure SQL storage
+    pr: 0.5444582618633653
+  question: What is a fast json serializer?
+  time: 0.694427
+- !Result
+  answer: .Net's garbage collector
+  context: On top of that, a graph has a few spikes, which look strange. After some
+    time spent on the subject, we realized that the spikes are caused by the .Net's
+    garbage collector which kicked in and caused a little serialization time discrepancy.  In
+    the next two figures, you could see the performance results made on a 1000 and
+    10000 weather stations, with a 50000 and 500000 weather readings, respectively.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: "the .Net\u2019s garbage collector"
+    f1: 0.8888888888888888
+    metadata:
+      article_title: JSON serialization caching
+      author: Darjan Bogdan
+      date: '2015-10-07T00:00:00'
+      document_id: dfaefe13581eface9509cfa1064c011a
+      index: site_nostemmer_nostopword
+      name: JSON serialization caching, Example and Test Results_10, by Darjan Bogdan
+      paragraph_title: Example and Test Results_10
+    pr: 0.5520866442580186
+  - !Prediction
+    answer: serialization duration.
+    f1: 0.0
+    metadata:
+      article_title: JSON serialization caching
+      author: Darjan Bogdan
+      date: '2015-10-07T00:00:00'
+      document_id: bf818e1814a75e474cdb1ef277c87596
+      index: site_nostemmer_nostopword
+      name: JSON serialization caching, Example and Test Results_12, by Darjan Bogdan
+      paragraph_title: Example and Test Results_12
+    pr: 0.5209294486910849
+  - !Prediction
+    answer: code optimizations and probably some sort of reflection results caching,
+    f1: 0.0
+    metadata:
+      article_title: JSON serialization caching
+      author: Darjan Bogdan
+      date: '2015-10-07T00:00:00'
+      document_id: d7c7cc7b9a5bfcd93e230012bb370362
+      index: site_nostemmer_nostopword
+      name: JSON serialization caching, Example and Test Results_8, by Darjan Bogdan
+      paragraph_title: Example and Test Results_8
+    pr: 0.37188858743796693
+  question: What causes the spikes in the serialization graph?
+  time: 0.724686
+- !Result
+  answer: two
+  context: The basic setup includes two servers running Hyper-V hypervisor and a Storage
+    Area Network (SAN) as a shared storage mechanism. Additional Hyper-V servers can
+    easily be added to achieve better scalability. In our scenario, each server contains
+    4 Gigabit network adapters (NICs) and one Fibre Channel adapter (or host bus adapter,
+    HBA). This FC adapter is used to connect with the SAN.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: two
+    f1: 1.0
+    metadata: &id025
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites'
+      author: Denis Susac
+      date: '2016-01-25T00:00:00'
+      document_id: 9afe29ea6856e530e2d2951de6275333
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites,
+        _3, by Denis Susac'
+      paragraph_title: _3
+    pr: 0.8383402388259356
+  - !Prediction
+    answer: two servers
+    f1: 0.6666666666666666
+    metadata: *id025
+    pr: 0.14913984868196373
+  - !Prediction
+    answer: Select
+    f1: 0.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites'
+      author: Denis Susac
+      date: '2016-01-25T00:00:00'
+      document_id: ec9f90413056752a6c67d0e69e01891d
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites,
+        Basic installation and networking_1, by Denis Susac'
+      paragraph_title: Basic installation and networking_1
+    pr: 0.0829394238459571
+  question: How many servers run a Hyper-V hypervisor?
+  time: 0.71583
+- !Result
+  answer: PostgreSQL databases
+  context: 'We are creating multiple volumes on our SAN that will serve different
+    purposes: - SystemStorage volume will hold the system disk of our database server.
+    - DatabaseStorage will be used to store PostgreSQL databases. - FileStorage will
+    be exposed to the application servers as a central shared location where users
+    can store and share files. - Witness will be used for failover cluster quorum
+    configuration'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Volumes - Disks
+    f1: 0.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: 797b937b5ede4eb6f0f09453d54ba96d
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        Adding the Failover Clustering Feature_5, by Denis Susac'
+      paragraph_title: Adding the Failover Clustering Feature_5
+    pr: 0.7454172001343302
+  - !Prediction
+    answer: a single, highly redundant disk array
+    f1: 0.0
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: ac4c62a8fc37758f0fe0f6f36f972df2
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Database_6, by Denis Susac
+      paragraph_title: Database_6
+    pr: 0.5621259189377028
+  - !Prediction
+    answer: PostgreSQL databases.
+    f1: 1.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: 5ec213708f83391a61367301a3630713
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        Cluster Shared Volumes, by Denis Susac'
+      paragraph_title: Cluster Shared Volumes
+    pr: 0.5372678238965385
+  question: On the SAN, what does the DatabaseStorage volume store?
+  time: 0.742757
+- !Result
+  answer: Hyper-V
+  context: Basic installation and networking For a start, you will need to add the
+    Hyper-V role to the servers. In Server Manager - Manage menu, click Add Roles
+    and Features, select Role-based or feature-based installation, select the appropriate
+    server, and pick Hyper-V on the Select server roles page. Leave all the default
+    options on subsequent pages, and the Hyper-V role will get installed.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: shared storage
+    f1: 0.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites'
+      author: Denis Susac
+      date: '2016-01-25T00:00:00'
+      document_id: 5f4baefb84f77834054b1ee6dc735278
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites,
+        _5, by Denis Susac'
+      paragraph_title: _5
+    pr: 0.954291873608355
+  - !Prediction
+    answer: hands-on tutorial
+    f1: 0.0
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: 4f5c96fda8a5ce3e6f63b9b26095bdb8
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Network infrastructure_2, by Denis Susac
+      paragraph_title: Network infrastructure_2
+    pr: 0.9391772277326496
+  - !Prediction
+    answer: Hyper-V
+    f1: 1.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites'
+      author: Denis Susac
+      date: '2016-01-25T00:00:00'
+      document_id: ec9f90413056752a6c67d0e69e01891d
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites,
+        Basic installation and networking_1, by Denis Susac'
+      paragraph_title: Basic installation and networking_1
+    pr: 0.7953913698565884
+  question: What role needs to be added to the servers in Hyper-V clusters?
+  time: 0.656491
+- !Result
+  answer: at least two separate NICs
+  context: 'Is is always a good idea to use at least two separate NICs in failover
+    clustering scenarios: the public interface is configured with the IP address that
+    will be used to communicate with clients over the network, while the private interface
+    is used for communicating with other cluster nodes (''heartbeat''). We will use
+    an additional NIC for backup purposes - although this is not absolutely necessary,
+    it will offload the traffic caused by regular backup tasks from the public interface.
+    This leaves us with one free NIC, and we''ve decided to team two NICs on a main
+    public interface. NIC team is basically a collection of network interfaces that
+    work together as one, providing bandwidth aggregation and redundancy. It is easy
+    to team NICs in Windows Server 2012, so I will not provide a step by step instructions
+    on how to do that: here is an excellent article on NIC teaming that will guide
+    you through the process. It is not a mandatory step for setting up a failover
+    cluster.'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: at least two
+    f1: 0.75
+    metadata: &id026
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites'
+      author: Denis Susac
+      date: '2016-01-25T00:00:00'
+      document_id: f2f20e200aa10038f2d2a3471ad7f5fb
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 2: Prerequisites,
+        Basic installation and networking_2, by Denis Susac'
+      paragraph_title: Basic installation and networking_2
+    pr: 0.4557612862734679
+  - !Prediction
+    answer: cold standby failover configurations for shared-storage,
+    f1: 0.0
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: ac4c62a8fc37758f0fe0f6f36f972df2
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Database_6, by Denis Susac
+      paragraph_title: Database_6
+    pr: 0.3071349222557487
+  - !Prediction
+    answer: two
+    f1: 0.3333333333333333
+    metadata: *id026
+    pr: 0.26531308561391675
+  question: How many NICs should be used in failover clustering?
+  time: 0.694924
+- !Result
+  answer: Failover clustering is available in both Standard and Datacenter editions
+  context: Failover clustering is available in both Standard and Datacenter editions
+    of Windows Server 2012 R2. Generally speaking, clustering involves using two or
+    more physical servers to create one 'logical' server that exposes some functionality
+    to users or applications. The members of the cluster (called nodes) are able to
+    monitor each other and, if one of them goes down, its functionality 'fails over'
+    to other nodes without causing any disruption of service to the users.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: R2.
+    f1: 0.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: b74384ab34d47ca61b76c81b25ae65ea
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        , by Denis Susac'
+      paragraph_title: ''
+    pr: 0.6103646374595684
+  - !Prediction
+    answer: Failover clustering is available
+    f1: 0.5714285714285714
+    metadata: &id027
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: b5a9cfe65cbf184bf18110cb100915d8
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        Adding the Failover Clustering Feature_1, by Denis Susac'
+      paragraph_title: Adding the Failover Clustering Feature_1
+    pr: 0.2232600707761847
+  - !Prediction
+    answer: Failover clustering is available in both Standard and Datacenter editions
+    f1: 1.0
+    metadata: *id027
+    pr: 0.15160097563395603
+  question: Is Failover Clustering available in the standard edition of Windows Server
+    2012?
+  time: 0.723609
+- !Result
+  answer: Microsoft does not provide support unless all the hardware passes all the
+    tests
+  context: 'After the failover clustering feature is added, you need to validate the
+    environment in which you will create a cluster. This is an essential step: Microsoft
+    does not provide support unless all the hardware passes all the tests in the validation
+    wizard. You can set up a cluster without validating the hardware, but chances
+    are that you will experience problems sooner or later, so it does not make a lot
+    of sense. So, go to the Failover Cluster Manager and click on the Validate Configuration
+    link in the Management pane.'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Microsoft does not provide support
+    f1: 0.625
+    metadata: &id028
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: 8cdf7ae436d0609b1efff590eff8be89
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        Cluster Validation_1, by Denis Susac'
+      paragraph_title: Cluster Validation_1
+    pr: 0.2075733241292994
+  - !Prediction
+    answer: manually specify the virtual machines that you wish to make fault tolerant.
+    f1: 0.08695652173913043
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: 470203034452d153f349c5bcd07e3cb0
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        Virtual Machine Role, by Denis Susac'
+      paragraph_title: Virtual Machine Role
+    pr: 0.0671636116306793
+  - !Prediction
+    answer: 'This is an essential step: Microsoft does not provide support'
+    f1: 0.47619047619047616
+    metadata: *id028
+    pr: 0.05853025539192025
+  question: Why do you need to validate your cluster environment after adding the
+    failover clustering feature?
+  time: 0.617048
+- !Result
+  answer: make sure that your SAN is supported
+  context: You can also add more disks at any time by clicking on the Add Disk option
+    in the Actions pane of the Disks section. If you receive an error saying 'No disks
+    suitable for cluster disks were found', make sure that your SAN is supported (validation
+    process should report if it is not) and that your disks are initialized, visible
+    on all nodes and have drive letter assigned to them. Alternatively, if you are
+    using iSCSI targets, do not forget to configure the volumes at the iSCSI initiator
+    on each node (Auto Configure button in the Volumes and Devices tab in the iSCSI
+    Initiator Properties).
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: make sure that your SAN is supported
+    f1: 1.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: 872cc17934bbbd7e625c31499f423ec6
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        Cluster Validation_6, by Denis Susac'
+      paragraph_title: Cluster Validation_6
+    pr: 0.8645321011497096
+  - !Prediction
+    answer: initialized.
+    f1: 0.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: 797b937b5ede4eb6f0f09453d54ba96d
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        Adding the Failover Clustering Feature_5, by Denis Susac'
+      paragraph_title: Adding the Failover Clustering Feature_5
+    pr: 0.07942523164604243
+  - !Prediction
+    answer: change the quorum configuration
+    f1: 0.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: 9dfbdc14f0b4c492c7645174bfe385ec
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        Cluster Validation_5, by Denis Susac'
+      paragraph_title: Cluster Validation_5
+    pr: 0.0620961816427994
+  question: 'What should you do if you get the error: No disks suitable for cluster
+    disks were found'
+  time: 0.741223
+- !Result
+  answer: Cluster Shared Volumes
+  context: 'CSV (Cluster Shared Volumes) is a feature in Windows Server in which shared
+    disks are concurrently accessible to all nodes within a failover cluster. You
+    need to tell the cluster manager which storage should be used for the CSVs. In
+    our scenario, we will use CSVs to hold disks for fault-tolerant virtual machines.
+    As mentioned in the previous post, our standard arrangement involves something
+    like this: - SystemStorage volume will hold the system disk of our database server.
+    - DatabaseStorage will be used to store PostgreSQL databases. - FileStorage will
+    be exposed to the application servers as a central shared location where users
+    can store and share files. - Witness will be used for failover cluster quorum
+    configuration.'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: storage location
+    f1: 0.0
+    metadata:
+      article_title: Windows Server 2012 clustering for high availability, with ASP.NET
+        and PostgreSQL - Part 1
+      author: Denis Susac
+      date: '2015-09-04T00:00:00'
+      document_id: cd2f30ca0b26d07715038a3d0f7673ca
+      index: site_nostemmer_nostopword
+      name: Windows Server 2012 clustering for high availability, with ASP.NET and
+        PostgreSQL - Part 1, Failover Clustering_3, by Denis Susac
+      paragraph_title: Failover Clustering_3
+    pr: 0.6687428174033379
+  - !Prediction
+    answer: CSV
+    f1: 0.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: 5ec213708f83391a61367301a3630713
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        Cluster Shared Volumes, by Denis Susac'
+      paragraph_title: Cluster Shared Volumes
+    pr: 0.5727297752914069
+  - !Prediction
+    answer: Failover Clustering
+    f1: 0.0
+    metadata:
+      article_title: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation'
+      author: Denis Susac
+      date: '2016-01-28T00:00:00'
+      document_id: 0fdbbb40394cce5eba31825fed02992c
+      index: site_nostemmer_nostopword
+      name: 'Windows Server 2012 Hyper-V Failover Clustering - Part 3: Installation,
+        Adding the Failover Clustering Feature_2, by Denis Susac'
+      paragraph_title: Adding the Failover Clustering Feature_2
+    pr: 0.39387091979830835
+  question: What feature in Windows Server makes shared disks concurrently accessible
+    to all nodes in a failover cluster?
+  time: 0.766971
+- !Result
+  answer: early as 2008
+  context: 'Traditionally, search engine crawlers were only looking at the raw textual
+    content contained within the HTTP response body and didn''t really interpret what
+    a typical browser running JavaScript would interpret. When pages that have a lot
+    of content rendered by JavaScript started showing up, Google started crawling
+    and indexing it as early as 2008, but in a rather limited fashion. Ajax crawling
+    scheme was a standard, albeit clunky solution for this problem up until now. Google
+    was putting a lot of work into a more elegant approach to understand web pages
+    better, and finally, on Oct 14, 2015 they officially announced that the AJAX crawling
+    scheme is now deprecated. In their own words:  We are no longer recommending the
+    AJAX crawling proposal we made back in 2009.'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: 2008,
+    f1: 0.5
+    metadata: &id029
+      article_title: SEO for JavaScript applications, 2016 edition
+      author: Denis Susac
+      date: '2016-02-18T00:00:00'
+      document_id: 36ac4629707ce934e5d60eb605652ed2
+      index: site_nostemmer_nostopword
+      name: SEO for JavaScript applications, 2016 edition, _1, by Denis Susac
+      paragraph_title: _1
+    pr: 0.8688512236834072
+  - !Prediction
+    answer: '2009.'
+    f1: 0.0
+    metadata:
+      article_title: SEO for JavaScript applications, 2016 edition
+      author: Denis Susac
+      date: '2016-02-18T00:00:00'
+      document_id: 8feb2b06ac33cfb5adf5832b13b1650d
+      index: site_nostemmer_nostopword
+      name: SEO for JavaScript applications, 2016 edition, _3, by Denis Susac
+      paragraph_title: _3
+    pr: 0.13767527436468363
+  - !Prediction
+    answer: as early as 2008,
+    f1: 1.0
+    metadata: *id029
+    pr: 0.09881462689053766
+  question: When did google start indexing content rendered by javascript?
+  time: 0.754784
+- !Result
+  answer: serve the prerendered HTML snapshot
+  context: 'letting you know that you should handle the response differently inside
+    your JS application. On most occasions, you will serve the prerendered HTML snapshot
+    to the crawler, saving it from the effort of parsing and executing JavaScript
+    on its own.  The newer HTML5 pushState doesn''t work the same way, as it modifies
+    the browser''s URL and history. If you are using pushState, you should use the
+    following tag in the header of your pages:'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: install the middleware on your server.
+    f1: 0.18181818181818182
+    metadata:
+      article_title: Installing Prerender.io
+      author: Denis Susac
+      date: '2016-02-22T00:00:00'
+      document_id: 8ae827b70f9764236e24f55941101c82
+      index: site_nostemmer_nostopword
+      name: Installing Prerender.io, , by Denis Susac
+      paragraph_title: ''
+    pr: 0.39886932927191765
+  - !Prediction
+    answer: serve the prerendered HTML snapshot
+    f1: 1.0
+    metadata: &id030
+      article_title: SEO for JavaScript applications, 2016 edition
+      author: Denis Susac
+      date: '2016-02-18T00:00:00'
+      document_id: 93216836f21949f6c15e04fd524219d5
+      index: site_nostemmer_nostopword
+      name: SEO for JavaScript applications, 2016 edition, Ajax crawling scheme, by
+        Denis Susac
+      paragraph_title: Ajax crawling scheme
+    pr: 0.3793122409827401
+  - !Prediction
+    answer: you will serve the prerendered HTML snapshot
+    f1: 0.8333333333333334
+    metadata: *id030
+    pr: 0.22997628834864692
+  question: What can you do to save a crawler from the effort of executing javascript
+    on its own?
+  time: 0.7234
+- !Result
+  answer: prerendering services
+  context: As described in our previous article on SEO for JavaScript applications,
+    prerendering services still play an important role in enabling search engine crawlers
+    to index the dynamic content. This time we will learn how to install Prerender.io
+    on your server infrastructure.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: prerendering services
+    f1: 1.0
+    metadata:
+      article_title: Installing Prerender.io
+      author: Denis Susac
+      date: '2016-02-22T00:00:00'
+      document_id: 8ae827b70f9764236e24f55941101c82
+      index: site_nostemmer_nostopword
+      name: Installing Prerender.io, , by Denis Susac
+      paragraph_title: ''
+    pr: 0.9568744420087398
+  - !Prediction
+    answer: Ajax crawling scheme
+    f1: 0.0
+    metadata:
+      article_title: SEO for JavaScript applications, 2016 edition
+      author: Denis Susac
+      date: '2016-02-18T00:00:00'
+      document_id: 36ac4629707ce934e5d60eb605652ed2
+      index: site_nostemmer_nostopword
+      name: SEO for JavaScript applications, 2016 edition, _1, by Denis Susac
+      paragraph_title: _1
+    pr: 0.21032844166205855
+  - !Prediction
+    answer: "Incorrectly configured indexes\u2026"
+    f1: 0.0
+    metadata:
+      article_title: Missing, incorrectly set-up or unused indexes and their impact
+        on SQL Server performance
+      author: Goran Pavlovic
+      date: '2017-07-13T00:00:00'
+      document_id: a6738746d9fe77894c6ed0ac0f5cd1c6
+      index: site_nostemmer_nostopword
+      name: Missing, incorrectly set-up or unused indexes and their impact on SQL
+        Server performance, Missing and incorrectly set up indexes_3, by Goran Pavlovic
+      paragraph_title: Missing and incorrectly set up indexes_3
+    pr: 0.17825087585742594
+  question: What enables search engines to index dynamic content?
+  time: 0.684907
+- !Result
+  answer: optimize your JavaScript applications for search engines
+  context: Prerender.io is a great service that allow you to optimize your JavaScript
+    applications for search engines without an effort - you just purchase an account
+    with them and install the middleware on your server. The source code for their
+    service is available on GitHub and you can alternatively run it from your servers
+    which is handy in high-volume scenarios. This is what we are using for our applications,
+    and since the installation instructions are a bit terse, we've decided to document
+    the whole process. We will be using a fresh and dedicated installation of Ubuntu
+    14.04 to run our local instance of Prerender.io.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Please send us your thoughts and comments.
+    f1: 0.14285714285714285
+    metadata: &id031
+      article_title: When simple errors lead to huge consequences
+      author: Ivan Kalafatic
+      date: '2018-05-02T00:00:00'
+      document_id: 92f8cb8608b4a80ec2bcab2a56ff1cb6
+      index: site_nostemmer_nostopword
+      name: When simple errors lead to huge consequences, Lessons learned, by Ivan
+        Kalafatic
+      paragraph_title: Lessons learned
+    pr: 0.11361319177117224
+  - !Prediction
+    answer: optimize your JavaScript applications for search engines without an effort
+    f1: 0.8235294117647058
+    metadata:
+      article_title: Installing Prerender.io
+      author: Denis Susac
+      date: '2016-02-22T00:00:00'
+      document_id: 8ae827b70f9764236e24f55941101c82
+      index: site_nostemmer_nostopword
+      name: Installing Prerender.io, , by Denis Susac
+      paragraph_title: ''
+    pr: 0.06818343093975443
+  - !Prediction
+    answer: Please send us your thoughts and comments.
+    f1: 0.14285714285714285
+    metadata: *id031
+    pr: 0.06192493650792841
+  question: What does prerender.io do?
+  time: 0.69047
+- !Result
+  answer: it offers scalability and a simple cache expiration mechanism
+  context: Generating HTML snapshots is a resource-intensive process, so some sort
+    of caching strategy should be used to improve the performance. Prerender.io comes
+    with several different caching plugins, but we will use the one based on Redis,
+    as it offers scalability and a simple cache expiration mechanism. Redis can be
+    built from source, but the pre-built version is sufficient for the task at hand.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: it offers scalability and a simple cache expiration mechanism.
+    f1: 1.0
+    metadata: &id032
+      article_title: Installing Prerender.io
+      author: Denis Susac
+      date: '2016-02-22T00:00:00'
+      document_id: 3f136cfa4f375665ea22724b62262ee2
+      index: site_nostemmer_nostopword
+      name: Installing Prerender.io, Caching, by Denis Susac
+      paragraph_title: Caching
+    pr: 0.28570225544170924
+  - !Prediction
+    answer: scalability and a simple cache expiration mechanism.
+    f1: 0.875
+    metadata: *id032
+    pr: 0.1530202554741127
+  - !Prediction
+    answer: CodePen does not support inline-svg plugin,
+    f1: 0.0
+    metadata:
+      article_title: Supercharge your colors with the PostCSS color() function
+      author: Mihael Tomic
+      date: '2017-08-08T00:00:00'
+      document_id: 1833a44b7a9966f1bb43b647ea2d6720
+      index: site_nostemmer_nostopword
+      name: Supercharge your colors with the PostCSS color() function, Using color
+        function with postcss-inline-svg, by Mihael Tomic
+      paragraph_title: Using color function with postcss-inline-svg
+    pr: 0.08081679251612961
+  question: Why would you use the redis caching plugin?
+  time: 0.724581
+- !Result
+  answer: to reuse instances within the lifetime of a scope (ambient instances) and
+    to specify a deterministic dispose of resources
+  context: When working with Ninject, one can specify standard lifetime designators
+    like InSingletonScope and InTransientScope in the bindings section. There are
+    two important situations when one might want to define a custom scope - to reuse
+    instances within the lifetime of a scope (ambient instances) and to specify a
+    deterministic dispose of resources when a scope lifetime ends.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Ninject
+    f1: 0.0
+    metadata:
+      article_title: Ninject ambient scope and deterministic dispose
+      author: Jasmin Muharemovic
+      date: '2016-04-21T00:00:00'
+      document_id: 153a98d8f55c0a7932b5ee2d6f78604d
+      index: site_nostemmer_nostopword
+      name: Ninject ambient scope and deterministic dispose, Deterministic dispose_1,
+        by Jasmin Muharemovic
+      paragraph_title: Deterministic dispose_1
+    pr: 0.5780461793506717
+  - !Prediction
+    answer: to reuse instances within the lifetime
+    f1: 0.5714285714285714
+    metadata:
+      article_title: Ninject ambient scope and deterministic dispose
+      author: Jasmin Muharemovic
+      date: '2016-04-21T00:00:00'
+      document_id: 5186d5ca42b614b5e03096e61531fcd0
+      index: site_nostemmer_nostopword
+      name: Ninject ambient scope and deterministic dispose, , by Jasmin Muharemovic
+      paragraph_title: ''
+    pr: 0.46619037424665066
+  - !Prediction
+    answer: disentangled from the injection and binding changes all together.
+    f1: 0.16666666666666666
+    metadata:
+      article_title: Ninject ambient scope and deterministic dispose
+      author: Jasmin Muharemovic
+      date: '2016-04-21T00:00:00'
+      document_id: f4918ff252ffcf73f2a364e8ef4ff385
+      index: site_nostemmer_nostopword
+      name: Ninject ambient scope and deterministic dispose, NamedScope extension_4,
+        by Jasmin Muharemovic
+      paragraph_title: NamedScope extension_4
+    pr: 0.41935941766621454
+  question: When would you define a custom lifetime or scope?
+  time: 0.758714
+- !Result
+  answer: propagating its context
+  context: In order for the whole thing to work in the InNamedScope example above,
+    BarFactory (or in a real life situation, a really complex chain of objects) needs
+    to be injected by the parent scoping type (Foo or Goo or Moo) because that's under
+    Ninject's control and that's the only way it can pass the contextual parent scope
+    information down to the injection chain. As soon as one moves away from the NamedScope
+    extension way of doing things, the biggest challenge in accomplishing Ninject
+    to be aware of a custom scope is not wiring it in the bindings, but actually propagating
+    its context in an async/await environment.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: not wiring it in the bindings,
+    f1: 0.0
+    metadata:
+      article_title: Ninject ambient scope and deterministic dispose
+      author: Jasmin Muharemovic
+      date: '2016-04-21T00:00:00'
+      document_id: 48d57c75d80c4d0a18e868e74611c811
+      index: site_nostemmer_nostopword
+      name: Ninject ambient scope and deterministic dispose, Custom ambient scope
+        and context propagation, by Jasmin Muharemovic
+      paragraph_title: Custom ambient scope and context propagation
+    pr: 0.5615783568874484
+  - !Prediction
+    answer: instantiation.
+    f1: 0.0
+    metadata:
+      article_title: Ninject ambient scope and deterministic dispose
+      author: Jasmin Muharemovic
+      date: '2016-04-21T00:00:00'
+      document_id: 921858ad14cb0f1397c604e0623ae85b
+      index: site_nostemmer_nostopword
+      name: Ninject ambient scope and deterministic dispose, NamedScope extension_1,
+        by Jasmin Muharemovic
+      paragraph_title: NamedScope extension_1
+    pr: 0.1362682502116499
+  - !Prediction
+    answer: to reuse instances within the lifetime of a scope
+    f1: 0.0
+    metadata:
+      article_title: Ninject ambient scope and deterministic dispose
+      author: Jasmin Muharemovic
+      date: '2016-04-21T00:00:00'
+      document_id: 5186d5ca42b614b5e03096e61531fcd0
+      index: site_nostemmer_nostopword
+      name: Ninject ambient scope and deterministic dispose, , by Jasmin Muharemovic
+      paragraph_title: ''
+    pr: 0.04095225224059362
+  question: What's the biggest challenge in making ninject aware of a custom scope?
+  time: 0.719993
+- !Result
+  answer: have that scope implement the Ninject's INotifyWhenDisposed interface
+  context: 'Amazingly, googling Ninject deterministic dispose gives various confusing
+    posts, so one may need to dig further to find a coherent answer. I found it nicely
+    explained in this old article - Cache-and-Collect Lifecycle Management in Ninject
+    2.0. It seems that the only way to have a deterministic dispose of an instance
+    bound to a custom scope is to have that scope implement the Ninject''s INotifyWhenDisposed
+    interface. It will immediately cause the disposal of any IDisposable instance
+    associated with the scope object when scope''s Dispose method is invoked. The
+    key thing is to raise the INotifyWhenDisposed.Disposed event within the Dispose
+    method. Here''s the code for the universal disposable scope:'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: InTransientScope
+    f1: 0.0
+    metadata: &id033
+      article_title: Ninject ambient scope and deterministic dispose
+      author: Jasmin Muharemovic
+      date: '2016-04-21T00:00:00'
+      document_id: f73cb67b4dc0991004f14f01dfdbab9a
+      index: site_nostemmer_nostopword
+      name: Ninject ambient scope and deterministic dispose, Ambient disposable vs
+        transient disposable, by Jasmin Muharemovic
+      paragraph_title: Ambient disposable vs transient disposable
+    pr: 0.5918721255687736
+  - !Prediction
+    answer: InTransientScope way,
+    f1: 0.0
+    metadata: *id033
+    pr: 0.23693517010162424
+  - !Prediction
+    answer: InRequestScope
+    f1: 0.0
+    metadata:
+      article_title: Ninject ambient scope and deterministic dispose
+      author: Jasmin Muharemovic
+      date: '2016-04-21T00:00:00'
+      document_id: 8b5eb1fc917966a432dad10d4386022c
+      index: site_nostemmer_nostopword
+      name: Ninject ambient scope and deterministic dispose, The magic of InRequestScope,
+        by Jasmin Muharemovic
+      paragraph_title: The magic of InRequestScope
+    pr: 0.09294976904000851
+  question: How can you deterministically dispose of an instance bound to a custom
+    scope?
+  time: 0.720263
+- !Result
+  answer: (AWS) provides a platform that is well suited for building fault-tolerant
+    software
+  context: Amazon Web Services (AWS) provides a platform that is well suited for building
+    fault-tolerant software. Similar services are offered by other cloud providers,
+    and most of them provide the infrastructure needed for building fault-tolerant
+    systems that operate with a minimal amount of human interaction and up-front financial
+    investment. We have chosen AWS because of its sheer size, popularity, and price
+    structure. More importantly, we were looking to avoid complicated and time-consuming
+    administrative tasks such as database installation and upgrades; storage management;
+    replication for high availability and read throughput; and backups for disaster
+    recovery. Over the past few years, PostgreSQL has become the preferred open source
+    relational database for many developers, and we are using it in most of our new
+    applications. Amazon Relational Database Service (RDS) makes it easy to set up,
+    operate, and scale PostgreSQL databases in the cloud, and provides support for
+    Amazon Aurora, MySQL, MariaDB, Oracle and SQL Server too. It is an ideal choice
+    for both smaller shops without an experienced DBA, and larger organizations that
+    need to scale their solutions.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: loads files from folder and is processing image by image.
+    f1: 0.09090909090909091
+    metadata: &id034
+      article_title: Aerial image stitching
+      author: Dino Repac
+      date: '2018-03-14T00:00:00'
+      document_id: eb013dd5e7ec8da313f440ba5eb9dbc8
+      index: site_nostemmer_nostopword
+      name: Aerial image stitching, Algorithm_2, by Dino Repac
+      paragraph_title: Algorithm_2
+    pr: 0.3344624898653876
+  - !Prediction
+    answer: try jsweet. Need something for Python? Check out Transcript.
+    f1: 0.09090909090909091
+    metadata:
+      article_title: Are we assembler programmers?
+      author: Vlatko Drempetic
+      date: '2018-10-29T00:00:00'
+      document_id: ec99120562746277ca6a16f86838a2a0
+      index: site_nostemmer_nostopword
+      name: Are we assembler programmers?, Who wants to write in JavaScript?_2, by
+        Vlatko Drempetic
+      paragraph_title: Who wants to write in JavaScript?_2
+    pr: 0.17025535759363386
+  - !Prediction
+    answer: loads files from folder
+    f1: 0.0
+    metadata: *id034
+    pr: 0.15467682181520814
+  question: What does AWS do?
+  time: 0.750793
+- !Result
+  answer: Amazon Virtual Private Cloud
+  context: Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated
+    section of the 'big' Amazon cloud where you can launch AWS resources in a virtual
+    network that you define. Since our database instance only needs to be available
+    to the web server - and not to the public Internet - we create a VPC with both
+    public and private subnets. The web server will be hosted in the public subnet.
+    The database instance will be hosted in a private subnet. The web server will
+    be able to connect to the database instance because it is hosted within the same
+    VPC, but the database instance will not be available to the public Internet, providing
+    greater security.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Amazon Virtual Private Cloud
+    f1: 1.0
+    metadata: &id035
+      article_title: Building highly available applications with Amazon RDS
+      author: Denis Susac
+      date: '2016-07-13T00:00:00'
+      document_id: 0dc7828fa71de86d617323d848c9424d
+      index: site_nostemmer_nostopword
+      name: Building highly available applications with Amazon RDS, Amazon Virtual
+        Private Cloud (VPC)_1, by Denis Susac
+      paragraph_title: Amazon Virtual Private Cloud (VPC)_1
+    pr: 0.5121908467892808
+  - !Prediction
+    answer: Azure,
+    f1: 0.0
+    metadata:
+      article_title: Introduction to Azure Resource Manager
+      author: Slaven Vladisavljevic
+      date: '2017-01-27T00:00:00'
+      document_id: 05b85d8ea150e6d6bb814d6ef6774a35
+      index: site_nostemmer_nostopword
+      name: Introduction to Azure Resource Manager, Basic terminology, by Slaven Vladisavljevic
+      paragraph_title: Basic terminology
+    pr: 0.4586038725938124
+  - !Prediction
+    answer: Amazon Virtual Private Cloud (VPC)
+    f1: 0.8888888888888888
+    metadata: *id035
+    pr: 0.3055536294244803
+  question: What let's you use AWS resources in a virtual network?
+  time: 0.717706
+- !Result
+  answer: an infrastructure failure
+  context: A word about Multi-AZ deployments, which turns out to be one of the coolest
+    database features we use in the AWS. When you provision a Multi-AZ DB Instance,
+    Amazon automatically creates a primary DB Instance and synchronously replicates
+    the data to a standby instance in a different Availability Zone. Each AZ has its
+    own physically distinct infrastructure. In the case of an infrastructure failure,
+    Amazon RDS performs an automatic failover to the standby, so that you can resume
+    database operations as soon as the failover is complete - in our initial tests,
+    this takes less than a minute. Since the endpoint for your DB Instance remains
+    the same after a failover, your application can resume database operation without
+    the need for any manual intervention.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Leave database name empty
+    f1: 0.0
+    metadata:
+      article_title: Building highly available applications with Amazon RDS
+      author: Denis Susac
+      date: '2016-07-13T00:00:00'
+      document_id: 2a5788cefa418f1fc102b18135fb1631
+      index: site_nostemmer_nostopword
+      name: Building highly available applications with Amazon RDS, Amazon Relational
+        Database Service (RDS)_5, by Denis Susac
+      paragraph_title: Amazon Relational Database Service (RDS)_5
+    pr: 0.8432939925103327
+  - !Prediction
+    answer: an infrastructure failure,
+    f1: 1.0
+    metadata: &id036
+      article_title: Building highly available applications with Amazon RDS
+      author: Denis Susac
+      date: '2016-07-13T00:00:00'
+      document_id: 7b2e6bcf22a1b394cffa6aee0fa860ea
+      index: site_nostemmer_nostopword
+      name: Building highly available applications with Amazon RDS, Amazon Relational
+        Database Service (RDS)_2, by Denis Susac
+      paragraph_title: Amazon Relational Database Service (RDS)_2
+    pr: 0.5256609441345148
+  - !Prediction
+    answer: infrastructure failure,
+    f1: 0.8
+    metadata: *id036
+    pr: 0.4615339781666492
+  question: What causes Amazon RDS to automatically perform a failover?
+  time: 0.719311
+- !Result
+  answer: Amazon ElastiCache
+  context: Amazon ElastiCache is a web service that makes it easy to deploy, operate,
+    and scale an in-memory cache. It supports two open-source in-memory caching engines,
+    Memcached and Redis. We are using Redis in our projects, and ElastiCache supports
+    Master / Slave replication and Multi-AZ, which can be used to achieve cross zone
+    redundancy.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Prerender.io
+    f1: 0.0
+    metadata:
+      article_title: Installing Prerender.io
+      author: Denis Susac
+      date: '2016-02-22T00:00:00'
+      document_id: 3f136cfa4f375665ea22724b62262ee2
+      index: site_nostemmer_nostopword
+      name: Installing Prerender.io, Caching, by Denis Susac
+      paragraph_title: Caching
+    pr: 0.9495825994640938
+  - !Prediction
+    answer: Amazon ElastiCache
+    f1: 1.0
+    metadata:
+      article_title: Building highly available applications with Amazon RDS
+      author: Denis Susac
+      date: '2016-07-13T00:00:00'
+      document_id: 8d4a4287fc2631cf252a86056e4a9d8c
+      index: site_nostemmer_nostopword
+      name: Building highly available applications with Amazon RDS, ElastiCache, by
+        Denis Susac
+      paragraph_title: ElastiCache
+    pr: 0.9384961706950321
+  - !Prediction
+    answer: CMS,
+    f1: 0.0
+    metadata:
+      article_title: Baasic beta now opened
+      author: Denis Susac
+      date: '2015-03-24T00:00:00'
+      document_id: 1f9716721f5539961ef87035b50cc57c
+      index: site_nostemmer_nostopword
+      name: Baasic beta now opened, _3, by Denis Susac
+      paragraph_title: _3
+    pr: 0.3206306088643025
+  question: What web service supports the redis in-memory caching engine?
+  time: 0.726231
+- !Result
+  answer: plain JavaScript
+  context: If you are using AngularJS as your UI framework, be prepared, Angular 2
+    delivers a substantial change. No more plain old JavaScript - say hi to Typescript.
+    Well, Angular 2 can be written in JavaScript, Typescript, and Dart, but sympathy
+    mostly goes to Typescript as it is the language Angular 2 was written in. Although
+    it does eventually compile to plain JavaScript, Typescript is a powerful language
+    that lets you build things that would otherwise take time and time to do. What
+    you're actually doing with Angular 2 is writing templates in Typescript. Angular
+    2 then turns that templates into code that's highly optimized for today's JavaScript
+    virtual machines, says the Angular 2 team, but more on that later.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: plain JavaScript,
+    f1: 1.0
+    metadata:
+      article_title: Please move, here comes Angular 2
+      author: Dino Repac
+      date: '2016-08-03T00:00:00'
+      document_id: 77d0fa44b62b74d5e9dc2c34c0ead0c5
+      index: site_nostemmer_nostopword
+      name: Please move, here comes Angular 2, , by Dino Repac
+      paragraph_title: ''
+    pr: 0.8994773639078524
+  - !Prediction
+    answer: JavaScript
+    f1: 0.6666666666666666
+    metadata:
+      article_title: Are we assembler programmers?
+      author: Vlatko Drempetic
+      date: '2018-10-29T00:00:00'
+      document_id: 0f53c256b3cd29f0d6becbc72d1cc2b7
+      index: site_nostemmer_nostopword
+      name: Are we assembler programmers?, Who wants to write in JavaScript?_4, by
+        Vlatko Drempetic
+      paragraph_title: Who wants to write in JavaScript?_4
+    pr: 0.7719415178013804
+  - !Prediction
+    answer: OpenCV and Python. To start of, algorithm loads files from folder
+    f1: 0.0
+    metadata:
+      article_title: Aerial image stitching
+      author: Dino Repac
+      date: '2018-03-14T00:00:00'
+      document_id: eb013dd5e7ec8da313f440ba5eb9dbc8
+      index: site_nostemmer_nostopword
+      name: Aerial image stitching, Algorithm_2, by Dino Repac
+      paragraph_title: Algorithm_2
+    pr: 0.17717901034360395
+  question: What does typescript compile to?
+  time: 0.724341
+- !Result
+  answer: components
+  context: Angular 2 is entirely component based; there are no $scopes or controllers.
+    Instead, you are writing small chunks of code that are later connected to form
+    one big application. Those small chunks of code are components - below you can
+    see an example of one. The component is defined by the @Component decorator, and
+    each one has its own custom selector (HTML tag), template (or template URL for
+    external template), directives, providers, and pipes (which we'll talk about later).
+    Each component also has its own class called component class. In order to use
+    (import) it somewhere else, we have to export it.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: components
+    f1: 1.0
+    metadata:
+      article_title: Please move, here comes Angular 2
+      author: Dino Repac
+      date: '2016-08-03T00:00:00'
+      document_id: a92c4199a71be22ed1a2b791debcb8db
+      index: site_nostemmer_nostopword
+      name: Please move, here comes Angular 2, Say bye to $scope and controllers,
+        by Dino Repac
+      paragraph_title: Say bye to $scope and controllers
+    pr: 0.9834629124944243
+  - !Prediction
+    answer: matching driver integrated circuits
+    f1: 0.0
+    metadata: &id037
+      article_title: Building Arduino powered Nixie Clock
+      author: Ivan Kalafatic
+      date: '2018-08-27T00:00:00'
+      document_id: 5fcd3794328c70413885fc62a96acd66
+      index: site_nostemmer_nostopword
+      name: Building Arduino powered Nixie Clock, Introduction, by Ivan Kalafatic
+      paragraph_title: Introduction
+    pr: 0.7248011517119473
+  - !Prediction
+    answer: matching driver integrated circuits
+    f1: 0.0
+    metadata: *id037
+    pr: 0.26638901667335446
+  question: What are the small chunks of code called which later are connected to
+    form the application?
+  time: 0.725454
+- !Result
+  answer: Component
+  context: 'As for the naming convention, each component name ends with Component,
+    and the name of the file that holds it with .component. All the files are in kebab-case,
+    so no worries about case sensitivity. Applied to the example component above,
+    the file name would look like this: my-custom.component.ts.'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Component,
+    f1: 1.0
+    metadata:
+      article_title: Please move, here comes Angular 2
+      author: Dino Repac
+      date: '2016-08-03T00:00:00'
+      document_id: a92c4199a71be22ed1a2b791debcb8db
+      index: site_nostemmer_nostopword
+      name: Please move, here comes Angular 2, Say bye to $scope and controllers,
+        by Dino Repac
+      paragraph_title: Say bye to $scope and controllers
+    pr: 0.9089447973503084
+  - !Prediction
+    answer: the blight
+    f1: 0.0
+    metadata:
+      article_title: Code splitting and preloading React routes with Webpack
+      author: Domagoj Suhic
+      date: '2019-12-30T00:00:00'
+      document_id: 5021450d6a8e12ce0e3c619c6dfe2d62
+      index: site_nostemmer_nostopword
+      name: Code splitting and preloading React routes with Webpack, Lazy loading,
+        by Domagoj Suhic
+      paragraph_title: Lazy loading
+    pr: 0.8469557959041936
+  - !Prediction
+    answer: templates in Typescript.
+    f1: 0.0
+    metadata:
+      article_title: Please move, here comes Angular 2
+      author: Dino Repac
+      date: '2016-08-03T00:00:00'
+      document_id: 77d0fa44b62b74d5e9dc2c34c0ead0c5
+      index: site_nostemmer_nostopword
+      name: Please move, here comes Angular 2, , by Dino Repac
+      paragraph_title: ''
+    pr: 0.18481894889290373
+  question: What do all Angular component names end with?
+  time: 0.749098
+- !Result
+  answer: the ones that change the appearance or behavior of an element they are applied
+    to
+  context: Attribute directives are the ones that change the appearance or behavior
+    of an element they are applied to. These directives are specified by their selector
+    using square brackets (read more about attribute directives here).  Structural
+    directives are here to add, remove, and replace elements in DOM. If you used AngularJS,
+    you have seen them or used them plenty of times. Like in AngularJS, ng-if and
+    ng-repeat exist in Angular 2 too, but are slightly changed. Structural directives
+    now start with a '*'(*ngFor, *ngIf). If you see that in an HTML code, that is
+    a structural directive (read more about structural directives here).
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: ones that change the appearance or behavior of an element they are applied
+      to.
+    f1: 1.0
+    metadata: &id038
+      article_title: Please move, here comes Angular 2
+      author: Dino Repac
+      date: '2016-08-03T00:00:00'
+      document_id: 034d0639130697d002791cd38c0c7d35
+      index: site_nostemmer_nostopword
+      name: Please move, here comes Angular 2, What about directives?, by Dino Repac
+      paragraph_title: What about directives?
+    pr: 0.32319134216589873
+  - !Prediction
+    answer: the ones that change the appearance or behavior of an element they are
+      applied to.
+    f1: 1.0
+    metadata: *id038
+    pr: 0.3133942070660396
+  - !Prediction
+    answer: defines starting points and resolution of the element.
+    f1: 0.2727272727272727
+    metadata:
+      article_title: An introduction to SVG
+      author: Ivan Sakoman
+      date: '2019-11-08T00:00:00'
+      document_id: d63b4d608071dc1c61816073d1922848
+      index: site_nostemmer_nostopword
+      name: An introduction to SVG, SVG path syntax and how to animate it_3, by Ivan
+        Sakoman
+      paragraph_title: SVG path syntax and how to animate it_3
+    pr: 0.22467600923504705
+  question: What are attribute directives?
+  time: 0.723958
+- !Result
+  answer: AppComponent
+  context: What is also new is that there is no bootstrap directive. What we are doing
+    instead is calling the bootstrap function and passing in the root application
+    component. By convention, root component is called 'AppComponent'.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: "\u201CAppComponent\u201D."
+    f1: 1.0
+    metadata: &id039
+      article_title: Please move, here comes Angular 2
+      author: Dino Repac
+      date: '2016-08-03T00:00:00'
+      document_id: 8e02cda310cef927019ae8c780d308c4
+      index: site_nostemmer_nostopword
+      name: Please move, here comes Angular 2, Template features, by Dino Repac
+      paragraph_title: Template features
+    pr: 0.7241167886565414
+  - !Prediction
+    answer: "\u201CAppComponent\u201D."
+    f1: 1.0
+    metadata: *id039
+    pr: 0.2101049142031064
+  - !Prediction
+    answer: AngularJS
+    f1: 0.0
+    metadata:
+      article_title: Please move, here comes Angular 2
+      author: Dino Repac
+      date: '2016-08-03T00:00:00'
+      document_id: 77d0fa44b62b74d5e9dc2c34c0ead0c5
+      index: site_nostemmer_nostopword
+      name: Please move, here comes Angular 2, , by Dino Repac
+      paragraph_title: ''
+    pr: 0.07080829451740112
+  question: In Angular 2, what is the name of the root component?
+  time: 0.688521
+- !Result
+  answer: Observables are lazy
+  context: In Angular 2, services are often used to fetch the data from the server.
+    While doing so they use HTTP client that is built in Angular 2. There was a slight
+    twist in how the data can be fetched. Just as AngularJS use promises, Angular
+    2 uses promises, but wait... Angular 2 new favorite way of getting data is via
+    Observables! Now, observables are great. They are a part of Reactive Extensions.
+    If you haven't seen them yet, it's time to learn more. But what's the difference
+    between promises and observables? Observables are lazy - meaning you have to subscribe
+    to them in order to trigger their behavior and you can also cancel your request
+    thanks to disposability. Ben Lesh compared them in this great video which is worth
+    watching.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: If you look at the little icon left to the suggestion label,
+    f1: 0.0
+    metadata:
+      article_title: Custom IntelliSense with Monaco Editor
+      author: Ivana Simic
+      date: '2017-04-11T00:00:00'
+      document_id: a59e4c46365a59fd1f80a6c8fa10e411
+      index: site_nostemmer_nostopword
+      name: Custom IntelliSense with Monaco Editor, Step 4 - Provider implementation_18,
+        by Ivana Simic
+      paragraph_title: Step 4 - Provider implementation_18
+    pr: 0.5921128872712522
+  - !Prediction
+    answer: Observables are lazy
+    f1: 1.0
+    metadata:
+      article_title: Please move, here comes Angular 2
+      author: Dino Repac
+      date: '2016-08-03T00:00:00'
+      document_id: daaf6e8bda416091b43eab69de48e15d
+      index: site_nostemmer_nostopword
+      name: Please move, here comes Angular 2, The services!_7, by Dino Repac
+      paragraph_title: The services!_7
+    pr: 0.5302015474216262
+  - !Prediction
+    answer: "chances are you\u2019ll want to implement your module API through promises."
+    f1: 0.13333333333333333
+    metadata:
+      article_title: Creating NodeJS modules with both promise and callback API support
+        using Q
+      author: Tihomir Kit
+      date: '2014-07-07T00:00:00'
+      document_id: 235e03372ade72a131d7cf8fe60076cc
+      index: site_nostemmer_nostopword
+      name: Creating NodeJS modules with both promise and callback API support using
+        Q, , by Tihomir Kit
+      paragraph_title: ''
+    pr: 0.3423828030999516
+  question: What's the difference between promises and observables?
+  time: 0.715931
+- !Result
+  answer: chat bots
+  context: But the part of using AI Ashley talked about the most were chat bots. Making
+    those, brands can make their interactions with users more direct and personal.
+    If we just look at the numbers - there are over 900 million Facebook users and
+    around 11 000 bots already created. Why? Well, computers are good at remembering
+    stuff, automating mundane tasks, and making accurate calculations very fast. And
+    when users prompt your bot for information, the response is imminent; they don't
+    have to wait for someone to read the message first and then look for the information.
+    Of course, there are still skeptics who'd prefer talking to a human as well as
+    there are brands unsure of payoff. But if we follow the best practices Ashley
+    gave in her talk, we might step in the right direction and make a bot everyone
+    would want to use.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Good photography and visual design
+    f1: 0.0
+    metadata:
+      article_title: Importance of photography in web design
+      author: Mihael Tomic
+      date: '2015-02-05T00:00:00'
+      document_id: f9790de8855a2a6272fd38b1974577b8
+      index: site_nostemmer_nostopword
+      name: Importance of photography in web design, , by Mihael Tomic
+      paragraph_title: ''
+    pr: 0.9044380548139515
+  - !Prediction
+    answer: using AI Ashley talked about the most were chat bots.
+    f1: 0.3333333333333333
+    metadata:
+      article_title: AI - our best friend, or is it?
+      author: Ivana Simic
+      date: '2016-11-28T00:00:00'
+      document_id: b2568046b1760181a980e3ca9db25624
+      index: site_nostemmer_nostopword
+      name: "AI - our best friend, or is it?, AI as our right-hand assistant\u2026\
+        _2, by Ivana Simic"
+      paragraph_title: "AI as our right-hand assistant\u2026_2"
+    pr: 0.12424605496312857
+  - !Prediction
+    answer: "situation\u2014we connected delight with functionality."
+    f1: 0.0
+    metadata:
+      article_title: WebCamp 2017
+      author: Antonio Tokic
+      date: '2017-11-10T00:00:00'
+      document_id: 9630fe93193ed2a134dadebe1ad9ae14
+      index: site_nostemmer_nostopword
+      name: WebCamp 2017, Turning zero to hero - a story about empty states, by Antonio
+        Tokic
+      paragraph_title: Turning zero to hero - a story about empty states
+    pr: 0.0920155402077052
+  question: How can brands make their interactions with users more personal?
+  time: 0.724471
+- !Result
+  answer: visual design
+  context: "What we also need to know is how much information is needed - we don't\
+    \ want to provide too much nor too little of it. Besides just written content,\
+    \ we should think about the visual design of our bot making it more appealing\
+    \ to users. And, the one we find really important, always close the loop. The\
+    \ user gives you feedback \u2013 thank them, display a message, the user tells\
+    \ you what to do, again \u2013 display a message."
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: C# tips
+    f1: 0.0
+    metadata:
+      article_title: Five basic C# tips for beginners
+      author: Jure Perak
+      date: '2018-02-23T00:00:00'
+      document_id: f893a171545f88bd164f459248477bfe
+      index: site_nostemmer_nostopword
+      name: Five basic C# tips for beginners, , by Jure Perak
+      paragraph_title: ''
+    pr: 0.8944158657433832
+  - !Prediction
+    answer: visual design
+    f1: 1.0
+    metadata: &id040
+      article_title: AI - our best friend, or is it?
+      author: Ivana Simic
+      date: '2016-11-28T00:00:00'
+      document_id: bbb4db7156df1352acfe74b407368ea7
+      index: site_nostemmer_nostopword
+      name: "AI - our best friend, or is it?, AI as our right-hand assistant\u2026\
+        _4, by Ivana Simic"
+      paragraph_title: "AI as our right-hand assistant\u2026_4"
+    pr: 0.6539985113131763
+  - !Prediction
+    answer: the visual design
+    f1: 0.8
+    metadata: *id040
+    pr: 0.34281761269916444
+  question: Other than written content, what else should you think about to make your
+    bot more appealing to users?
+  time: 0.72447
+- !Result
+  answer: two-way serial communication line
+  context: The core of car communication is a bus line - two-way serial communication
+    line, with one or two wires for the signal. All cars have multiple bus systems
+    that group electronics depending on their use in the car, like CAN-bus, I-bus,
+    K-bus, D-bus, etc. We will focus on I-bus (Information Bus) which is used to control
+    radio, CD, navigation, interior lights, parking sensors, steering wheel buttons,
+    etc. I-Bus can be found on all BMW E39 (5-series 1995-2003), E38 (7-series 1994-2001),
+    E46 (3-series 1998-2005), E53 (X5 1999-2006), some Minies under BMW and some Rovers.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: a live list
+    f1: 0.0
+    metadata: &id041
+      article_title: Hacking BMW K-BUS with Raspberry PI
+      author: Mario Madzar
+      date: '2017-06-16T00:00:00'
+      document_id: a0bace42c64a25eb1cbf268fb7d33502
+      index: site_nostemmer_nostopword
+      name: Hacking BMW K-BUS with Raspberry PI, Implementation_1, by Mario Madzar
+      paragraph_title: Implementation_1
+    pr: 0.47253761785924553
+  - !Prediction
+    answer: two-way serial communication line,
+    f1: 1.0
+    metadata:
+      article_title: Hacking BMW I-BUS With Raspberry PI
+      author: Mario Madzar
+      date: '2016-12-01T00:00:00'
+      document_id: 79aab3ac7132ef00fe6b700b97edd3b3
+      index: site_nostemmer_nostopword
+      name: Hacking BMW I-BUS With Raspberry PI, Introduction, by Mario Madzar
+      paragraph_title: Introduction
+    pr: 0.362505593888109
+  - !Prediction
+    answer: live list
+    f1: 0.0
+    metadata: *id041
+    pr: 0.20056310145477596
+  question: What is a bus line?
+  time: 0.660915
+- !Result
+  answer: I-bus (Information Bus)
+  context: The core of car communication is a bus line - two-way serial communication
+    line, with one or two wires for the signal. All cars have multiple bus systems
+    that group electronics depending on their use in the car, like CAN-bus, I-bus,
+    K-bus, D-bus, etc. We will focus on I-bus (Information Bus) which is used to control
+    radio, CD, navigation, interior lights, parking sensors, steering wheel buttons,
+    etc. I-Bus can be found on all BMW E39 (5-series 1995-2003), E38 (7-series 1994-2001),
+    E46 (3-series 1998-2005), E53 (X5 1999-2006), some Minies under BMW and some Rovers.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Baasic ShowCase IoT RaspberryPI
+    f1: 0.0
+    metadata:
+      article_title: Hacking BMW K-BUS with Raspberry PI
+      author: Mario Madzar
+      date: '2017-06-16T00:00:00'
+      document_id: 452ed52eeae556a6ba0814707ecf13fa
+      index: site_nostemmer_nostopword
+      name: Hacking BMW K-BUS with Raspberry PI, Testing, by Mario Madzar
+      paragraph_title: Testing
+    pr: 0.6447860151354838
+  - !Prediction
+    answer: remote controller
+    f1: 0.0
+    metadata:
+      article_title: Hacking BMW K-BUS with Raspberry PI
+      author: Mario Madzar
+      date: '2017-06-16T00:00:00'
+      document_id: b05384dee8c067adc448d1475195f16b
+      index: site_nostemmer_nostopword
+      name: Hacking BMW K-BUS with Raspberry PI, , by Mario Madzar
+      paragraph_title: ''
+    pr: 0.4762222739139155
+  - !Prediction
+    answer: I-bus (Information Bus)
+    f1: 1.0
+    metadata:
+      article_title: Hacking BMW I-BUS With Raspberry PI
+      author: Mario Madzar
+      date: '2016-12-01T00:00:00'
+      document_id: 79aab3ac7132ef00fe6b700b97edd3b3
+      index: site_nostemmer_nostopword
+      name: Hacking BMW I-BUS With Raspberry PI, Introduction, by Mario Madzar
+      paragraph_title: Introduction
+    pr: 0.3254348976669519
+  question: What controls navigation on a BMW?
+  time: 0.688844
+- !Result
+  answer: with flexbox
+  context: "Rather then using \u201Cwe cover all possible scenarios\u201D solutions\
+    \ that bring a whole new set of rules and specifics to your workflow, you can\
+    \ easily build your own grid, especially if you don't have a need for high complexity.\
+    \ In that case, you can create simple CSS grid with flexbox in just a few easy\
+    \ steps.  The major advantage of using flexbox over classic floated grid is that\
+    \ you have more options for display, but the best feature, in my opinion, is that\
+    \ the equal column height problem is solved by default. Since browser support\
+    \ is fair (there are a few issues with older versions of IE), we're good to go."
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: flexbox
+    f1: 0.6666666666666666
+    metadata: &id042
+      article_title: Building a simple CSS grid with flexbox
+      author: Ivan Basic
+      date: '2016-12-02T00:00:00'
+      document_id: a0a578a34f5af3fdd7bd69934bacad5b
+      index: site_nostemmer_nostopword
+      name: Building a simple CSS grid with flexbox, , by Ivan Basic
+      paragraph_title: ''
+    pr: 0.5088125524825031
+  - !Prediction
+    answer: 'Using offset: Using source ordering:'
+    f1: 0.0
+    metadata:
+      article_title: Building a simple CSS grid with flexbox
+      author: Ivan Basic
+      date: '2016-12-02T00:00:00'
+      document_id: c6309fdd1ce4dc4e27a0178c46422e25
+      index: site_nostemmer_nostopword
+      name: Building a simple CSS grid with flexbox, Using a grid in HTML, by Ivan
+        Basic
+      paragraph_title: Using a grid in HTML
+    pr: 0.3881082631890358
+  - !Prediction
+    answer: with flexbox
+    f1: 1.0
+    metadata: *id042
+    pr: 0.24348070429727287
+  question: How can you build a simple css grid?
+  time: 0.719538
+- !Result
+  answer: you have more options for display
+  context: "Rather then using \u201Cwe cover all possible scenarios\u201D solutions\
+    \ that bring a whole new set of rules and specifics to your workflow, you can\
+    \ easily build your own grid, especially if you don't have a need for high complexity.\
+    \ In that case, you can create simple CSS grid with flexbox in just a few easy\
+    \ steps.  The major advantage of using flexbox over classic floated grid is that\
+    \ you have more options for display, but the best feature, in my opinion, is that\
+    \ the equal column height problem is solved by default. Since browser support\
+    \ is fair (there are a few issues with older versions of IE), we're good to go."
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: you have more options for display,
+    f1: 1.0
+    metadata: &id043
+      article_title: Building a simple CSS grid with flexbox
+      author: Ivan Basic
+      date: '2016-12-02T00:00:00'
+      document_id: a0a578a34f5af3fdd7bd69934bacad5b
+      index: site_nostemmer_nostopword
+      name: Building a simple CSS grid with flexbox, , by Ivan Basic
+      paragraph_title: ''
+    pr: 0.5288982849778989
+  - !Prediction
+    answer: more options for display,
+    f1: 0.8
+    metadata: *id043
+    pr: 0.2642264118964288
+  - !Prediction
+    answer: "it\u2019s hard to set predefined CSS classes"
+    f1: 0.0
+    metadata:
+      article_title: Building a simple CSS grid with flexbox
+      author: Ivan Basic
+      date: '2016-12-02T00:00:00'
+      document_id: 9d6f8eccdc0cd2043b48e08db719a129
+      index: site_nostemmer_nostopword
+      name: Building a simple CSS grid with flexbox, Column source ordering, by Ivan
+        Basic
+      paragraph_title: Column source ordering
+    pr: 0.08003933900245341
+  question: What is an advantage to using flexbox over a floated grid?
+  time: 0.693916
+- !Result
+  answer: media query
+  context: 'In today''s web design, everything is about adapting websites to different
+    kinds of devices, and you should be familiar with media queries. In case you''re
+    not, a simple definition of media query would be - applying different stylesheets
+    depending on device window size. So, a print media query is changing the CSS properties
+    of HTML elements in a way we want them to look on paper or in a print mode.  To
+    get a better understanding of print CSS, we will use the dashboard as an example.
+    Here is how our dashboard looks like on a desktop-sized screen:'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: jobs the user needs to do and how fast they want the information.
+    f1: 0.0
+    metadata:
+      article_title: AI - our best friend, or is it?
+      author: Ivana Simic
+      date: '2016-11-28T00:00:00'
+      document_id: 002f69ebfecba5cb3e3111066c323d59
+      index: site_nostemmer_nostopword
+      name: "AI - our best friend, or is it?, AI as our right-hand assistant\u2026\
+        _3, by Ivana Simic"
+      paragraph_title: "AI as our right-hand assistant\u2026_3"
+    pr: 0.5656788039494529
+  - !Prediction
+    answer: a simple definition of media query
+    f1: 0.5
+    metadata: &id044
+      article_title: Create print-ready dashboard using CSS
+      author: Pavle Vlainic
+      date: '2016-12-08T00:00:00'
+      document_id: 7aae546f0da6e6da3d8a53d141553ee7
+      index: site_nostemmer_nostopword
+      name: Create print-ready dashboard using CSS, First things first - what is print
+        CSS?, by Pavle Vlainic
+      paragraph_title: First things first - what is print CSS?
+    pr: 0.4918716678706758
+  - !Prediction
+    answer: simple definition of media query
+    f1: 0.5714285714285714
+    metadata: *id044
+    pr: 0.39844834927599493
+  question: How do you apply different stylesheets to different window sizes?
+  time: 0.685784
+- !Result
+  answer: hide them, or show just the title
+  context: Here are a few useful tips and tricks when using the print media query.
+    As you can guess, elements such as video and audio can not be reproduced on paper.
+    The best thing you can do here is to hide them, or show just the title. When using
+    different kinds of slideshows, showing just one slide can do the trick. If you
+    click here on paper you will not be redirected to a new paper, so showing a full
+    URL is a way to go. Another useful feature is a possibility to switch between
+    portrait and landscape orientation.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: hide header and sidebar
+    f1: 0.18181818181818182
+    metadata: &id045
+      article_title: Create print-ready dashboard using CSS
+      author: Pavle Vlainic
+      date: '2016-12-08T00:00:00'
+      document_id: 87db1fbc1520ac77ac8db54c82be175f
+      index: site_nostemmer_nostopword
+      name: Create print-ready dashboard using CSS, Print to the rescue!, by Pavle
+        Vlainic
+      paragraph_title: Print to the rescue!
+    pr: 0.5744755320927624
+  - !Prediction
+    answer: changing the CSS properties of HTML elements
+    f1: 0.14285714285714285
+    metadata:
+      article_title: Create print-ready dashboard using CSS
+      author: Pavle Vlainic
+      date: '2016-12-08T00:00:00'
+      document_id: 7aae546f0da6e6da3d8a53d141553ee7
+      index: site_nostemmer_nostopword
+      name: Create print-ready dashboard using CSS, First things first - what is print
+        CSS?, by Pavle Vlainic
+      paragraph_title: First things first - what is print CSS?
+    pr: 0.41262105299538554
+  - !Prediction
+    answer: to hide header and sidebar
+    f1: 0.16666666666666666
+    metadata: *id045
+    pr: 0.15118914918796733
+  question: When using a print query, what should you do with audio and video?
+  time: 0.728642
+- !Result
+  answer: a general reusable solution to a commonly occurring problem
+  context: "A design pattern is a general reusable solution to a commonly occurring\
+    \ problem in software development. It cannot be transformed directly into the\
+    \ source code as a finished design since it is more of a template that can be\
+    \ used in many different situations. Unit of work is one of them - and in this\
+    \ post, we\u2019ll explain how to use it and how to implement it in ASP.NET using\
+    \ Entity Framework."
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Dependency Injection
+    f1: 0.0
+    metadata:
+      article_title: Please move, here comes Angular 2
+      author: Dino Repac
+      date: '2016-08-03T00:00:00'
+      document_id: d8b2ba88a1d6859834c194e878902ee4
+      index: site_nostemmer_nostopword
+      name: Please move, here comes Angular 2, The services!_1, by Dino Repac
+      paragraph_title: The services!_1
+    pr: 0.896825407476264
+  - !Prediction
+    answer: expression and switch statement.
+    f1: 0.0
+    metadata:
+      article_title: New features in C# 7.0
+      author: Bojan Ugrica
+      date: '2017-05-05T00:00:00'
+      document_id: 416b2217238db4fd01e23d18473bbcb7
+      index: site_nostemmer_nostopword
+      name: New features in C# 7.0, Pattern matching, by Bojan Ugrica
+      paragraph_title: Pattern matching
+    pr: 0.7491686437853851
+  - !Prediction
+    answer: a general reusable solution to a commonly occurring problem in software
+      development.
+    f1: 0.8421052631578947
+    metadata:
+      article_title: Unit of Work - a Design Pattern
+      author: Ante Ljubic
+      date: '2017-01-13T00:00:00'
+      document_id: e0af44332f952efa8c256eeaaaef918b
+      index: site_nostemmer_nostopword
+      name: Unit of Work - a Design Pattern, , by Ante Ljubic
+      paragraph_title: ''
+    pr: 0.4500195132922684
+  question: What is a design pattern?
+  time: 0.729668
+- !Result
+  answer: Unit of Work is handling them all in the TransactionScope
+  context: "A design pattern is a general reusable solution to a commonly occurring\
+    \ problem in software development. It cannot be transformed directly into the\
+    \ source code as a finished design since it is more of a template that can be\
+    \ used in many different situations. Unit of work is one of them - and in this\
+    \ post, we\u2019ll explain how to use it and how to implement it in ASP.NET using\
+    \ Entity Framework."
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Entity Framework.
+    f1: 0.0
+    metadata:
+      article_title: Unit of Work - a Design Pattern
+      author: Ante Ljubic
+      date: '2017-01-13T00:00:00'
+      document_id: e0af44332f952efa8c256eeaaaef918b
+      index: site_nostemmer_nostopword
+      name: Unit of Work - a Design Pattern, , by Ante Ljubic
+      paragraph_title: ''
+    pr: 0.2628678649706444
+  - !Prediction
+    answer: Since the Unit of Work is handling them all in the TransactionScope,
+    f1: 0.9523809523809523
+    metadata: &id046
+      article_title: Unit of Work - a Design Pattern
+      author: Ante Ljubic
+      date: '2017-01-13T00:00:00'
+      document_id: 19d9be710fb31f7277203ad950d5ae82
+      index: site_nostemmer_nostopword
+      name: Unit of Work - a Design Pattern, How to use it, by Ante Ljubic
+      paragraph_title: How to use it
+    pr: 0.1889499251115634
+  - !Prediction
+    answer: TransactionScope,
+    f1: 0.18181818181818182
+    metadata: *id046
+    pr: 0.1282050951121807
+  question: How does unit of work prevent unfinished requests from changing data?
+  time: 0.690638
+- !Result
+  answer: a single manageable item
+  context: "Before we dive deeper into ARM features, it\u2019s important to understand\
+    \ the terminology.  A Resource is a single manageable item available through Azure,\
+    \ for example, a database, load balancer, virtual network, virtual machine, storage\
+    \ account, etc.  A Resource Group is a container that holds related resources.\
+    \  A Resource Manager (ARM) template is a JSON file that defines resources to\
+    \ be deployed to a Resource Group."
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Resource Manager
+    f1: 0.0
+    metadata:
+      article_title: Introduction to Azure Resource Manager
+      author: Slaven Vladisavljevic
+      date: '2017-01-27T00:00:00'
+      document_id: 05b85d8ea150e6d6bb814d6ef6774a35
+      index: site_nostemmer_nostopword
+      name: Introduction to Azure Resource Manager, Basic terminology, by Slaven Vladisavljevic
+      paragraph_title: Basic terminology
+    pr: 0.8324496732617561
+  - !Prediction
+    answer: Web App and SQL database.
+    f1: 0.0
+    metadata:
+      article_title: Introduction to Azure Resource Manager
+      author: Slaven Vladisavljevic
+      date: '2017-01-27T00:00:00'
+      document_id: ed04670d8b2513b83e6f2c0265f702a6
+      index: site_nostemmer_nostopword
+      name: Introduction to Azure Resource Manager, How does it work in practice?_9,
+        by Slaven Vladisavljevic
+      paragraph_title: How does it work in practice?_9
+    pr: 0.5091684135833603
+  - !Prediction
+    answer: click the button with the plus sign.
+    f1: 0.0
+    metadata:
+      article_title: Introduction to Azure Resource Manager
+      author: Slaven Vladisavljevic
+      date: '2017-01-27T00:00:00'
+      document_id: 4c22e36fe8590d2b04b42e7df0014e8e
+      index: site_nostemmer_nostopword
+      name: Introduction to Azure Resource Manager, How does it work in practice?_7,
+        by Slaven Vladisavljevic
+      paragraph_title: How does it work in practice?_7
+    pr: 0.24382195194648837
+  question: What is a resource in ARM?
+  time: 0.720732
+- !Result
+  answer: working with data sent by the browser
+  context: Model binding is a mechanism ASP.NET MVC uses to create parameter objects
+    defined in controller action methods. The parameters can be of any type, from
+    simple to complex ones. It simplifies working with data sent by the browser because
+    data is automatically assigned to the specified model. Without this mechanism,
+    developers would need to manually assign values to model properties, which would
+    result in writing almost the same code in every action method.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: common web vulnerabilities
+    f1: 0.0
+    metadata: &id047
+      article_title: The Geek Gathering
+      author: Denis Susac
+      date: '2014-05-19T00:00:00'
+      document_id: b974521ec590a71b9468b5492d08f272
+      index: site_nostemmer_nostopword
+      name: The Geek Gathering, _4, by Denis Susac
+      paragraph_title: _4
+    pr: 0.6246855759058647
+  - !Prediction
+    answer: web vulnerabilities
+    f1: 0.0
+    metadata: *id047
+    pr: 0.25838101773990374
+  - !Prediction
+    answer: C# Class Library project which will contain our model data and name it
+      Model.
+    f1: 0.09523809523809523
+    metadata:
+      article_title: ASP.NET WebAPI, APNS and Android working together
+      author: Mario Madzar
+      date: '2013-02-01T00:00:00'
+      document_id: d126ebfcf4043d2b313cd147d614d40e
+      index: site_nostemmer_nostopword
+      name: ASP.NET WebAPI, APNS and Android working together, MVC WebAPI service_1,
+        by Mario Madzar
+      paragraph_title: MVC WebAPI service_1
+    pr: 0.2054000079963263
+  question: What does model binding in ASP.NET MVC simplify?
+  time: 0.723805
+- !Result
+  answer: Google API Console
+  context: "This article will teach you how to use Google Maps JavaScript API, and\
+    \ will cover initialization, custom styling, drawing basic shapes, adding markers,\
+    \ info window, and using geocoding service.  Map setup First, we need the API\
+    \ key (we can get one from Google API Console): Create Google account if you don\u2019\
+    t have one.  Create a new project.  Enable Google Maps JavaScript API.  Under\
+    \ credentials, create new API key (you can restrict key only to your site)."
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: 'Google API Console):'
+    f1: 1.0
+    metadata:
+      article_title: Google Maps JavaScript API - Intro
+      author: David Gostinski
+      date: '2017-02-22T00:00:00'
+      document_id: 2aebd3c6c4749e52a4d6e1453f383c61
+      index: site_nostemmer_nostopword
+      name: Google Maps JavaScript API - Intro, Map setup, by David Gostinski
+      paragraph_title: Map setup
+    pr: 0.9586949672836766
+  - !Prediction
+    answer: Google Maps JavaScript API - Intro.
+    f1: 0.5
+    metadata:
+      article_title: Google Maps Marker Clustering
+      author: Krunoslav Peulic
+      date: '2017-12-29T00:00:00'
+      document_id: 1354f68f6e1369978c0a0f887f97d8c4
+      index: site_nostemmer_nostopword
+      name: Google Maps Marker Clustering, , by Krunoslav Peulic
+      paragraph_title: ''
+    pr: 0.5612045777998986
+  - !Prediction
+    answer: Google API Console.
+    f1: 1.0
+    metadata:
+      article_title: Google Maps JavaScript API - Intro
+      author: David Gostinski
+      date: '2017-02-22T00:00:00'
+      document_id: 8275080bf0e8f6fa54fb158526c4ea47
+      index: site_nostemmer_nostopword
+      name: Google Maps JavaScript API - Intro, Geolocation, by David Gostinski
+      paragraph_title: Geolocation
+    pr: 0.3842818775357344
+  question: Where can you get a google api key?
+  time: 0.659288
+- !Result
+  answer: the double-submit cookie defense pattern
+  context: AngularJS also provides protection from certain types of attacks if the
+    server is compatible and properly configured. Firstly, for those who do not know,
+    cookies are domain-specific data that persists when making requests. If cookies
+    are being used for authorization between the server and the client, AngularJS
+    provides protection from XSRF attacks by using the double-submit cookie defense
+    pattern. For example, we can set up our MVC or WebAPI server to send out a cookie
+    called XSRF-TOKEN. When AngularJS detects that cookie in the response header,
+    it creates a custom X-XSRF-TOKEN header with the value of the XSRF-TOKEN cookie.
+    The two values are then compared on the server, and if they match, the authorization
+    is valid. The attacker cannot trick the browser to send out the custom header
+    since it is something AngularJS sends when making legitimate requests from within
+    the app.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: double-submit cookie defense pattern.
+    f1: 0.9090909090909091
+    metadata:
+      article_title: Security in an AngularJS application
+      author: Dominik Crnojevac
+      date: '2017-03-13T00:00:00'
+      document_id: 757949694c71000ec4f2bda6f6132abd
+      index: site_nostemmer_nostopword
+      name: Security in an AngularJS application, AngularJS native security, by Dominik
+        Crnojevac
+      paragraph_title: AngularJS native security
+    pr: 0.4690110979536257
+  - !Prediction
+    answer: using good practices on both server and client sides.
+    f1: 0.0
+    metadata: &id048
+      article_title: Security in an AngularJS application
+      author: Dominik Crnojevac
+      date: '2017-03-13T00:00:00'
+      document_id: 077221d762afced34a828fa8a4f09eee
+      index: site_nostemmer_nostopword
+      name: Security in an AngularJS application, , by Dominik Crnojevac
+      paragraph_title: ''
+    pr: 0.29989375054875467
+  - !Prediction
+    answer: using good practices
+    f1: 0.0
+    metadata: *id048
+    pr: 0.2292214342757788
+  question: How does angular protect against XSRF?
+  time: 0.719992
+- !Result
+  answer: A token is not encrypted, but encoded
+  context: "There are a couple of ways of authorizing communication between client\
+    \ and server. For one, we can use cookies, but there are plenty of ways to exploit\
+    \ them if we\u2019re not careful. The most common way is through the use of tokens,\
+    \ which are encoded bits of data containing authorization data, information about\
+    \ the user, expiration time, and whatever else we choose to put in it. A token\
+    \ is not encrypted, but encoded, so we need to be careful not to put sensitive\
+    \ data (like passwords). We will be looking at an example that uses tokens generated\
+    \ on the server."
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: A token is not encrypted, but encoded,
+    f1: 1.0
+    metadata:
+      article_title: Security in an AngularJS application
+      author: Dominik Crnojevac
+      date: '2017-03-13T00:00:00'
+      document_id: 45db40e18756a8ef21b7ef3329d2dfc0
+      index: site_nostemmer_nostopword
+      name: Security in an AngularJS application, Token based authorization_1, by
+        Dominik Crnojevac
+      paragraph_title: Token based authorization_1
+    pr: 0.5395723779575476
+  - !Prediction
+    answer: help us format the notification content.
+    f1: 0.0
+    metadata:
+      article_title: ASP.NET WebAPI, APNS and Android working together
+      author: Mario Madzar
+      date: '2013-02-01T00:00:00'
+      document_id: 179c46aaec8c1cc6b940bd3a0ee5c8ff
+      index: site_nostemmer_nostopword
+      name: ASP.NET WebAPI, APNS and Android working together, MVC WebAPI service_2,
+        by Mario Madzar
+      paragraph_title: MVC WebAPI service_2
+    pr: 0.17726720529428697
+  - !Prediction
+    answer: my account number had to be passed around in plain sight
+    f1: 0.0
+    metadata:
+      article_title: When simple errors lead to huge consequences
+      author: Ivan Kalafatic
+      date: '2018-05-02T00:00:00'
+      document_id: 80330b3acdffebdc31e015e11a95a7d3
+      index: site_nostemmer_nostopword
+      name: When simple errors lead to huge consequences, Security smell_5, by Ivan
+        Kalafatic
+      paragraph_title: Security smell_5
+    pr: 0.12594778695325992
+  question: Why shouldn't you put sensitive data in a web token?
+  time: 0.715009
+- !Result
+  answer: Singleton, Scoped, or Transient
+  context: 'Once the services are defined, it is necessary to register the dependencies
+    in ConfigureServices method inside the Startup.cs class, so ASP.NET can know about
+    them. When declaring a service, in ASP.NET Core context, there are three kinds
+    of object lifetimes to choose from: Singleton, Scoped, or Transient. It is important
+    to understand how each of them works, so we know which one to use, in what situations.'
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Singleton, Scoped, or Transient.
+    f1: 1.0
+    metadata:
+      article_title: Dependency Injection in ASP.NET Core
+      author: Helena Stjepanovic
+      date: '2017-03-15T00:00:00'
+      document_id: 33229fb42e4ef4514a53634d8afa9574
+      index: site_nostemmer_nostopword
+      name: Dependency Injection in ASP.NET Core, How it works, by Helena Stjepanovic
+      paragraph_title: How it works
+    pr: 0.9508831414318664
+  - !Prediction
+    answer: when the data is required only for populating view elements.
+    f1: 0.0
+    metadata:
+      article_title: Dependency Injection in ASP.NET Core
+      author: Helena Stjepanovic
+      date: '2017-03-15T00:00:00'
+      document_id: 9ca39f15ac3414ee72fc3c4d271f2ec2
+      index: site_nostemmer_nostopword
+      name: Dependency Injection in ASP.NET Core, Injecting into Views, by Helena
+        Stjepanovic
+      paragraph_title: Injecting into Views
+    pr: 0.33050612103359356
+  - !Prediction
+    answer: POCO classes.
+    f1: 0.0
+    metadata:
+      article_title: Asp.Net Identity Database First Approach
+      author: Luka Erkapic
+      date: '2017-11-17T00:00:00'
+      document_id: d80265387b4b5fcbd69a4d3d2236daa7
+      index: site_nostemmer_nostopword
+      name: Asp.Net Identity Database First Approach, , by Luka Erkapic
+      paragraph_title: ''
+    pr: 0.06783640213870568
+  question: What are the different lifetimes of services in the context of ASP.NET
+    Core?
+  time: 0.689473
+- !Result
+  answer: A logger
+  context: Providing the implementation as a second type parameter will lazy-load
+    the service the first time it is requested. Another option, but not a better one,
+    would be to create a specific instance of the concrete implementation ourselves,
+    inside the ConfigureServices method.  Singletons are useful for resources which
+    are shared by the entire application and need to be managed. A logger is used
+    as a classic example of a singleton. If we only use one log stream, e.g., console,
+    all we need is one logger instance for our outputs.
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: Scoped
+    f1: 0.0
+    metadata:
+      article_title: Dependency Injection in ASP.NET Core
+      author: Helena Stjepanovic
+      date: '2017-03-15T00:00:00'
+      document_id: 73526569a19995defe2b8d036bd8b445
+      index: site_nostemmer_nostopword
+      name: Dependency Injection in ASP.NET Core, Scoped, by Helena Stjepanovic
+      paragraph_title: Scoped
+    pr: 0.9882852134084885
+  - !Prediction
+    answer: anything bound as InSingletonScope
+    f1: 0.0
+    metadata:
+      article_title: Ninject ambient scope and deterministic dispose
+      author: Jasmin Muharemovic
+      date: '2016-04-21T00:00:00'
+      document_id: 999265de50d87407c66749e5c6c637c4
+      index: site_nostemmer_nostopword
+      name: Ninject ambient scope and deterministic dispose, ActivationBlock, by Jasmin
+        Muharemovic
+      paragraph_title: ActivationBlock
+    pr: 0.7469921371759725
+  - !Prediction
+    answer: A logger
+    f1: 1.0
+    metadata:
+      article_title: Dependency Injection in ASP.NET Core
+      author: Helena Stjepanovic
+      date: '2017-03-15T00:00:00'
+      document_id: ab8b002b8b0e31c5433be980376f9956
+      index: site_nostemmer_nostopword
+      name: Dependency Injection in ASP.NET Core, Singleton, by Helena Stjepanovic
+      paragraph_title: Singleton
+    pr: 0.6653985063365937
+  question: What is a good example of a singleton?
+  time: 0.749702
+- !Result
+  answer: visual design
+  context: "What we also need to know is how much information is needed - we don\u2019\
+    t want to provide too much nor too little of it. Besides just written content,\
+    \ we should think about the visual design of our bot making it more appealing\
+    \ to users. And, the one we find really important, always close the loop. The\
+    \ user gives you feedback \u2013 thank them, display a message, the user tells\
+    \ you what to do, again \u2013 display a message."
+  experiment_name: top_k_retriever-4-site_nostemmer_nostopword
+  predictions:
+  - !Prediction
+    answer: C# tips
+    f1: 0.0
+    metadata:
+      article_title: Five basic C# tips for beginners
+      author: Jure Perak
+      date: '2018-02-23T00:00:00'
+      document_id: f893a171545f88bd164f459248477bfe
+      index: site_nostemmer_nostopword
+      name: Five basic C# tips for beginners, , by Jure Perak
+      paragraph_title: ''
+    pr: 0.8944158657433832
+  - !Prediction
+    answer: visual design
+    f1: 1.0
+    metadata: &id049
+      article_title: AI - our best friend, or is it?
+      author: Ivana Simic
+      date: '2016-11-28T00:00:00'
+      document_id: bbb4db7156df1352acfe74b407368ea7
+      index: site_nostemmer_nostopword
+      name: "AI - our best friend, or is it?, AI as our right-hand assistant\u2026\
+        _4, by Ivana Simic"
+      paragraph_title: "AI as our right-hand assistant\u2026_4"
+    pr: 0.6539985113131763
+  - !Prediction
+    answer: the visual design
+    f1: 0.8
+    metadata: *id049
+    pr: 0.34281761269916444
+  question: Other than written content, what else should you think about to make your
+    bot more appealing to users?
+  time: 0.719163
+

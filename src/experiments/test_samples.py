@@ -2,7 +2,8 @@
 
 # Check the syntax of the samples file
 
-from experiments import Sample, samples_filename
+from experiments_base import yml_samples
+from experiments import Sample
 
 import yaml
 from pprint import pprint
@@ -41,13 +42,13 @@ if __name__ == '__main__':
     with open('samples.yml') as file:
         y = yaml.full_load(file)
     # pprint(y)
-    yml_samples = []
+    ymls = []
     for i,sample in enumerate(y):
         if not check_sample(sample):
             print(f'BAD SAMPLE: {i:3}')
         else:
-            yml_samples.append(get_sample(sample))
+            ymls.append(get_sample(sample))
     qs = len(y)
     print(f'articles: {count_files()}, questions: {qs}')
-    with open(samples_filename,'w') as file:
-        yaml.dump(yml_samples,file)
+    with open(yml_samples,'w') as file:
+        yaml.dump(ymls,file)

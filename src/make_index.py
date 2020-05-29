@@ -14,7 +14,7 @@ from elasticsearch import Elasticsearch # type: ignore
 from pprint import pprint, pformat
 from glob import glob
 from logging import DEBUG, WARN
-from typing import Dict, Iterable
+from typing import Dict, Iterable, List
 from itertools import chain, product
 
 log = get_log(__file__, stderr=True, mode='w')
@@ -142,7 +142,7 @@ def make_default_index(stemming=False,stopwords=True) -> ES_CONFIG:
     return config
 
 def make_all_indices() -> None:
-    for config in get_all_configs()
+    for config in get_all_configs():
         try:
             make_index(config)
             parse_blogs('../site',config)
@@ -150,5 +150,5 @@ def make_all_indices() -> None:
             pass
 
 if __name__ == '__main__':
-    #make_default_index()
+    # make_default_index()
     make_all_indices()

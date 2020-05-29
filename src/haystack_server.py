@@ -1,12 +1,9 @@
 # haystack_server.py
 
 from util import get_log, bannerfy, td2sec
-from haystack_finder import get_finder, Finder
+from haystack_finder import get_finder, Finder, SingleRetriever
 from es_config import ES_CONFIG, JsonObject
 from make_index import BlogIndexConfig
-
-from haystack.retriever.base import BaseRetriever # type: ignore
-from haystack.database.base import Document # type: ignore
 
 from aiohttp import web
 from aiohttp.web import Request, Response, json_response
@@ -23,17 +20,6 @@ server_log = get_log(__file__, stderr=True)
 qa_log = get_log('qa_server')
 
 time_splits: Dict[UUID, datetime] = {}
-
-class SingleRetriever(BaseRetriever):
-    # the only document
-    document: Document
-
-    def __init__(self, context: str):
-        super().__init__()
-        self.document = Document(id="the only document",text=context)
-
-    def retrieve(self, *args,**kwargs):
-        return [self.document]
 
 def log_question(question: str) -> UUID:
     qid = uuid4()

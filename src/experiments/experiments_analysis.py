@@ -14,6 +14,27 @@ import sys
 
 Key = Callable[[Result],Union[float,int]]
 
+def time_key(result: Result) -> float:
+    return result.time
+
+def f1_key(result: Result) -> float:
+    return result.predictions[0].f1
+
+def pr_key(result: Result) -> float:
+    return result.predictions[0].pr
+
+def char_len_key(result: Result) -> float:
+    return len(result.context)
+
+def word_len_key(result: Result) -> float:
+    return len(result.context.split())
+
+def get_results_dir() -> str:
+    if len(sys.argv) < 2:
+        print('please enter the results directory',file=sys.stderr)
+        exit(-1)
+    return sys.argv[1]
+
 class DescriptiveStats(yaml.YAMLObject):
     _min: float
     _max: float
@@ -48,16 +69,6 @@ class DescriptiveStats(yaml.YAMLObject):
 
 
 def analyze_results(results: List[Result]) -> List[DescriptiveStats]:
-    def time_key(result: Result) -> float:
-        return result.time
-    def f1_key(result: Result) -> float:
-        return result.predictions[0].f1
-    def pr_key(result: Result) -> float:
-        return result.predictions[0].pr
-    def char_len_key(result: Result) -> float:
-        return len(result.context)
-    def word_len_key(result: Result) -> float:
-        return len(result.context.split())
 
     #for result in results: 
         #print(result)
@@ -91,11 +102,8 @@ def analyze_intial():
     for stat in stats:
         print(stat)
 
-if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print('please enter the results directory',file=sys.stderr)
-        exit(-1)
-    directory = sys.argv[1]
+def mean_analysis():
+    directory = get_results_dir()
     analyze_all(directory)
     stats_list = sorted(stats_list, key=lambda t: t[0])
     for t in stats_list:
@@ -119,3 +127,22 @@ if __name__ == '__main__':
     print('*'*4)
     print('*'*4, 'Correlation between pr and f1:', np.corrcoef(f1s,prs)[0,1])
     print('*'*4)
+
+
+def f1_pr_corrcoef_individual():
+    directory = Path(get_results_dir())
+    f1s = []
+    prs = []
+    for filepath in directory.glob('*.yml'):
+        with filepath.open() as file:
+            results: List[Result] = yaml.full_load(file)
+        for result in results:
+            f1s.append(f1_key(result))
+            prs.append(pr_key(result))
+
+    print('*'*4)
+    print('*'*4, 'Correlation between pr and f1:', np.corrcoef(f1s,prs)[0,1])
+    print('*'*4)
+
+if __name__ == '__main__':
+    f1_pr_corrcoef_individual()

@@ -82,7 +82,7 @@ def parse_blogs(site_dir: str, config: ES_CONFIG) -> None:
         pa_remove_ptag,
         paragraphStatsCollector,
         pa_log,
-        ESMiddleware(config),
+        #ESMiddleware(config),
     ]
     blogParser = BlogParser(middlewares)
     #filenames = ['./site/2017/04/11/custom-intellisense-with-monaco-editor/index.html']

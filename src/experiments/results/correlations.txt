@@ -1,0 +1,52 @@
+****
+**** *.yml mean f1: 0.524
+**** *.yml mean pr: 0.565
+**** *.yml mean recall: 0.735
+**** *.yml mean relevance: 16.963
+****
+**** *.yml Correlation between pr and f1: 0.172
+**** *.yml Correlation between pr and recall: 0.024
+**** *.yml Correlation between f1 and recall: 0.738
+**** *.yml Correlation between f1 and relevance: 0.362
+**** *.yml Correlation between pr and relevance: 0.091
+**** *.yml Correlation between relevance and recall: 0.475
+****
+****
+**** *-1*.yml mean f1: 0.643
+**** *-1*.yml mean pr: 0.467
+**** *-1*.yml mean recall: 0.871
+**** *-1*.yml mean relevance: 18.694
+****
+**** *-1*.yml Correlation between pr and f1: 0.375
+**** *-1*.yml Correlation between pr and recall: 0.187
+**** *-1*.yml Correlation between f1 and recall: 0.563
+**** *-1*.yml Correlation between f1 and relevance: 0.152
+**** *-1*.yml Correlation between pr and relevance: 0.236
+**** *-1*.yml Correlation between relevance and recall: 0.325
+****
+****
+**** *-2*.yml mean f1: 0.524
+**** *-2*.yml mean pr: 0.571
+**** *-2*.yml mean recall: 0.714
+**** *-2*.yml mean relevance: 17.127
+****
+**** *-2*.yml Correlation between pr and f1: 0.211
+**** *-2*.yml Correlation between pr and recall: 0.128
+**** *-2*.yml Correlation between f1 and recall: 0.753
+**** *-2*.yml Correlation between f1 and relevance: 0.357
+**** *-2*.yml Correlation between pr and relevance: 0.116
+**** *-2*.yml Correlation between relevance and recall: 0.478
+****
+****
+**** *-4*.yml mean f1: 0.403
+**** *-4*.yml mean pr: 0.655
+**** *-4*.yml mean recall: 0.621
+**** *-4*.yml mean relevance: 15.067
+****
+**** *-4*.yml Correlation between pr and f1: 0.158
+**** *-4*.yml Correlation between pr and recall: 0.043
+**** *-4*.yml Correlation between f1 and recall: 0.814
+**** *-4*.yml Correlation between f1 and relevance: 0.473
+**** *-4*.yml Correlation between pr and relevance: 0.107
+**** *-4*.yml Correlation between relevance and recall: 0.515
+****

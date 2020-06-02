@@ -1,0 +1,5 @@
+# TODO: actually make the synonym file
+
+foo, bar
+
+moo => cow

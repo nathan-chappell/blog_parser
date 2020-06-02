@@ -9,17 +9,10 @@ from pprint import pprint
 from collections import OrderedDict
 from typing import Iterable, List, Tuple, Optional, Dict
 from itertools import product
-import os
 import sys
 import yaml
 
-def is_test():
-    return os.environ.get('TEST',False)
-
-if sys.version_info >= (3,8):
-    from typing import Literal
-else:
-    from typing_extensions import Literal
+from util import is_test
 
 log = logging.getLogger(__file__)
 formatter = logging.Formatter('%(name)s %(funcName)s %(levelname)s %(message)s')
@@ -36,16 +29,27 @@ if is_test():
 else:
     log.setLevel(WARN)
 
+#log.setLevel(DEBUG)
+
 #
 # for now, we assume we have a 'line-oriented' ability to parse
+ws = r'\s*'
+dast = r'\*\*'
+HeaderRe = r'^#+' + ws + '(?P<name>.*)' + ws
+SectionRe = r'^(?P<name>[A-Z].*)'
+QuestionRe = r'[^*]*'+dast+ws+'(?P<question>.*\?)'+ws+dast+ws
+QuestionNumberRe = r'^' + ws + r'(?P<number>\d+)\.' + QuestionRe
+AnswerRe = r'^(?:\W*[a-z]\)\W*|\s+)(?P<answer>\w.*)'
 
 QALineRes = OrderedDict([
-                ('HeaderName',re.compile(r'^#+\s*(?P<HeaderName>.*)')),
-                ('HeaderNameAlt',re.compile(r'^(?P<HeaderNameAlt>[A-Z].*)')),
-                ('QuestionNumber',re.compile(r'^(?P<QuestionNumber>\d+)\.')),
-                ('Question',re.compile(r'[^*]*\*\*(?P<Question>.*\?)\*\*')),
-                ('Answer',re.compile(r'^(?:\W+(?:[a-z]\))\W*|\s+(?=[^\*]))(?P<Answer>.*)')),
+                ('Header',re.compile(HeaderRe)),
+                ('Section',re.compile(SectionRe)),
+                ('QuestionNumber',re.compile(QuestionNumberRe)),
+                ('Question',re.compile(QuestionRe)),
+                ('Answer',re.compile(AnswerRe)),
             ])
+
+GroupDict = Dict[str,str]
 
 class LineRes:
     res: OrderedDict
@@ -53,14 +57,13 @@ class LineRes:
     def __init__(self, res: OrderedDict):
         self.res = res
 
-    def __call__(self, line: str) -> OrderedDict:
-        matches: OrderedDict = OrderedDict({})
+    def __call__(self, line: str) -> Optional[Tuple[str,GroupDict]]:
         for title, r in self.res.items():
             m = r.match(line)
-            if m: matches.update({title: m[title].strip()})
-        return matches
+            if m: return (title, m.groupdict())
+        return None
 
-class ParserBase:
+class LineParserBase:
     lineRes: LineRes
 
     def __init__(self, lineRes: LineRes):
@@ -73,15 +76,16 @@ class ParserBase:
         log.debug(f'parsing {len(lines)} lines')
         for i,line in enumerate(lines):
             res = lineRes(line)
-            log.debug(f'line {i:3} {res}')
+            if line.strip():
+                log.debug(f'line {i:3} {line}')
+                log.debug(f'line {i:3} {res}')
             if not res: continue
-            for k,v in res.items():
-                # here we'll depart from the html parser and call dispatch
-                # directly...
-                self.dispatch(k,v)
-            self.dispatch('Newline','')
+            elif isinstance(res,tuple):
+                title, groupdict = res
+                self.dispatch(title,groupdict)
+            self.dispatch('Newline',{})
 
-    def dispatch(self,k: str, v: str):
+    def dispatch(self, title: str, groupdict: GroupDict):
         ...
 
 class QAPair(yaml.YAMLObject):
@@ -89,14 +93,16 @@ class QAPair(yaml.YAMLObject):
 
     question: str
     answer: str
+    number: str
 
     def __init__(self, t: Tuple[str,str]):
         self.question = t[0]
         self.answer = t[1]
 
-class QAParser(ParserBase):
+class QAParser(LineParserBase):
     cur_qs: List[str]
     cur_as: List[str]
+    cur_no: str
     qas: List[QAPair]
     
     def __init__(self):
@@ -104,20 +110,35 @@ class QAParser(ParserBase):
         self.reset()
 
     def push_cur(self):
-        self.qas.extend(map(QAPair,product(self.cur_qs,self.cur_as)))
-        self.reset_cur()
+        try:
+            if self.cur_qs or self.cur_as: assert self.cur_qs and self.cur_as
+            self.qas.extend(map(QAPair, product(self.cur_qs,self.cur_as,[self.cur_no])))
+            self.reset_cur()
+        except AssertionError as e:
+            if not self.cur_qs:
+                log.warn(f'No current question to push: cur_no {self.cur_no}')
+            elif not self.cur_as:
+                log.warn(f'No current answer to push: cur_no {self.cur_no}')
+            else:
+                raise RuntimeError('not reachable')
+            if is_test(): 
+                raise e
 
-    def dispatch(self, k:str, v:str):
-        if k == 'QuestionNumber':
+
+    def dispatch(self, title:str, groupdict: GroupDict):
+        if title == 'QuestionNumber':
             self.push_cur()
-        elif k == 'Question':
-            self.cur_qs.append(v)
-        elif k == 'Answer':
-            self.cur_as.append(v)
+            self.cur_no = groupdict['number']
+            self.cur_qs.append(groupdict['question'])
+        elif title == 'Question':
+            self.cur_qs.append(groupdict['question'])
+        elif title == 'Answer':
+            self.cur_as.append(groupdict['answer'])
 
     def reset(self):
         self.reset_cur()
         self.qas = []
+        self.cur_no = ''
 
     def reset_cur(self):
         self.cur_qs = []
@@ -127,12 +148,16 @@ class QAParser(ParserBase):
         self.reset()
         with open(filename) as file:
             self.feed(file.read())
-        self.push_cur()
+        if not is_test():
+            self.push_cur()
         return self.qas
 
 if __name__ == '__main__':
     filename = 'chatbot_qa.md'
     parser = QAParser()
     qas = parser.parse_file(filename)
-    print(yaml.dump(qas))
+    if is_test():
+        print(yaml.dump(qas))
+    print(f'total qa pairs: {len(qas)}')
+
 

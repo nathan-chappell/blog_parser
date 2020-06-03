@@ -8,6 +8,7 @@ from typing import List, Set, Dict, Tuple, Any, Callable
 import re
 import math
 import sys
+from pprint import pformat
 from logging import getLogger, StreamHandler, Formatter, INFO
 if sys.version_info > (3,7):
     from typing import Protocol
@@ -63,8 +64,13 @@ class ParagraphInfo:
     """Keeps track of tf counts for paragraph to avoid many recomputations"""
     _tfs: Dict[str,int]
     _paragraph: Paragraph
+    _metadata: Dict[str,Any]
 
-    def __init__(self, paragraph: Paragraph, tokenizer: Tokenizer):
+    def __init__(self, 
+                 paragraph: Paragraph,
+                 tokenizer: Tokenizer,
+                 metadata: Dict[str,Any] = {}
+            ):
         self._paragraph = paragraph
         tfs: Dict[str,int] = {}
         words = tokenizer.tokenize(paragraph)
@@ -72,6 +78,7 @@ class ParagraphInfo:
             tfs.setdefault(word,0)
             tfs[word] += 1
         self._tfs = tfs
+        self._metadata = metadata
 
     def count(self,word: str) -> int:
         return self._tfs.get(word,0)
@@ -84,6 +91,35 @@ class ParagraphInfo:
     def paragraph(self) -> Paragraph:
         return self._paragraph
 
+    @property
+    def metadata(self) -> Dict[str,Any]:
+        return self._metadata
+
+    def __repr__(self) -> str:
+        strs = []
+        strs.append('ParagraphInfo(')
+        strs.append(self._paragraph)
+        strs.append(pformat(self._tfs))
+        strs.append(pformat(self._metadata))
+        return "\n".join(strs)
+
+ScoreFunction = Callable[['Processor',ParagraphInfo,ParagraphInfo],float]
+
+class ScoreFunctions:
+
+    @staticmethod
+    def sum_idf_score(processor: 'Processor', l: ParagraphInfo, r: ParagraphInfo) -> float:
+        common_words = l.bag_of_words.intersection(r.bag_of_words)
+        return sum([processor.idf(word) for word in common_words])
+
+    @staticmethod
+    def f1_weighted_score(processor: 'Processor', l: ParagraphInfo, r: ParagraphInfo) -> float:
+        score = ScoreFunctions.sum_idf_score(processor,l,r)
+        f1_ = f1(l.bag_of_words, r.bag_of_words)
+        if f1_ > .5: f1_ += .1
+        if f1_ > .9: f1_ += 1
+        return f1_*score
+
 class Processor:
     """Take a list of paragraphs, make a reverse index and vocab set"""
     _reverse_index: Dict[str, List[Index]]
@@ -91,13 +127,23 @@ class Processor:
     _idfs: Dict[str,float]
     _idfs_valid: bool
     _tokenizer: Tokenizer
+    # these instance function variables are a nightmare in general, and in
+    # particular with mypy.  See:
+    #
+    # https://github.com/python/mypy/issues/708
+    #
+    #_score_function: ScoreFunction
     
-    def __init__(self, tokenizer: Tokenizer = NaiveTokenizer()):
+    def __init__(self, 
+                 tokenizer: Tokenizer = NaiveTokenizer(),
+                 score_function: ScoreFunction = ScoreFunctions.f1_weighted_score
+                 ):
         self._tokenizer = tokenizer
         self._reverse_index = {}
         self._paragraph_info = {}
         self._idfs = {}
         self._idfs_valid = True
+        self._score_function = score_function # type: ignore
 
     @property
     def paragraphs(self) -> List[Paragraph]:
@@ -114,12 +160,12 @@ class Processor:
             self._calc_idfs()
         return self._idfs
 
-    def process_paragraph(self, paragraph: Paragraph):
+    def process_paragraph(self, paragraph: Paragraph, metadata: Dict[str,Any] = {}):
         """Adds paragraph to list, words to vocab/ reverse index"""
         index = self._get_index(paragraph)
         if index in self._paragraph_info:
             return
-        info = ParagraphInfo(paragraph, self._tokenizer)
+        info = ParagraphInfo(paragraph, self._tokenizer, metadata)
         self._paragraph_info[index] = info
         for word in info.bag_of_words:
             self._reverse_index.setdefault(word,[])
@@ -135,19 +181,17 @@ class Processor:
         df = len(self._reverse_index[word])
         return math.log((n+1.)/(df+.5))
 
-    def query(self, query: str) -> List[Tuple[Paragraph,Score]]:
-        result: List[Tuple[Paragraph,Score]] = []
+    def query(self, query_: str) -> List[Tuple[ParagraphInfo,Score]]:
+        result: List[Tuple[ParagraphInfo,Score]] = []
         candidate_indices: Set[Index] = set()
-        query_info = ParagraphInfo(query, self._tokenizer)
+        query_info = ParagraphInfo(query_, self._tokenizer)
         query_bag = query_info.bag_of_words
-        #scorer = Processor.sum_idf_score
-        scorer = Processor.f1_weighted_score
         for word in query_bag:
             candidate_indices.update(self._reverse_index.get(word,[]))
         for index in candidate_indices:
             paragraph_info = self._paragraph_info[index]
-            score = scorer(self, query_info, paragraph_info)
-            result.append((paragraph_info.paragraph, score))
+            score = self._score_function(self, query_info, paragraph_info)
+            result.append((paragraph_info, score))
         result = sorted(result,key=lambda t: t[1], reverse=True)
         return result
 
@@ -157,14 +201,6 @@ class Processor:
 
     def _get_index(self, paragraph: Paragraph) -> Index:
         return paragraph.__hash__()
-
-    def sum_idf_score(self, l: ParagraphInfo, r: ParagraphInfo) -> float:
-        common_words = l.bag_of_words.intersection(r.bag_of_words)
-        return sum([self.idf(word) for word in common_words])
-
-    def f1_weighted_score(self, l: ParagraphInfo, r: ParagraphInfo) -> float:
-        score = self.sum_idf_score(l,r)
-        return f1(l.bag_of_words, r.bag_of_words)*score
 
 def test_with_parser() -> Processor:
     from qa_parser import QAParser
@@ -215,7 +251,7 @@ def run_queries(processor: Processor):
         results = processor.query(q)
         for p,s in results[:10]:
             print('paragraph:')
-            print("\n".join('---- ' + l for l in smooth_split(p, 80)))
+            print("\n".join('---- ' + l for l in smooth_split(p.paragraph, 80)))
             print(f'score: {s:6.2f}')
 
 if __name__ == '__main__':

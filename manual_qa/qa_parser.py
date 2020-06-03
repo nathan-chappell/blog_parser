@@ -159,6 +159,9 @@ class LineParserBase:
     def dispatch(self, title: str, groupdict: GroupDict):
         ...
 
+#
+# TODO go from parsing these pairs to parsing QA sets...
+#
 class QAPair(yaml.YAMLObject):
     yaml_tag = u'!QAPair'
 
@@ -169,6 +172,9 @@ class QAPair(yaml.YAMLObject):
     def __init__(self, t: Tuple[str,str]):
         self.question = t[0]
         self.answer = t[1]
+
+    def __repr__(self) -> str:
+        return yaml.dump(self)
 
 class Greeting(yaml.YAMLObject):
     yaml_tag = u'!GreetingMessage'
@@ -258,6 +264,11 @@ class QAParser(LineParserBase):
         self.cur_qs = []
         self.cur_as = []
 
+    # 
+    # TODO need to return greetings as well...
+    # This will be easier when we switch to QASets as well, since then the
+    # result of the parse will be a richer data structure anyways
+    #
     def parse_file(self, filename: str) -> List[QAPair]:
         self.reset()
         with open(filename) as file:
@@ -274,5 +285,6 @@ if __name__ == '__main__':
     if is_test():
         print(yaml.dump(qa_pairs))
     print(f'total qa pairs: {len(qa_pairs)}')
+    print(yaml.dump(qa_pairs))
 
 

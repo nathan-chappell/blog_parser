@@ -7,7 +7,7 @@ import logging
 from logging import WARN, DEBUG
 from pprint import pprint
 from collections import OrderedDict
-from typing import Iterable, List, Tuple, Optional, Dict
+from typing import Iterable, List, Tuple, Optional, Dict, Set, Generator
 from itertools import product
 import sys
 import yaml
@@ -18,23 +18,91 @@ log = get_logger(__file__)
 
 #
 # for now, we assume we have a 'line-oriented' ability to parse
+nocase = r'(?i)'
 ws = r'\s*'
 dast = r'\*\*'
 HeaderRe = r'^#+' + ws + '(?P<name>.*)' + ws
 SectionRe = r'^(?P<name>[A-Z].*)'
-QuestionRe = r'[^*]*'+dast+ws+'(?P<question>.*\?)'+ws+dast+ws
+GreetingMessageRe = nocase+ws+dast+ws+'greeting'+ws+'message'+ws+dast+ws
+GreetingRe = ws+'(?P<greeting>[^\s\d#*].*)'
+#QuestionRe = r'[^*]*'+dast+ws+'(?P<question>.*\?)'+ws+dast+ws
+QuestionRe = r'[^*]*'+dast+ws+'(?P<question>.*\S)'+ws+dast+ws
 QuestionNumberRe = r'^' + ws + r'(?P<number>\d+)\.' + QuestionRe
-AnswerRe = r'^(?:\W*[a-z]\)\W*|\s+)(?P<answer>\w.*)'
+AnswerRe = r'^(?:\W*[a-z]\)\W*|\s+)(?P<answer>[\w\[].*)'
+EmptyRe = r'^(?P<line>\s*\**\s*)$'
 
 QALineRes = OrderedDict([
                 ('Header',re.compile(HeaderRe)),
                 ('Section',re.compile(SectionRe)),
+                ('GreetingMessage',re.compile(GreetingMessageRe)),
+                ('Greeting',re.compile(GreetingRe)),
                 ('QuestionNumber',re.compile(QuestionNumberRe)),
                 ('Question',re.compile(QuestionRe)),
                 ('Answer',re.compile(AnswerRe)),
+                ('Empty',re.compile(EmptyRe)),
             ])
 
 GroupDict = Dict[str,str]
+
+class StateError(Exception): pass
+class StateTransitionError(StateError): pass
+
+_State = str
+
+class State:
+    _valid_states: Set[_State]
+    _valid_transitions: Dict[_State,List[_State]]
+    _state: _State
+
+    def __init__(
+            self,
+            initial_state: _State,
+            valid_states: Set[_State],
+            valid_transitions: Dict[_State,List[_State]],
+            ):
+        if initial_state not in valid_states:
+            raise StateError('initial state must be valid')
+        all_states = set([initial_state])
+        all_states.update(valid_transitions.keys())
+        for rhs in valid_transitions.values():
+            all_states.update(rhs)
+        if not all_states.issubset(valid_states):
+            invalid_states = all_states - valid_states
+            raise StateError('invalid states: ' + ', '.join(invalid_states))
+        self._state = initial_state
+        self._valid_states = valid_states
+        self._valid_transitions = valid_transitions
+
+    def is_valid_state(self, state: _State) -> bool:
+        return state in self._valid_states
+        
+    def is_valid_transition(self, l: _State, r: _State) -> bool:
+        return all([
+                self.is_valid_state(l),
+                self.is_valid_state(r),
+                r in self._valid_transitions.get(l,[])
+                ])
+
+    def transition(self, next_state: _State):
+        if not self.is_valid_state(next_state):
+            raise StateError(f'next_state is invalid: {next_state}')
+        if not self.is_valid_transition(self._state, next_state):
+            raise StateTransitionError(
+                f'invalid transition: {self._state} -> {next_state}'
+            )
+        log.debug(f'{self._state} -> {next_state}')
+        self._state = next_state
+
+    def __eq__(self, state: object) -> bool:
+        if isinstance(state, _State):
+            if not self.is_valid_state(state):
+                raise StateError(f'Comparison with invalid state: {state}')
+            return self._state == state
+        raise StateError('State comparison against not _State [str]')
+
+    def __repr__(self) -> str:
+        return f'State({self._state})'
+
 
 class LineRes:
     res: OrderedDict
@@ -42,11 +110,16 @@ class LineRes:
     def __init__(self, res: OrderedDict):
         self.res = res
 
-    def __call__(self, line: str) -> Optional[Tuple[str,GroupDict]]:
+    #def __call__(self, line: str) -> Optional[Tuple[str,GroupDict]]:
+    def __call__(self, line: str) -> Generator[Tuple[str,GroupDict],None,None]:
+        """Iterate through our resolvers until we exhaust them or
+           successfully cause a state transition
+        """
         for title, r in self.res.items():
             m = r.match(line)
-            if m: return (title, m.groupdict())
-        return None
+            if m is None:
+                continue
+            yield (title, m.groupdict())
 
 class LineParserBase:
     lineRes: LineRes
@@ -60,15 +133,28 @@ class LineParserBase:
         lineRes = self.lineRes
         log.debug(f'parsing {len(lines)} lines')
         for i,line in enumerate(lines):
-            res = lineRes(line)
-            if line.strip():
-                log.debug(f'line {i:3} {line}')
-                log.debug(f'line {i:3} {res}')
-            if not res: continue
-            elif isinstance(res,tuple):
-                title, groupdict = res
-                self.dispatch(title,groupdict)
-            self.dispatch('Newline',{})
+            i = i+1
+            res_gen = lineRes(line)
+            try: 
+                while True:
+                    res = res_gen.__next__()
+                    if line.strip():
+                        log.debug(f'line {i:3} {line}')
+                        log.debug(f'line {i:3} {res}')
+                    try:
+                        title, groupdict = res
+                        self.dispatch(title,groupdict)
+                        res_gen.throw(StopIteration)
+                    except StateTransitionError:
+                        continue
+                    except StopIteration:
+                        break
+            except StopIteration:
+                log.error(f'No valid resolution for line: {i}')
+                raise Exception('Parser Error')
+            except:
+                log.error(f'Parser error occured at line: {i}')
+                raise
 
     def dispatch(self, title: str, groupdict: GroupDict):
         ...
@@ -84,20 +170,52 @@ class QAPair(yaml.YAMLObject):
         self.question = t[0]
         self.answer = t[1]
 
+class Greeting(yaml.YAMLObject):
+    yaml_tag = u'!GreetingMessage'
+    messages: List[str]
+
+    def __init__(self, messages: List[str] = []):
+        self.messages = messages
+
+### Factor into files...
+
+valid_states = set([
+    'title',
+    'start_greetings',
+    'greetings',
+    'start_questions',
+    'questions',
+    'answers',
+])
+
+valid_transitions = {
+    'title': ['start_greetings','start_questions'],
+    'start_greetings': ['greetings','start_questions'],
+    'greetings': ['greetings','start_questions'],
+    'start_questions': ['questions','answers'],
+    'questions': ['questions','answers'],
+    'answers': ['answers','start_questions'],
+}
+
 class QAParser(LineParserBase):
     cur_qs: List[str]
     cur_as: List[str]
     cur_no: str
     qa_pairs: List[QAPair]
+    greeting: Greeting
+    state: State
     
     def __init__(self):
         super().__init__(LineRes(QALineRes))
+        self.state = State('title',valid_states,valid_transitions)
         self.reset()
 
     def push_cur(self):
         try:
             if self.cur_qs or self.cur_as: assert self.cur_qs and self.cur_as
-            self.qa_pairs.extend(map(QAPair, product(self.cur_qs,self.cur_as,[self.cur_no])))
+            all_pairs = map(QAPair, 
+                            product(self.cur_qs,self.cur_as,[self.cur_no]))
+            self.qa_pairs.extend(all_pairs)
             self.reset_cur()
         except AssertionError as e:
             if not self.cur_qs:
@@ -109,20 +227,31 @@ class QAParser(LineParserBase):
             if is_test(): 
                 raise e
 
-
     def dispatch(self, title:str, groupdict: GroupDict):
-        if title == 'QuestionNumber':
+        if title == 'GreetingMessage':
+            self.transition('start_greetings')
+        elif title == 'Greeting':
+            self.transition('greetings')
+            self.greeting.messages.append(groupdict['greeting'])
+        elif title == 'QuestionNumber':
+            self.transition('start_questions')
             self.push_cur()
             self.cur_no = groupdict['number']
             self.cur_qs.append(groupdict['question'])
         elif title == 'Question':
+            self.transition('questions')
             self.cur_qs.append(groupdict['question'])
         elif title == 'Answer':
+            self.transition('answers')
             self.cur_as.append(groupdict['answer'])
+
+    def transition(self, next_state: _State):
+        self.state.transition(next_state)
 
     def reset(self):
         self.reset_cur()
         self.qa_pairs = []
+        self.greeting = Greeting()
         self.cur_no = ''
 
     def reset_cur(self):
@@ -138,7 +267,8 @@ class QAParser(LineParserBase):
         return self.qa_pairs
 
 if __name__ == '__main__':
-    filename = 'chatbot_qa.md'
+    log.setLevel(DEBUG)
+    filename = 'chatbot_qa_1.md'
     parser = QAParser()
     qa_pairs = parser.parse_file(filename)
     if is_test():

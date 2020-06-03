@@ -14,8 +14,6 @@ if sys.version_info > (3,7):
 else:
     from typing_extensions import Protocol
 
-from nltk import wordnet # type: ignore
-
 from util import is_test, get_logger, smooth_split
 
 log = get_logger(__file__)

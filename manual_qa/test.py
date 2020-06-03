@@ -58,10 +58,45 @@ all_cases = {
             ('a) We\'ve been in business', {'answer':'We\'ve been in business'}),
             ('    We\'ve been in business', {'answer':'We\'ve been in business'}),
             ('****a) ****We cover every aspect',{'answer':'We cover every aspect'}),
+            ('   [Contact us](https://www.foo.com) yo momma', {'answer':'[Contact us](https://www.foo.com) yo momma'}),
             ],
         'bad': [
             ('  **We\'ve been in business?**', None),
             ('1. asdf', None),
+            ]
+    },
+    'GreetingMessage': {
+        'good': [
+            ('     **GREEting MEssage**   ', {}),
+            ('**greeting   message** ', {}),
+            ],
+        'bad': [
+            ('  **greeting message', None),
+            ('2.  **greeting message', None),
+            ('greeting message', None),
+            ]
+    },
+    'Greeting': {
+        'good': [
+            ('     scooby doobie doo!', {'greeting':'scooby doobie doo!'}),
+            ('foo bar *meow*', {'greeting':'foo bar *meow*'}),
+            ],
+        'bad': [
+            ('  **greeting message', None),
+            ('2.  **question ?**', None),
+            ('# header stuff', None),
+            ]
+    },
+    'Empty': {
+        'good': [
+            ('   ', {'line':'   '}),
+            ('', {'line':''}),
+            (' **** ', {'line':' **** '}),
+            ],
+        'bad': [
+            ('  **greeting message', None),
+            ('2.  **question ?**', None),
+            ('_', None),
             ]
     },
 }
@@ -91,6 +126,8 @@ class SectionReTest(metaclass=ReTestMeta): pass
 class QuestionReTest(metaclass=ReTestMeta): pass
 class QuestionNumberReTest(metaclass=ReTestMeta): pass
 class AnswerReTest(metaclass=ReTestMeta): pass
+class GreetingMessageReTest(metaclass=ReTestMeta): pass
+class GreetingReTest(metaclass=ReTestMeta): pass
 
 #
 #class HeaderReTest(TestCase):

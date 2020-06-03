@@ -12,24 +12,9 @@ from itertools import product
 import sys
 import yaml
 
-from util import is_test
+from util import is_test, get_logger
 
-log = logging.getLogger(__file__)
-formatter = logging.Formatter('%(name)s %(funcName)s %(levelname)s %(message)s')
-handlers = [
-        logging.FileHandler('parser.log'),
-        logging.StreamHandler()
-]
-for handler in handlers: 
-    handler.setFormatter(formatter)
-    log.addHandler(handler)
-
-if is_test():
-    log.setLevel(DEBUG)
-else:
-    log.setLevel(WARN)
-
-#log.setLevel(DEBUG)
+log = get_logger(__file__)
 
 #
 # for now, we assume we have a 'line-oriented' ability to parse
@@ -103,7 +88,7 @@ class QAParser(LineParserBase):
     cur_qs: List[str]
     cur_as: List[str]
     cur_no: str
-    qas: List[QAPair]
+    qa_pairs: List[QAPair]
     
     def __init__(self):
         super().__init__(LineRes(QALineRes))
@@ -112,7 +97,7 @@ class QAParser(LineParserBase):
     def push_cur(self):
         try:
             if self.cur_qs or self.cur_as: assert self.cur_qs and self.cur_as
-            self.qas.extend(map(QAPair, product(self.cur_qs,self.cur_as,[self.cur_no])))
+            self.qa_pairs.extend(map(QAPair, product(self.cur_qs,self.cur_as,[self.cur_no])))
             self.reset_cur()
         except AssertionError as e:
             if not self.cur_qs:
@@ -137,7 +122,7 @@ class QAParser(LineParserBase):
 
     def reset(self):
         self.reset_cur()
-        self.qas = []
+        self.qa_pairs = []
         self.cur_no = ''
 
     def reset_cur(self):
@@ -150,14 +135,14 @@ class QAParser(LineParserBase):
             self.feed(file.read())
         if not is_test():
             self.push_cur()
-        return self.qas
+        return self.qa_pairs
 
 if __name__ == '__main__':
     filename = 'chatbot_qa.md'
     parser = QAParser()
-    qas = parser.parse_file(filename)
+    qa_pairs = parser.parse_file(filename)
     if is_test():
-        print(yaml.dump(qas))
-    print(f'total qa pairs: {len(qas)}')
+        print(yaml.dump(qa_pairs))
+    print(f'total qa pairs: {len(qa_pairs)}')
 
 

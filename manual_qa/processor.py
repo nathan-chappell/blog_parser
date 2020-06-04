@@ -4,11 +4,12 @@
 # for a synonmy file for ElasticSearch.  The files will probably need to be
 # manually reviewed
 
-from typing import List, Set, Dict, Tuple, Any, Callable
+from typing import List, Set, Dict, Tuple, Any, Callable, DefaultDict
 import re
 import math
 import sys
 from pprint import pformat
+from collections import defaultdict
 from logging import getLogger, StreamHandler, Formatter, INFO
 if sys.version_info > (3,7):
     from typing import Protocol
@@ -50,9 +51,6 @@ class Tokenizer(Protocol):
 
 class NaiveTokenizer:
     """Splits on all non-word symbols, lowercases, removes empties"""
-    def __init__(self):
-        super().__init__()
-        
     def tokenize(self, words: str) -> List[str]:
         result: Any = None
         result = re.split('\W+', words)
@@ -60,9 +58,24 @@ class NaiveTokenizer:
         result = map(lambda s: s.lower(), result)
         return list(result)
 
+class BiGramTokenizer:
+    """Naive tokenization followed bi bigram joining"""
+    naive_tokenizer: NaiveTokenizer
+
+    def __init__(self):
+        self.naive_tokenizer = NaiveTokenizer()
+
+    def tokenize(self, words: str) -> List[str]:
+        naive_result: Any = self.naive_tokenizer.tokenize(words)
+        result: List[str] = []
+        result.extend(naive_result)
+        for i in range(len(naive_result)-1):
+            result.append(f'{naive_result[i]}-{naive_result[i+1]}')
+        return list(result)
+
 class ParagraphInfo:
     """Keeps track of tf counts for paragraph to avoid many recomputations"""
-    _tfs: Dict[str,int]
+    _tfs: DefaultDict[str,int]
     _paragraph: Paragraph
     _metadata: Dict[str,Any]
 
@@ -72,12 +85,10 @@ class ParagraphInfo:
                  metadata: Dict[str,Any] = {}
             ):
         self._paragraph = paragraph
-        tfs: Dict[str,int] = {}
+        self._tfs = defaultdict(int)
         words = tokenizer.tokenize(paragraph)
         for word in words:
-            tfs.setdefault(word,0)
-            tfs[word] += 1
-        self._tfs = tfs
+            self._tfs[word] += 1
         self._metadata = metadata
 
     def count(self,word: str) -> int:
@@ -101,7 +112,7 @@ class ParagraphInfo:
         strs.append(self._paragraph)
         strs.append(pformat(self._tfs))
         strs.append(pformat(self._metadata))
-        return "\n".join(strs)
+        return "\n".join(strs) + ')'
 
 ScoreFunction = Callable[['Processor',ParagraphInfo,ParagraphInfo],float]
 
@@ -122,7 +133,7 @@ class ScoreFunctions:
 
 class Processor:
     """Take a list of paragraphs, make a reverse index and vocab set"""
-    _reverse_index: Dict[str, List[Index]]
+    _reverse_index: DefaultDict[str, List[Index]]
     _paragraph_info: Dict[Index, ParagraphInfo]
     _idfs: Dict[str,float]
     _idfs_valid: bool
@@ -139,7 +150,7 @@ class Processor:
                  score_function: ScoreFunction = ScoreFunctions.f1_weighted_score
                  ):
         self._tokenizer = tokenizer
-        self._reverse_index = {}
+        self._reverse_index = defaultdict(list)
         self._paragraph_info = {}
         self._idfs = {}
         self._idfs_valid = True
@@ -168,7 +179,6 @@ class Processor:
         info = ParagraphInfo(paragraph, self._tokenizer, metadata)
         self._paragraph_info[index] = info
         for word in info.bag_of_words:
-            self._reverse_index.setdefault(word,[])
             self._reverse_index[word].append(index)
         self._idfs_valid = False
 
@@ -185,6 +195,7 @@ class Processor:
         result: List[Tuple[ParagraphInfo,Score]] = []
         candidate_indices: Set[Index] = set()
         query_info = ParagraphInfo(query_, self._tokenizer)
+        log.debug(f"ParagraphInfo(query):\n{query_info}")
         query_bag = query_info.bag_of_words
         for word in query_bag:
             candidate_indices.update(self._reverse_index.get(word,[]))
@@ -196,11 +207,27 @@ class Processor:
         return result
 
     def _calc_idfs(self):
-        self._idfs = [(word, self.idf(word)) for word in self.vocab]
+        self._idfs = dict([(word, self.idf(word)) for word in self.vocab])
         self._idfs_valid = True
 
     def _get_index(self, paragraph: Paragraph) -> Index:
         return paragraph.__hash__()
+
+    def print_idfs(self):
+        idfs = list(self.idfs.items())
+        #for paragraph in self.paragraphs:
+            #print('*'*40)
+            #print(paragraph)
+        #print('*'*40)
+        idfs = sorted(idfs, key=lambda t:t[1])
+        i = 0
+        cur = []
+        for word,score in idfs:
+            cur.append(f'---- {word:15} {score:5.3f}')
+            i+=1
+            if i % 4 == 0:
+                print(' | '.join(cur))
+                cur = []
 
 def test_with_parser() -> Processor:
     from qa_parser import QAParser
@@ -221,22 +248,6 @@ def test_with_md() -> Processor:
 
     return processor
 
-def print_idfs(processor: Processor):
-    idfs = list(processor.idfs.items())
-    for paragraph in processor.paragraphs:
-        print('*'*40)
-        print(paragraph)
-    print('*'*40)
-    idfs = sorted(idfs, key=lambda t:t[1])
-    i = 0
-    cur = []
-    for word,score in idfs:
-        cur.append(f'---- {word:15} {score:5.3f}')
-        i+=1
-        if i % 4 == 0:
-            print(' | '.join(cur))
-            cur = []
-
 def transform_query(query: str) -> str:
     query = query.lower()
     query = query.replace('you','Mono')
@@ -256,6 +267,7 @@ def run_queries(processor: Processor):
 
 if __name__ == '__main__':
     processor = test_with_parser()
-    #processor = test_with_md()
-    run_queries(processor)
+    # processor = test_with_md()
+    if not is_test():
+        run_queries(processor)
 

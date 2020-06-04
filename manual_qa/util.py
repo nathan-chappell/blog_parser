@@ -12,7 +12,7 @@ def is_test():
 def get_logger(filename):
     path_ = Path(filename)
     path = 'logs/' + path_.name.replace('.py','.log')
-    log = logging.getLogger(filename)
+    log = logging.getLogger(path)
     formatter = logging.Formatter('%(name)s %(funcName)s %(levelname)s %(message)s')
     handlers = [
             logging.FileHandler(path),
@@ -24,7 +24,7 @@ def get_logger(filename):
     if is_test():
         log.setLevel(DEBUG)
     else:
-        log.setLevel(WARN)
+        log.setLevel(DEBUG)
     return log
 
 def smooth_split_i(s: str, w: int) -> int:

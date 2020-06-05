@@ -7,10 +7,10 @@ from nltk import wordnet # type: ignore
 
 from util import get_logger
 from qa_parser import QAParser, QAPair
-from processor import Paragraph, Processor, NaiveTokenizer
-from processor import ScoreFunctions
+from index import Paragraph, Index, NaiveTokenizer
+from index import ScoreFunctions
 
-# Bot will have a processor for questions, and a processor for answers,
+# Bot will have a index for questions, and a index for answers,
 # getting different scores and combining them in interesting ways
 
 # 
@@ -23,33 +23,33 @@ def transform_query(query: str) -> str:
     return query
 
 class QAPairBot:
-    q_processor: Processor
-    a_processor: Processor
+    q_index: Index
+    a_index: Index
     qa_pairs: List[QAPair]
 
     def __init__(self, qa_pairs: List[QAPair]):
         self.qa_pairs = qa_pairs
-        self.q_processor = Processor(
+        self.q_index = Index(
                             tokenizer=NaiveTokenizer(),
                             score_function=ScoreFunctions.f1_weighted_score
                         )
-        self.a_processor = Processor(
+        self.a_index = Index(
                             tokenizer=NaiveTokenizer(),
                             score_function=ScoreFunctions.sum_idf_score
                         )
         for i,pair in enumerate(qa_pairs):
-            self.q_processor.process_paragraph(
+            self.q_index.process_paragraph(
                     pair.question,
                     metadata={'bot_index':i}
             )
-            self.a_processor.process_paragraph(
+            self.a_index.process_paragraph(
                     pair.answer,
                     metadata={'bot_index':i}
             )
 
     def query(self, query_: str) -> List[Tuple[QAPair,float]]:
         # Parameters for "algorithm"
-        top_k_processor = 5
+        top_k_index = 5
         top_k_bot = 3
         a_list_scale = .4
 
@@ -57,8 +57,8 @@ class QAPairBot:
         query_ = transform_query(query_)
         print(f'----- transformed: {query_}')
 
-        q_list = self.q_processor.query(query_)[:top_k_processor]
-        a_list = self.a_processor.query(query_)[:top_k_processor]
+        q_list = self.q_index.query(query_)[:top_k_index]
+        a_list = self.a_index.query(query_)[:top_k_index]
 
         # print('q_list: ' + '/'*40)
         # pprint(q_list)

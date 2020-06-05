@@ -4,7 +4,14 @@ import os
 import logging
 from logging import DEBUG, WARN
 from pathlib import Path
-from typing import List
+from typing import List, TypeVar, Callable
+from functools import reduce
+import sys
+
+if sys.version_info >= (3,8):
+    from typing import Protocol
+else:
+    from typing_extensions import Protocol
 
 def is_test(): 
     return os.environ.get('TEST',False)
@@ -16,8 +23,10 @@ def get_logger(filename):
     formatter = logging.Formatter('%(name)s %(funcName)s %(levelname)s %(message)s')
     handlers = [
             logging.FileHandler(path),
-            logging.StreamHandler()
+            #logging.StreamHandler()
     ]
+    if os.environ.get('LOG_TO_OUT',False):
+        handler.append(StreamHandler())
     for handler in handlers: 
         handler.setFormatter(formatter)
         log.addHandler(handler)
@@ -42,5 +51,20 @@ def smooth_split(s:str, w: int) -> List[str]:
         paragraph.append(s[i:i+j].strip())
         i += j
     return paragraph
+
+# 
+# Functional silliness
+#
+
+T = TypeVar('T')
+
+class Transform(Protocol[T]):
+    def __call__(self, t: T) -> T: ...
+
+def apply_transform(t: T, transform: Transform[T]) -> T:
+    return transform(t)
+
+def reduce_transforms(transforms: List[Transform[T]], t: T):
+    return reduce(apply_transform, transforms, t)
 
 

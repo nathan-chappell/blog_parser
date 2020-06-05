@@ -1,4 +1,4 @@
-# qa_index.py
+# qa_es_index.py
 
 from util import is_test
 from qa_parser import QAParser, QAPair

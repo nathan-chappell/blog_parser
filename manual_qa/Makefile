@@ -1,6 +1,6 @@
 # Makefile
 
-test: mypy_all test_parse2 test_processor
+test: mypy_all test_parse2 test_index
 	#TEST=True python qa_index.py
 	#TEST=True python3 qa_bot.py
 
@@ -17,6 +17,6 @@ test_parse2:
 	mypy parser_base.py qa_parser_2.py
 	TEST=True python3 qa_parser_2.py
 
-test_processor:
-	mypy processor.py
-	TEST=True python3 processor.py
+test_index:
+	mypy index.py
+	TEST=True python3 index.py

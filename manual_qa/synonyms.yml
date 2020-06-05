@@ -1,0 +1,20 @@
+# dict of synonyms
+#
+# format:
+# synonym: what to map it to
+
+machine-learning: machine_learning
+ml: machine_learning
+
+deep-learning: deep_learning
+
+ai: artificial_intelligence
+
+.net: dotnet
+
+js: javascript
+ecmascript: javascript
+
+software: program
+
+work_with: use

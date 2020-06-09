@@ -1,5 +1,8 @@
 # Makefile
 
+classfier: mypy_all
+	python3 classifier.py
+
 test: mypy_all test_parse2 test_index
 	#TEST=True python qa_index.py
 	#TEST=True python3 qa_bot.py

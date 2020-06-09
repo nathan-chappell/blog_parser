@@ -720,7 +720,7 @@ PROIZVODI
 
 
     
-    **Does** **PDF Editor Pharma Toolbox require Adobe Acrobat software?**
+    **Does PDF Editor Pharma Toolbox require Adobe Acrobat software?**
 
 
     Lucky you! PDF Editor Pharma Toolbox does not require Adobe Acrobat software.
